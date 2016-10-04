@@ -1,0 +1,16 @@
+# Ignore bundler config
+/.bundle
+/vendor/bundle
+
+# Ignore all logfiles and tempfiles
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore Byebug command history file
+.byebug_history
+
+# Igonore npm related files
+.DS_Store
+node_modules

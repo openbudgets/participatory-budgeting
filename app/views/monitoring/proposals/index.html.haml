@@ -1,0 +1,28 @@
+= render 'partials/page-title', title: 'Monitor chosen proposals'
+
+.vote-header
+  .container
+    .vote-progress
+      .row
+        .col-md-4.col-lg-3
+          %a#vote-finish.btn.btn-block.btn-primary.disabled{href: summarize_monitoring_proposals_path, role: 'button'} Summarize
+        .col-md-8.col-lg-9
+          .vote-progress-title
+            Execution progress
+          %progress.progress.vote-progress-bar{ value: 0, max: 100 }
+            .progress
+              %span.progress-bar{ style: 'width: 0%;' }
+          .vote-progress-amount{ data: { chosen: @proposals.size } }
+            0 / 0
+
+.container
+  .row
+    .col-md-4.col-lg-3
+      = render 'partials/proposals-filter'
+    .col-md-8.col-lg-9
+      .proposals-cont
+        - @proposals.each do |proposal|
+          .proposal{ id: 'proposal-'+proposal.id.to_s, data: { budget: proposal.budget } }
+            = render 'partials/monitoring/proposal-item', proposal: proposal
+        #proposals-filter-empty.alert.alert-danger
+          There are no proposals for those filters

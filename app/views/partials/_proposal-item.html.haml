@@ -1,0 +1,30 @@
+.card
+  .card-header.proposal-budget
+    %strong
+      = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
+    €
+  .card-block.row 
+    .col-lg-9
+      - unless controller.action_name == 'show'
+        %a.proposal-title{ href: proposal_path(proposal.id), title: proposal.title }
+          %h3
+            = proposal.title
+      - else
+        .proposal-title
+          %h3
+            = proposal.title
+      - unless proposal.description.blank?
+        - if controller.action_name == 'show'
+          %p.proposal-description
+            = proposal.description
+        - else
+          %p.proposal-description
+            = truncate(proposal.description, length: 230, separator: ' ')
+          %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: proposal_path(proposal.id), title: proposal.title }
+            More Info
+    .col-lg-12
+      = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
+      - if controller.action_name == 'show'
+        = render 'partials/social-sharer', title: proposal.title
+      - unless controller.action_name == 'summarize'
+        = render 'partials/proposal-vote-btn', proposal: proposal

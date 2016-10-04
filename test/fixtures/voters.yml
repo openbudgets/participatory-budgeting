@@ -1,0 +1,13 @@
+# Voters
+
+verified:
+  email: verified@openbudgets.eu
+  verified: true
+
+not_verified:
+  email: not_verified@openbudgets.eu
+  verified: false
+
+admin:
+  email: someone@civio.es
+  verified: true

@@ -1,0 +1,9 @@
+.row
+  .col-lg-9
+    %a.vote-btn.btn.btn-lg.btn-block{ href: edit_admin_proposal_path(proposal), title: 'Edit' }
+      %p.unvoted
+        Edit
+  .col-lg-3
+    %a.unvote-btn.btn.btn-lg.btn-block{ href: admin_proposal_path(proposal), title: 'Delete', data: { method: :delete, confirm: 'Are you sure?' } }
+      %p.unvoted
+        Delete

@@ -1,0 +1,21 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
+    %meta{"http-equiv": "x-ua-compatible", content: "ie=edge"}
+    %meta{:name => "description", :content => "Participatory budgeting"}
+    %meta{:name => "keywords", :content => "open budget participatory budgeting"}
+    %meta{:property => "og:title", :content => "OpenBudgets"}
+    %meta{:property => "og:description", :content => "Participatory budgeting"}
+    %title OpenBudgets
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body{ class: (scope.blank? ? 'voting' : scope) + ' ' + controller.controller_name + ' ' + controller.action_name }
+    .wrapper
+      = render 'partials/header'
+      %main.main-container{ role: 'main' }
+        = render 'partials/alerts'
+        = yield
+    = render 'partials/footer'

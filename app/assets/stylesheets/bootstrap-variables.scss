@@ -1,0 +1,66 @@
+// Colors
+
+$gray-dark:                 #373a3c;
+$gray:                      #55595c;
+$gray-light:                #818a91;
+$gray-lighter:              #eceeef;
+$gray-lightest:             #f2f2f4;
+
+$brand-primary:             #82BF5E;
+$brand-secondary:           mix( $gray-lightest, white, 50% );
+
+$brand-danger:              #BF605E;
+
+// Typography
+
+$font-family-sans-serif:    'Source Sans Pro', Arial, sans-serif;
+
+
+// Custom Footer Height
+
+$footer_height: 75px;
+
+
+// Forms
+
+$input-border-focus:        $brand-primary;
+
+
+// Cards
+
+$card-spacer-x:             1rem;
+$card-border-color:         mix( $gray-lighter, $gray-light, 70% );
+$card-cap-bg:               $gray-lightest;
+
+
+// Progress bars
+
+$progress-bg:               mix( $gray-lighter, $gray-light, 50% );
+$progress-bar-success-bg:   $brand-primary;
+
+
+// Alerts
+
+$alert-padding:               0.75rem 1rem;
+$alert-success-bg:            mix( $brand-primary, white, 25% );
+$alert-success-text:          darken( $brand-primary, 20% );
+$alert-success-border:        mix( $brand-primary, white, 35% );
+
+
+// Tags
+
+$tag-default-bg:            $gray-lightest;
+$tag-color:                 $gray;
+$tag-font-size:             0.813rem;
+$tag-font-weight:           400;
+$tag-padding-x:             .438rem;
+$tag-padding-y:             .375rem;
+
+
+// Popovers
+
+$popover-max-width:                   300px;
+$popover-border-width:                0;
+$popover-border-color:                transparent;
+$popover-title-bg:                    white;
+$popover-arrow-width:                 6px;

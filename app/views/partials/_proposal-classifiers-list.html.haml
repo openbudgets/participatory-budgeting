@@ -1,0 +1,11 @@
+- unless classifiers.empty?
+  .proposal-tags
+    - classifiers.each do |classifier|
+      %span.tag.tag-default
+        - if classifier.type.downcase == 'district'
+          = render 'partials/icons/location'
+        - elsif classifier.type.downcase == 'area'
+          = render 'partials/icons/folder'
+        - else
+          = render 'partials/icons/tag'
+        = classifier.name

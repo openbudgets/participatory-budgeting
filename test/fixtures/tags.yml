@@ -1,0 +1,20 @@
+# Tags
+
+DEFAULTS: &type
+  type: Tag
+
+garbage:
+  <<: *type
+  name: Garbage Disposal
+
+bicycles:
+  <<: *type
+  name: Bicycles
+
+parks:
+  <<: *type
+  name: Parks and Recreation
+
+libraries:
+  <<: *type
+  name: Libraries

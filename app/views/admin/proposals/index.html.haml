@@ -1,0 +1,11 @@
+= render 'partials/page-title', title: 'Proposals'
+
+.vote-header
+  .container
+    %a#vote-finish.btn.btn-block.btn-primary{href: new_admin_proposal_path, role: 'button'} New proposal
+
+.container
+  .proposals-cont
+    - @proposals.each do |proposal|
+      .proposal{ id: 'proposal-'+proposal.id.to_s, data: { budget: proposal.budget } }
+        = render 'partials/admin/proposal-item', proposal: proposal

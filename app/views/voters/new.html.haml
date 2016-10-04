@@ -1,0 +1,12 @@
+= render 'partials/page-title', title: 'Sign in / Register'
+
+.voters-new.container
+  .row
+    .col-lg-8.offset-lg-2
+      .card
+        .card-block
+          = form_for @voter, as: :voter, url: voters_path, method: :post, class: 'voters-new' do |f|
+            .form-group
+              = f.label 'Email address'
+              = f.text_field :email, class: 'form-control'
+            = f.submit 'Email me a link to sign in', class: 'btn btn-primary'

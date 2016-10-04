@@ -1,0 +1,42 @@
+= render 'partials/page-title', title: 'Welcome to our participatory budgeting process'
+
+.home.container
+  .row
+    .col-md-4
+      .card.process-state{ class: ('active' if @campaign.pending?) }
+        .card-block
+          %p.process-state-number
+            1.
+          %p.process-state-title
+            Process announcement
+          %p.process-state-description
+            = @campaign.description
+    .col-md-4
+      .card.process-state{ class: ('active' if @campaign.open?) }
+        .card-block
+          %p.process-state-number
+            2.
+          %p.process-state-title
+            Process voting
+          %p.process-state-description
+            You can choose as many proposals as you want, as long as all the available budget is not allocated.
+          - if @campaign.open?
+            %a.btn.btn-primary.btn-lg.btn-block{href: proposals_path}
+              Start voting
+    .col-md-4
+      .card.process-state{ class: ('active' if @campaign.closed?) }
+        .card-block
+          %p.process-state-number
+            3.
+          %p.process-state-title
+            Process result
+          %p.process-state-description
+            The participatory process is finished and the proposals are voted. You can now monitor the progress of the chosen proposals.
+          - if @campaign.closed?
+            %a.btn.btn-primary.btn-lg.btn-block{href: monitoring_proposals_path}
+              Start monitoring
+  / .jumbotron
+  /   %h2 
+  /     Welcome to our participatory budgeting process
+  /   %p
+  /     Participatory budgeting is a different way to manage public money, and to engage people in government. It is a democratic process in which community members directly decide how to spend part of a public budget. It enables taxpayers to work with government to make the budget decisions that affect their lives.

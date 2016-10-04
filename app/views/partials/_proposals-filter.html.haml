@@ -1,0 +1,45 @@
+.proposals-filter-menu.card
+  .card-header
+    Filter by
+    %span.arrow.collapsed
+  %form.card-block
+    .form-group
+      %p
+        = render 'partials/icons/euro'
+        %strong
+          Budget
+      %input#budget-range-slider{ data: { type: 'double', min: '0', max: @budget_max, from: '0', to: @budget_max, postfix: ' €', hide_min_max: 'true' } }
+    %hr
+    .form-group
+      %p
+        = render 'partials/icons/location'
+        %strong
+          District
+      %select.form-control{ id: 'classifier-district', name: 'district' }
+        %option{ value: @districts.map(&:id).join(',') }
+          All districts
+        - @districts.each do |district|
+          %option{ value: district.id }
+            = district.name
+    %hr
+    .form-group
+      %p
+        = render 'partials/icons/folder'
+        %strong
+          Area
+      - @areas.each do |area|
+        .form-check
+          %label.form-check-label
+            %input.form-check-input{ type: 'checkbox', id: 'classifier-'+area.id.to_s, value: area.id, checked: 'checked' }
+            = area.name
+    %hr
+    .form-group
+      %p
+        = render 'partials/icons/tag'
+        %strong
+          Tags
+      - @tags.each do |tag|
+        .form-check
+          %label.form-check-label
+            %input.form-check-input{ type: 'checkbox', id: 'classifier-'+tag.id.to_s, value: tag.id, checked: 'checked' }
+            = tag.name

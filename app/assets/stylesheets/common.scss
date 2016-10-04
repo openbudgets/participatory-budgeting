@@ -1,0 +1,292 @@
+// Html & Body (sticky footer styles)
+// based on negative bottom margins on wrappers 
+// (https://css-tricks.com/couple-takes-sticky-footer/#article-header-id-0)
+
+html,
+body{
+  height: 100%;
+  margin: 0;
+}
+
+body{
+  position: relative;
+}
+
+.wrapper {
+  min-height: 100%;
+  padding-bottom: $footer_height;
+  margin-bottom: -$footer_height;
+  background: $brand-secondary;
+}
+
+
+// Header
+
+header{
+  background: white;
+}
+
+.navbar {
+  padding: 1rem;
+  text-align: center;
+
+  .navbar-user{
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    right: 0;
+  }
+
+  .navbar-brand{
+    display: block;
+    float: none;
+    padding-top: 0;
+    margin: 2.25rem 0 0;
+
+    h1{
+      padding-top: 0;
+      margin: 0;
+      font-size: 2.25rem;
+      font-weight: 600;
+    }
+
+    &:hover{
+      color: darken( $brand-primary, 15% );
+    }
+  }
+
+  .separator{
+    color: $gray-lighter;
+    padding: 0 0.25rem;
+  }
+
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+
+    .navbar-user{
+      position: static;
+      margin-top: 0.75rem;
+    }
+    .navbar-brand{
+      display: inline;
+      float: left;
+      margin-top: 0;
+      margin-right: 1rem;
+
+      h1{
+        font-size: 2.5rem;
+      }
+    }
+  }
+}
+
+
+// Main
+
+.main-container{
+  padding-bottom: 1rem;
+}
+
+// Footer
+
+.footer{ 
+  height: $footer_height;
+  padding-top: 0.75rem;
+  color: $gray-lightest;
+  background-color: $gray;
+  font-size: 0.875rem;
+  font-weight: 300;
+  text-align: center;
+
+  .credits{
+    display: inline;
+  }
+
+  .nav{
+    padding-top: 0.5rem;
+  }
+
+  a{
+    color: $gray-lightest;
+
+    &:hover{
+      color: darken( $gray-lightest, 20% );
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    padding-top: 1.75rem;
+    text-align: left;
+
+    .nav{
+      padding-top: 0;
+    }
+  }
+}
+
+
+// SVG icons
+
+.icon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: $brand-primary;
+}
+
+
+// Alert
+
+.alerts-container{
+  background: white;
+}
+
+.alert{
+  margin-bottom: 1.75rem;
+
+  strong{
+    font-weight: 600;
+  }
+}
+
+
+// Page Title
+
+.page-title{
+  background: white;
+
+  h2{
+    color: $brand-primary;
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    padding: 0 0 1.75rem;
+    margin: 0;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 2.25em;
+    }
+  }
+}
+
+
+// Back Btn
+.back-btn{
+  margin-top: 1.75rem;
+  text-transform: uppercase;
+  font-size: 0.813rem;
+  background: white;
+
+  .icon{
+    margin-top: 0.125rem;
+    margin-right: 0.25rem;
+  }
+
+  &:hover .icon{
+    fill: white;
+  }
+}
+
+
+// Legal Pages
+
+.legal-page{
+  margin-top: 1rem;
+  
+  hr{
+    margin: 1.75rem 0;
+  }
+}
+
+
+// Voters New
+
+.voters-new{
+
+  .card{
+    margin-top: 1.75rem;
+  }
+}
+
+
+// Social Sharer
+
+.social-share{
+
+  ul{
+    padding: 0;
+    height: 30px;
+    margin-bottom: 1.25rem;
+  }
+
+  li{
+    float: left;
+    list-style: none;
+    margin-right: 0.5rem;
+
+    a{
+      display: block;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      text-indent: 9999px;
+
+      .icon{
+        display: block;
+        fill: white;
+        margin: 8px;
+      }
+
+      &.twitter{
+        background: #45B0E3;
+
+        &:hover{
+          outline: 1px solid #45B0E3;
+          background: white;
+
+          .icon{
+            fill: #45B0E3;
+          }
+        }
+      }
+      &.facebook{
+        background: #3B5998;
+
+        &:hover{
+          outline: 1px solid #3B5998;
+          background: white;
+
+          .icon{
+            fill: #3B5998;
+          }
+        }
+      }
+      &.gplus{
+        background: #DE4C34;
+
+        .icon{
+          margin: 6px;
+        }
+
+        &:hover{
+          outline: 1px solid #DE4C34;
+          background: white;
+
+          .icon{
+            fill: #DE4C34;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Ion Range Slider Override
+
+.irs-bar,
+.irs-from, .irs-to, .irs-single {
+  background: $brand-primary;
+}
+.irs-from:after, .irs-to:after, .irs-single:after {
+  border-top-color: $brand-primary;
+}

@@ -1,0 +1,28 @@
+%header{ role: 'banner' }
+  .container
+    .row
+      %nav.navbar
+        %a.navbar-brand{ href: '/' }
+          %h1
+            OpenBudgets
+            - if admin_zone?
+              %span{style: 'font-weight: 100;'} Admin
+        .navbar-user.pull-sm-right
+          - if current_voter
+            Welcome #{current_voter}
+            - if admin_role?
+              %span.separator
+                |
+              - if admin_zone?
+                %a{ href: root_path, title: 'Process' }
+                  Process
+              - else
+                %a{ href: admin_proposals_path, title: 'Admin' }
+                  Admin
+            %span.separator
+              |
+            %a{ href: signout_voters_path, title: 'Sign out' }
+              Sign out
+          - else  
+            %a{ href: new_voter_path(redirect: request.path), title: 'Sign in / Register' }
+              Sign in / Register

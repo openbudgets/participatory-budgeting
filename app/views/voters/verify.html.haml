@@ -1,0 +1,12 @@
+= render 'partials/page-title', title: 'Please provide your name'
+
+.voters-new.container
+  .row
+    .col-lg-8.offset-lg-2
+      .card
+        .card-block
+          = form_for @voter, as: :voter, url: voter_path(@voter), method: :patch, class: 'voters-new' do |f|
+            .form-group
+              = f.label :name
+              = f.text_field :name, class: 'form-control'
+            = f.submit 'Continue', class: 'btn btn-primary'

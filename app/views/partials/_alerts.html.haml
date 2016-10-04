@@ -1,0 +1,14 @@
+.alerts-container
+  .container
+    - unless success.nil?
+      .alert.alert-success
+        = success.html_safe
+    - unless error.nil?
+      .alert.alert-danger
+        = error.html_safe
+    - unless notice.nil?
+      .alert.alert-info
+        = notice.html_safe
+    - unless alert.nil?
+      .alert.alert-warning
+        = alert.html_safe

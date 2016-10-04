@@ -1,0 +1,79 @@
+// Home
+
+.home {
+
+  .jumbotron{
+    background: white;
+  }
+}
+
+.process-state{
+  border-color: $gray-lighter;
+  background: white;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+
+  .process-state-number,
+  .process-state-title{
+    display: inline;
+    color: $gray-light;
+  }
+
+  .process-state-number{
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .process-state-title{
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    padding: 1rem 0;
+    margin-bottom: 0;
+  }
+
+  .process-state-description{
+    @extend .text-muted;
+    margin: 1rem 0 0;
+  }
+
+  .btn{
+    margin-top: 1.25rem;
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.03rem;
+    text-transform: uppercase;
+  }
+
+  &.active{
+    background: white;
+    border-color: $brand-primary;
+
+    .process-state-number{
+      color: $brand-primary;
+    }
+    .process-state-title{
+      color: $gray;
+    }
+    .process-state-title{
+      font-weight: 600;
+    }
+    .process-state-description{
+      color: $gray !important;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .process-state-number,
+    .process-state-title{
+      display: block;
+    }
+    .process-state-number{
+      font-size: 3rem;
+    }
+    .process-state-description{
+      margin-top: 0;
+    }
+  }
+}

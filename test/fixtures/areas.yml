@@ -1,0 +1,16 @@
+# Areas
+
+DEFAULTS: &type
+  type: Area
+
+environment:
+  <<: *type
+  name: Environmental Protection
+
+culture:
+  <<: *type
+  name: Cultural Affairs
+
+sanitation:
+  <<: *type
+  name: Sanitation

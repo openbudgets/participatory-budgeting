@@ -1,0 +1,95 @@
+# Proposals
+
+trees:
+  title: Trees for Cantina Rd.
+  description: |
+    Cantina Rd. is lacking any type of vegetation, making it little attractive to
+    pedestrian traffic.
+    Planting some trees not only would improve the looks of the street, but also
+    have a real impact in the air quality.
+  budget: 10_000.00
+  classifiers: downtown, environment, parks
+  campaign: open
+
+park:
+  title: Playground for the Docks Quarter
+  description: |
+    The Docks district lacks of any infraestructure specifically tailored for
+    children, making it difficult to go out and play.
+    Building a playground in the district would save the children, and their parents,
+    an inconvenient trip to other areas of the city.
+  budget: 102_344.32
+  classifiers: riverland
+  campaign: open
+
+lane:
+  title: 'Bike Lane in Pinetree Area'
+  description: |
+    Pinetree Area is a beautiful place to go and ride your bike, but riding among
+    the pedestrians is dangerous for both, the bikers and the pedestrians.
+    Having a dedicated bike lane will improve security and make the visit more enjoyable.
+  budget: 4_510.50
+  classifiers: suburbs, environment, bicycles
+  campaign: open
+
+more_trees:
+  title: 'Trees for Rodeo Drive'
+  description: |
+    Rodeo Drive is lacking any type of vegetation, making it little attractive to
+    pedestrian traffic.
+    Planting some trees not only would improve the looks of the street, but also
+    have a real impact in the air quality.
+  budget: 15_250.25
+  classifiers: suburbs, environment, parks
+  campaign: open
+
+more_park:
+  title: 'Playground for the Bellefleur Quarter'
+  budget: 50_000.00
+  description: |
+    The Bellefleur quarter lacks of any infraestructure specifically tailored for
+    children, making it difficult to go out and play.
+    Building a playground in the district would save the children, and their parents,
+    an inconvenient trip to other areas of the city.
+  classifiers: suburbs
+  campaign: open
+
+more_lane:
+  title: 'Bike Lane in the Financial Center'
+  budget: 14_700.00
+  description: |
+    The Fiancial Center is a place where communting by bike would be great, but riding
+    among the cars is dangerous for both, the bikers and the drivers.
+    Having a dedicated bike lane will improve security and make the trip more enjoyable.
+  classifiers: downtown, environment, bicycles
+  campaign: open
+
+trees_again:
+  title: 'Trees for South Bridge'
+  budget: 8_500.00
+  description: |
+    South Bridge is lacking any type of vegetation, making it little attractive to
+    pedestrian traffic.
+    Planting some trees not only would improve the looks of the street, but also
+    have a real impact in the air quality.
+  classifiers: riverland, environment, parks
+  campaign: open
+
+park_again:
+  title: 'Playground for Downtown'
+  budget: 102_344.32
+  description: |
+    The Downtown district lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
+    Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
+  classifiers: downtown
+  campaign: open
+
+lane_again:
+  title: 'Bike Lane in North Bridge'
+  budget: 6_130.70
+  description: |
+    North Bridge is a convenient place to go around the Riverland district, but riding
+    your bike among the pedestrians is dangerous for both, the bikers and the pedestrians.
+    Having a dedicated bike lane will improve security and make the trip more enjoyable.
+  classifiers: riverland, environment, bicycles
+  campaign: open

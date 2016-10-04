@@ -1,0 +1,31 @@
+# Campaigns
+
+open:
+  title: Current Campaign
+  description: |
+    Once more, the biannual campaign is up for all the citizens to collaborate on the allocation
+    of the next semester's city budget.
+  budget: 252_343.45
+  start_date: <%= Date.today.beginning_of_month %>
+  end_date: <%= Date.today.end_of_month %>
+  active: true
+
+closed:
+  title: Past Campaign
+  description: |
+    Once more, the biannual campaign is up for all the citizens to collaborate on the allocation
+    of the next semester's city budget.
+  budget: 114_192.56
+  start_date: <%= (Date.today - 6.months).beginning_of_month %>
+  end_date: <%= (Date.today - 6.months).end_of_month %>
+  active: false
+
+pending:
+  title: Future Campaign
+  description: |
+    Once more, the biannual campaign is up for all the citizens to collaborate on the allocation
+    of the next semester's city budget.
+  budget: 363_343.45
+  start_date: <%= (Date.today + 6.months).beginning_of_month %>
+  end_date: <%= (Date.today + 6.months).end_of_month %>
+  active: false

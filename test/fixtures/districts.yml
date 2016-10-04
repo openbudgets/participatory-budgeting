@@ -1,0 +1,16 @@
+# Districts
+
+DEFAULTS: &type
+  type: District
+
+downtown:
+  <<: *type
+  name: Downtown
+
+suburbs:
+  <<: *type
+  name: Suburbs
+
+riverland:
+  <<: *type
+  name: Riverland

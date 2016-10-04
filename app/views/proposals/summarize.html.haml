@@ -1,0 +1,19 @@
+= render 'partials/page-title', title: 'Your voted proposals'
+
+.container
+  #proposals-treemap
+    .popover.popover-top{ role: "tooltip" }
+      .popover-arrow
+      .popover-title
+      .popover-budget
+        %strong
+        €
+      .popover-area
+        %span.tag.tag-default
+          = render 'partials/icons/folder'
+          %span.tag-title
+  .proposals-cont.row
+    - @proposals.each do |proposal|
+      .proposal.col-lg-12{ id: 'proposal-'+proposal.id.to_s, data: { id: proposal.id, budget: proposal.budget, area: proposal.classifiers.select{ |c| c.is_a?(Area) }.first() } }
+        = render 'partials/proposal-item', proposal: proposal
+    = render 'partials/social-sharer', title: 'My voted proposals'
