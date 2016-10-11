@@ -5,6 +5,14 @@ Rails.application.routes.draw do
     root 'proposals#index'
   end
 
+  namespace 'voting' do
+    resources :proposals, only: [:index, :show, :update] do
+      collection do
+        get 'summarize'
+      end
+    end
+  end
+
   namespace 'monitoring' do
     resources :proposals, only: [:index, :show] do
       collection do
@@ -19,11 +27,6 @@ Rails.application.routes.draw do
     collection do
       get 'verification', to: 'voters#verify', as: :verify
       get 'signout'
-    end
-  end
-  resources :proposals, only: [:index, :show, :update] do
-    collection do
-      get 'summarize'
     end
   end
 

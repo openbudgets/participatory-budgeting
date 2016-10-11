@@ -16,5 +16,4 @@ class UnvoteProposal
     @voter = voter
     @proposal = proposal
   end
-
 end

@@ -21,7 +21,7 @@
           %p.process-state-description
             You can choose as many proposals as you want, as long as all the available budget is not allocated.
           - if @campaign.open?
-            %a.btn.btn-primary.btn-lg.btn-block{href: proposals_path}
+            %a.btn.btn-primary.btn-lg.btn-block{href: voting_proposals_path}
               Start voting
     .col-md-4
       .card.process-state{ class: ('active' if @campaign.closed?) }

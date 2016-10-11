@@ -1,4 +1,4 @@
-class ProposalsController < ApplicationController
+class Voting::ProposalsController < ApplicationController
   def index
     if session[:verification_pending]
       flash.now[:notice] = "<strong>Verification pending</strong>, please see your inbox for further instructions"
