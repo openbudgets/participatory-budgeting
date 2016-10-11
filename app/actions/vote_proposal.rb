@@ -16,5 +16,4 @@ class VoteProposal
     @voter = voter
     @proposal = proposal
   end
-
 end

@@ -74,7 +74,7 @@ class App.ProposalsVoteManager
 
     # Send ajax petition to proposals/:id
     $.ajax({
-      url:  '/proposals/'+$btn.data('id')
+      url:  '/voting/proposals/'+$btn.data('id')
       type: 'PATCH'
     }).done (e) =>
       # Toogle btn state
@@ -105,7 +105,7 @@ class App.ProposalsVoteManager
 
     # Send ajax petition to proposals filter
     $.ajax(
-      url:  '/proposals'
+      url:  '/voting/proposals'
       data: 
         class: if all_classifiers then '' else classifiers  # if all classifiers are checked we don't send class params
         budget_min: @budget_from

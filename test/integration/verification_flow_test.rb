@@ -6,8 +6,8 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
   test "should remind the voter to finish the verification process" do
     visit_home!
     visit_proposals!
-    visit_registration!(redirect: proposals_path)
-    post_registration!(expected_redirect: proposals_path)
+    visit_registration!(redirect: voting_proposals_path)
+    post_registration!(expected_redirect: voting_proposals_path)
     assert_match /verification pending/i, flash[:notice]
 
     visit_home!
@@ -55,14 +55,14 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     assert_select 'a[href]', href: '/voters/new?redirect=%2F', text: 'Sign in / Register'
 
     visit_proposals!
-    visit_registration!(redirect: proposals_path)
-    post_registration!(expected_redirect: proposals_path)
+    visit_registration!(redirect: voting_proposals_path)
+    post_registration!(expected_redirect: voting_proposals_path)
     @voter.reload
     assert_match /verification pending/i, flash[:notice]
-    assert_equal proposals_path, session[:redirect]
+    assert_equal voting_proposals_path, session[:redirect]
 
     get verify_voters_path(token: @voter.verification_token)
-    assert_redirected_to proposals_path
+    assert_redirected_to voting_proposals_path
     follow_redirect!
     assert_response :success
     assert_match /successfully verified/i, flash[:success]
@@ -79,7 +79,7 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
   end
 
   def visit_proposals!
-    get proposals_path
+    get voting_proposals_path
     assert_response :success
     assert_select 'a[href]', href: '/voters/new?redirect=%2Fproposals', text: 'Sign in / Register'
   end

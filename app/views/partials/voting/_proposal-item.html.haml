@@ -6,7 +6,7 @@
   .card-block.row 
     .col-lg-9
       - unless controller.action_name == 'show'
-        %a.proposal-title{ href: proposal_path(proposal.id), title: proposal.title }
+        %a.proposal-title{ href: voting_proposal_path(proposal.id), title: proposal.title }
           %h3
             = proposal.title
       - else
@@ -20,11 +20,11 @@
         - else
           %p.proposal-description
             = truncate(proposal.description, length: 230, separator: ' ')
-          %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: proposal_path(proposal.id), title: proposal.title }
+          %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: voting_proposal_path(proposal.id), title: proposal.title }
             More Info
     .col-lg-12
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
       - if controller.action_name == 'show'
         = render 'partials/social-sharer', title: proposal.title
       - unless controller.action_name == 'summarize'
-        = render 'partials/proposal-vote-btn', proposal: proposal
+        = render 'partials/voting/proposal-vote-btn', proposal: proposal

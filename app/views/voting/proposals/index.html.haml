@@ -5,7 +5,7 @@
     .vote-progress
       .row
         .col-md-4.col-lg-3
-          %a#vote-finish.btn.btn-block.btn-primary.disabled{href: summarize_proposals_path, role: 'button'} Finish
+          %a#vote-finish.btn.btn-block.btn-primary.disabled{href: summarize_voting_proposals_path, role: 'button'} Finish
         .col-md-8.col-lg-9
           .vote-progress-title
             Total amount
@@ -23,6 +23,6 @@
       .proposals-cont
         - @proposals.each do |proposal|
           .proposal{ id: 'proposal-'+proposal.id.to_s, data: { budget: proposal.budget } }
-            = render 'partials/proposal-item', proposal: proposal
+            = render 'partials/voting/proposal-item', proposal: proposal
         #proposals-filter-empty.alert.alert-danger
           There are no proposals for those filters
