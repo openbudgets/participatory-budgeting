@@ -5,4 +5,9 @@ class Comment < ApplicationRecord
   has_many :responses, class_name: 'Comment'
 
   validates :text, presence: true
+
+  def root_parent
+    return self if parent.nil?
+    parent.root_parent
+  end
 end

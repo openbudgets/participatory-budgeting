@@ -84,4 +84,16 @@ class Proposal < ApplicationRecord
     return :discarded if discarded?
     :pending
   end
+
+  def threaded_comments
+    thread = Hash.new { |h, k| h[k] = [] }
+    comments.each do |comment|
+      if comment.parent.nil?
+        thread[comment.id].unshift(comment)
+      else
+        thread[comment.root_parent.id] << comment
+      end
+    end
+    thread.values.flatten
+  end
 end
