@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       collection do
         get 'summarize'
       end
+      resources :comments, only: [:create]
     end
 
     root 'proposals#index'
