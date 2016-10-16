@@ -3,6 +3,7 @@
 //= require bootstrap/util
 //= require bootstrap/modal
 //= require bootstrap/scrollspy
+//= require bootstrap/collapse
 //= require jquery_ujs
 //= require_tree ./dist
 //= require proposals-treemap
