@@ -7,20 +7,20 @@
     .form-actions
       = f.submit 'Comment', class: 'btn btn-primary'
 - proposal.threaded_comments.each do |comment|
-  .container{style: 'margin-top: 1.5em;'}
-    - is_response = !!comment.parent
-    .row{ style: 'margin-top: 1em;' }
-      .col-lg-12{ style: ('padding-left: 3em;' if is_response) }
+  - is_response = !!comment.parent
+  .container{style: "margin-top: 1.5em; #{'padding-left: 3em;' if is_response}" }
+    .row
+      .col-lg-12
         = render 'partials/monitoring/comment-author-and-date', comment: comment
     .row
-      .col-lg-12{ style: ('padding-left: 3em;' if is_response) }
+      .col-lg-12
         = comment.text
     .row
-      .col-lg-12{ style: ('padding-left: 3em;' if is_response) }
+      .col-lg-12
         %button.btn.btn-link{ style: 'outline: none; padding: 0;', type: 'button', data: { toggle: 'collapse', target: "#replyTo#{comment.id}" }, aria: { expanded: false, controls: "#replyTo#{comment.id}" } }
           Reply
     .row.collapse{ id: "replyTo#{comment.id}", style: 'margin-top: 1em;'}
-      .col-lg-12{ style: ('padding-left: 3em;' if is_response) }
+      .col-lg-12
         = form_for [:monitoring, proposal, Comment.new] do |f|
           .form-group
             = f.hidden_field :comment_id, value: comment.id
