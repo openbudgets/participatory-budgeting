@@ -2,6 +2,7 @@ class Proposal < ApplicationRecord
   has_and_belongs_to_many :voters
   has_and_belongs_to_many :classifiers
   belongs_to :campaign, optional: true
+  has_many :comments
 
   validates :title, presence: true
   validates :description, presence: true
