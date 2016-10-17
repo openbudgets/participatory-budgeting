@@ -6,9 +6,10 @@
       = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
     .form-actions
       = f.submit 'Comment', class: 'btn btn-primary'
-- proposal.threaded_comments.each do |comment|
-  - is_response = !!comment.parent
-  .container{style: "margin-top: 1.5em; #{'padding-left: 3em;' if is_response}" }
+- proposal.threaded_comments.each do |elem|
+  - comment = elem[:value]
+  - level = elem[:level]
+  .container{style: "margin-top: 1.5em; #{'padding-left: ' + (level * 3).to_s + 'em;' if level > 0}" }
     .row
       .col-lg-12
         = render 'partials/monitoring/comment-author-and-date', comment: comment

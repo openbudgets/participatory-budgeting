@@ -86,14 +86,12 @@ class Proposal < ApplicationRecord
   end
 
   def threaded_comments
-    thread = Hash.new { |h, k| h[k] = [] }
-    comments.each do |comment|
-      if comment.parent.nil?
-        thread[comment.id].unshift(comment)
-      else
-        thread[comment.root_parent.id] << comment
-      end
+    return [] if comments.empty?
+    threads = comments.group_by{ |c| c.parent&.id  }
+    threads.default = []
+    tree = lambda do |comment, level|
+      [ { value:comment, level: level }, threads[comment&.id].map{ |c| tree.call(c, level + 1) } ]
     end
-    thread.values.flatten
+    tree.call(nil, -1).flatten[1..-1]
   end
 end
