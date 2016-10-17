@@ -7,6 +7,6 @@
 //= require jquery_ujs
 //= require_tree ./dist
 //= require proposals-treemap
+//= require proposals-filter
 //= require proposals-vote-manager
-//= require proposals-monitoring-manager
 //= require main

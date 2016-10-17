@@ -1,4 +1,4 @@
-.container
+.proposal-comments
   %h4
     = comments_count_for proposal
   = form_for [:monitoring, proposal, Comment.new] do |f|
@@ -6,22 +6,21 @@
       = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
     .form-actions
       = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
-- proposal.threaded_comments.each do |elem|
-  - comment = elem[:value]
-  - level = elem[:level]
-  .container{style: "margin-top: 1.5em; #{'padding-left: ' + (level * 3).to_s + 'em;' if level > 0}" }
-    .row
-      .col-lg-12
-        = render 'partials/monitoring/comment-author-and-date', comment: comment
-    .row
-      .col-lg-12
+  - proposal.threaded_comments.each do |elem|
+    - comment = elem[:value]
+    - level = elem[:level]
+    .proposal-comment{ class: "comment-level-#{level.to_s}" }
+      .proposal-comment-header
+        %span.proposal-comment-author
+          = author_of comment
+        %span.proposal-comment-date
+          = time_from comment
+      .proposal-comment-text
         = comment.text
-    .row
-      .col-lg-12
-        %button.btn.btn-link{ style: 'outline: none; padding: 0;', type: 'button', data: { toggle: 'collapse', target: "#replyTo#{comment.id}" }, aria: { expanded: false, controls: "#replyTo#{comment.id}" } }
-          Reply
-    .row.collapse{ id: "replyTo#{comment.id}", style: 'margin-top: 1em;'}
-      .col-lg-12
+      %button.btn.btn-outline-primary.btn-sm.btn-reply{ type: 'button', data: { toggle: 'collapse', target: "#replyTo#{comment.id}" }, aria: { expanded: false, controls: "#replyTo#{comment.id}" } }
+        = render 'partials/icons/reply'
+        Reply
+      .proposal-comment-replay.collapse{ id: "replyTo#{comment.id}" }
         = form_for [:monitoring, proposal, Comment.new] do |f|
           .form-group
             = f.hidden_field :comment_id, value: comment.id
