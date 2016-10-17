@@ -5,7 +5,7 @@
     .form-group
       = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
     .form-actions
-      = f.submit 'Comment', class: 'btn btn-primary'
+      = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
 - proposal.threaded_comments.each do |elem|
   - comment = elem[:value]
   - level = elem[:level]
@@ -27,4 +27,4 @@
             = f.hidden_field :comment_id, value: comment.id
             = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
           .form-actions
-            = f.submit 'Comment', class: 'btn btn-primary'
+            = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
