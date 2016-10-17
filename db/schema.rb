@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004043822) do
+ActiveRecord::Schema.define(version: 20161015192020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20161004043822) do
     t.index ["classifier_id"], name: "index_classifiers_proposals_on_classifier_id", using: :btree
     t.index ["proposal_id", "classifier_id"], name: "index_classifiers_proposals_on_proposal_id_and_classifier_id", unique: true, using: :btree
     t.index ["proposal_id"], name: "index_classifiers_proposals_on_proposal_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "text",        null: false
+    t.integer  "voter_id"
+    t.integer  "comment_id"
+    t.integer  "proposal_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["comment_id"], name: "index_comments_on_comment_id", using: :btree
+    t.index ["proposal_id"], name: "index_comments_on_proposal_id", using: :btree
+    t.index ["voter_id"], name: "index_comments_on_voter_id", using: :btree
   end
 
   create_table "proposals", force: :cascade do |t|
@@ -73,6 +85,9 @@ ActiveRecord::Schema.define(version: 20161004043822) do
 
   add_foreign_key "classifiers_proposals", "classifiers"
   add_foreign_key "classifiers_proposals", "proposals"
+  add_foreign_key "comments", "comments"
+  add_foreign_key "comments", "proposals"
+  add_foreign_key "comments", "voters"
   add_foreign_key "proposals", "campaigns"
   add_foreign_key "proposals_voters", "proposals"
   add_foreign_key "proposals_voters", "voters"

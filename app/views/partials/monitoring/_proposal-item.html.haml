@@ -28,3 +28,6 @@
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
       - unless controller.action_name == 'show'
         = render 'partials/monitoring/proposal-monitor-btn', proposal: proposal
+  - if controller.action_name == 'show'
+    .card-block.row
+      = render 'partials/monitoring/proposal-comments', proposal: proposal

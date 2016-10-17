@@ -2,6 +2,7 @@ class Proposal < ApplicationRecord
   has_and_belongs_to_many :voters
   has_and_belongs_to_many :classifiers
   belongs_to :campaign, optional: true
+  has_many :comments
 
   validates :title, presence: true
   validates :description, presence: true
@@ -82,5 +83,15 @@ class Proposal < ApplicationRecord
     return :in_progress if chosen?
     return :discarded if discarded?
     :pending
+  end
+
+  def threaded_comments
+    return [] if comments.empty?
+    threads = comments.group_by{ |c| c.parent&.id  }
+    threads.default = []
+    tree = lambda do |comment, level|
+      [ { value:comment, level: level }, threads[comment&.id].map{ |c| tree.call(c, level + 1) } ]
+    end
+    tree.call(nil, -1).flatten[1..-1]
   end
 end

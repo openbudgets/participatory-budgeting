@@ -1,0 +1,16 @@
+# Comments
+
+question:
+  text: |
+    I voted for this, I'm happy it's going forward. Is there a date for the start
+    of the works?
+  voter: verified
+  parent:
+  proposal: lane
+
+answer:
+  text: |
+    We're really excited about this too. Works are expected to start next month.
+  voter: admin
+  parent: question
+  proposal: lane

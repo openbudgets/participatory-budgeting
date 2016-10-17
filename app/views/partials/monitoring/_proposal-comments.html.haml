@@ -1,0 +1,30 @@
+.container
+  %h4
+    = comments_count_for proposal
+  = form_for [:monitoring, proposal, Comment.new] do |f|
+    .form-group
+      = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
+    .form-actions
+      = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
+- proposal.threaded_comments.each do |elem|
+  - comment = elem[:value]
+  - level = elem[:level]
+  .container{style: "margin-top: 1.5em; #{'padding-left: ' + (level * 3).to_s + 'em;' if level > 0}" }
+    .row
+      .col-lg-12
+        = render 'partials/monitoring/comment-author-and-date', comment: comment
+    .row
+      .col-lg-12
+        = comment.text
+    .row
+      .col-lg-12
+        %button.btn.btn-link{ style: 'outline: none; padding: 0;', type: 'button', data: { toggle: 'collapse', target: "#replyTo#{comment.id}" }, aria: { expanded: false, controls: "#replyTo#{comment.id}" } }
+          Reply
+    .row.collapse{ id: "replyTo#{comment.id}", style: 'margin-top: 1em;'}
+      .col-lg-12
+        = form_for [:monitoring, proposal, Comment.new] do |f|
+          .form-group
+            = f.hidden_field :comment_id, value: comment.id
+            = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
+          .form-actions
+            = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
