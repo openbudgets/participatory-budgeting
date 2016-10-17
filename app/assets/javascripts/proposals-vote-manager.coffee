@@ -11,7 +11,6 @@ class App.ProposalsVoteManager
   $voteFinish:         null
   $voteProgressBar:    null
   $voteProgressAmount: null
-  $filterMenu:         null
   headerOffsetTop:     null
 
   isSingleProposal:    false
@@ -40,20 +39,11 @@ class App.ProposalsVoteManager
       @$filterMenu         = $('.proposals-filter-menu')
       @headerOffsetTop     = $('.vote-header').offset().top
 
-    
-      # Listen changes on filter inputs
-      @$filterMenu.find('input.form-check-input, select').change @onFilterChange
-      @$filterMenu.find('.card-header').click @onFilterMenuCollapse
+      # Setup proposals filter
+      new App.ProposalsFilter false, @$proposalsCont
 
       # Setup Scrollspy for vote-header
       $(window).scroll @onScroll
-      
-      # Setup range slider with Ion RangeSlider & listen when update
-      $('#budget-range-slider').ionRangeSlider
-        onFinish: (data) =>
-          @budget_from = data.from
-          @budget_to = data.to
-          @onFilterChange()
 
       # Initialize Vote Progress
       @updateVoteProgress()
@@ -82,54 +72,6 @@ class App.ProposalsVoteManager
       # Update Vote progress
       unless @isSingleProposal
         @updateVoteProgress()
-
-
-  # Update Proposals filtering
-  onFilterChange: =>
-    
-    # Add visual feedback when filter starts
-    @$proposalsCont.css('opacity', 0.5)
-
-    # check if all classifiers are checked
-    all_classifiers = true
-
-    # Get selected classifiers ids
-    classifiers = $('#classifier-district').val()
-    if classifiers.indexOf(',') == -1
-      all_classifiers = false
-    @$filterMenu.find('input.form-check-input').each () ->
-      if $(this).is(':checked')
-        classifiers = classifiers+','+ $(this).val()
-      else
-        all_classifiers = false
-
-    # Send ajax petition to proposals filter
-    $.ajax(
-      url:  '/voting/proposals'
-      data: 
-        class: if all_classifiers then '' else classifiers  # if all classifiers are checked we don't send class params
-        budget_min: @budget_from
-        budget_max: @budget_to
-      type: 'GET'
-    ).done (data) =>
-      if data.proposals_ids
-        # Show only returned proposals ids
-        @$proposalsCont.find('.proposal').hide()
-
-        if data.proposals_ids.length > 0
-          $('#proposals-filter-empty').hide()
-          data.proposals_ids.forEach (id) ->
-            $('#proposal-'+id).show()
-          @$proposalsCont.css('opacity', 1)
-        else
-          $('#proposals-filter-empty').show()
-          @$proposalsCont.css('opacity', 1)
-        
-  # Make filter menú collapsable
-  onFilterMenuCollapse: =>
-    if @$filterMenu.find('.arrow').css('display') == 'block'
-      @$filterMenu.find('.card-block').toggle()
-      @$filterMenu.find('.arrow').toggleClass('collapsed')
 
 
   # Update Vote progress

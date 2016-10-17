@@ -21,7 +21,7 @@ $( document ).ready () ->
 
     # Monitoring proposals index
     if $('body').hasClass('index')
-      new App.ProposalsMonitoringManager
+      new App.ProposalsFilter true
 
     # Proposals summarize
     else if $('body').hasClass('summarize')
