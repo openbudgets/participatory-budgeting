@@ -1,8 +1,9 @@
 .card
-  .card-header.proposal-budget
-    %strong
-      = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
-    €
+  .card-header
+    .proposal-budget
+      %strong
+        = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
+      €
   .card-block.row 
     .col-lg-9
       - unless controller.action_name == 'show'

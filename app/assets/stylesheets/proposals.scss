@@ -189,21 +189,13 @@
   }
 
   .proposal-budget{
+    float: left;
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.375rem;
-    margin-bottom: 0.25rem;
 
     strong{
       font-weight: 600;
-    }
-
-    @include media-breakpoint-up(lg) {
-      position: absolute;
-      right: 1rem;
-      top: 1.25rem;
-      padding: 0.25rem 0.5rem;
-      font-size: 1.25rem;
     }
   }
 
@@ -226,10 +218,54 @@
     margin-bottom: 0.5rem;
   }
 
+  .votes-btn,
+  .status-btn,
   .more-info-btn{
-    margin-bottom: 1.25rem;
     font-size: 0.75rem;
     text-transform: uppercase;
+  }
+
+  .more-info-btn{
+    margin-bottom: 1.25rem;
+  }
+
+  .votes-btn,
+  .status-btn{
+    float: right;
+    line-height: 0.75rem;
+    margin-left: 0.5rem;
+    cursor: auto;
+  }
+
+  .votes-btn{
+    color: white;
+    background: $brand-primary;
+  }
+
+  .status-btn{
+    color: white;
+
+    &.status-pending{
+      color: $brand-primary;
+      background: white;
+
+      &:hover{
+        background: white;
+      }
+    }
+
+    &.status-discarded{
+      border-color: $brand-danger;
+      background: $brand-danger;
+    }
+    &.status-in_progress{
+      border-color: $brand-warning;
+      background: $brand-warning;
+    }
+    &.status-completed{
+      border-color: $brand-success;
+      background: $brand-success;
+    }
   }
 
   .proposal-tags {
@@ -331,6 +367,45 @@
       }
     }
   }
+
+  @include media-breakpoint-up(lg) {
+
+    .card-header{
+      position: absolute;
+      right: 1rem;
+      top: 1.25rem;
+      padding: 0;
+      background: none;
+      text-align: right;
+    }
+
+    .proposal-budget,
+    .votes-btn,
+    .status-btn{
+      float: none;
+    }
+
+    .votes-btn,
+    .status-btn{
+      display: block;
+      font-size: 0.875rem;
+      line-height: 1rem;
+    }
+
+    .votes-btn{
+      margin-top: 1rem;
+    }
+    .status-btn{
+      margin-top: 0.75rem;
+    }
+
+    .proposal-budget{
+      font-size: 1.25rem;
+      padding: 0.25rem 0.5rem;
+      background: $card-cap-bg;
+      border-radius: $card-border-radius-inner;
+    }
+  }
 }
 
 
@@ -387,6 +462,14 @@
       margin-left: auto;
       margin-bottom: 1.75rem;
     }
+  }
+}
+
+// Monitoring
+
+.monitoring{
+  .proposal .proposal-tags{
+    margin-bottom: 0;
   }
 }
 

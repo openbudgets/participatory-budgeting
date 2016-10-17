@@ -1,12 +1,17 @@
 .card
-  .card-header.proposal-budget
-    %strong
-      = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
-    €
+  .card-header
+    .proposal-budget
+      %strong
+        = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
+      €
+    .btn.btn-outline-primary.btn-sm.votes-btn
+      #{proposal.votes} Votes
+    %div{ class: 'btn btn-outline-primary btn-sm status-btn status-'+proposal.status.to_s }
+      = proposal.status.to_s.humanize
   .card-block.row 
     .col-lg-9
       - unless controller.action_name == 'show'
-        %a.proposal-title{ href: admin_proposal_path(proposal.id), title: proposal.title }
+        %a.proposal-title{ href: monitoring_proposal_path(proposal.id), title: proposal.title }
           %h3
             = proposal.title
       - else
@@ -20,11 +25,7 @@
         - else
           %p.proposal-description
             = truncate(proposal.description, length: 230, separator: ' ')
-      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: 'Votes' }
-        Votes: #{proposal.votes}
-      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: 'Status', class: proposal.status }
-        = proposal.status.to_s.humanize
+          %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: monitoring_proposal_path(proposal.id), title: proposal.title }
+            More Info
     .col-lg-12
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
-      - unless controller.action_name == 'show'
-        = render 'partials/monitoring/proposal-monitor-btn', proposal: proposal
