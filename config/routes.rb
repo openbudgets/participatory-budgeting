@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         get 'summarize'
       end
     end
+
+    root 'proposals#index'
   end
 
   namespace 'monitoring' do
