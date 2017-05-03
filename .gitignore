@@ -14,4 +14,6 @@
 # Igonore npm related files
 .DS_Store
 node_modules
-app/assets/javascripts/dist/d3-bundle.js
+
+# Igonre automatic generated assets
+vendor/assets/javascripts/d3-bundle.js

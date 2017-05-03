@@ -1,33 +1,33 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.1'
 
-gem 'rails', '~> 5.0.0'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
-gem 'haml-rails', '~> 0.9'
-gem 'sass-rails', '~> 5.0'
-gem 'rails-assets-tether', '>= 1.1.0'
-gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
-gem 'date_validator'
+gem 'rails', '5.0.2'
+gem 'pg', '0.20.0'
+gem 'puma', '3.8.2'
+gem 'haml-rails', '1.0.0'
+gem 'sass-rails', '5.0.6'
+gem 'rails-assets-tether', '1.3.3', source: 'https://rails-assets.org'
+gem 'bootstrap', '4.0.0.alpha6'
+gem 'uglifier', '3.2.0'
+gem 'coffee-rails', '4.2.1'
+gem 'jquery-rails', '4.3.1'
+gem 'date_validator', '0.9.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'byebug', '9.0.6', platform: :mri
 end
 
 group :development do
-  gem 'pry-rails'
-  gem 'web-console'
-  gem 'listen', '~> 3.0.5'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'pry-rails', '0.3.6'
+  gem 'web-console', '3.5.0'
+  gem 'listen', '3.1.5'
+  gem 'spring', '2.0.1'
+  gem 'spring-watcher-listen', '2.0.1'
 end
 
 group :test do
-  gem 'guard'
-  gem 'guard-minitest'
+  gem 'guard', '2.14.1'
+  gem 'guard-minitest', '2.4.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

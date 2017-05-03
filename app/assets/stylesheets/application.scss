@@ -5,14 +5,14 @@
 @import "bootstrap-custom";
 
 // Range Slider Plugin
-@import "ion.rangeSlider.scss";
-@import "ion.rangeSlider.skinModern.scss";
+@import "ion.rangeSlider";
+@import "ion.rangeSlider.skinModern";
 
 // Common styles (body, header, footer)
 @import "common";
 
 // Home styles
-@import "home.scss";
+@import "home";
 
 // Proposals styles
-@import "proposals.scss";
+@import "proposals";

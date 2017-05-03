@@ -30,11 +30,11 @@ closed for voting and has transitioned into the monitoring phase.
 
 ## Local installation
 
-OpenBudgets Participatory Budgeting is a Rails 5 application.
+OpenBudgets Participatory Budgeting is a Rails 5.0 application.
 
 ### Development environment configuration
 
-Prerequisites: Git, Ruby 2.3.1+, Bundler gem, npm and PostgreSQL 9.4+
+Prerequisites: Git, Ruby 2.4.1, Bundler gem, Node 6.10.2 and PostgreSQL 9.4+
 
 To prepare the environment:
 ```
@@ -45,7 +45,7 @@ $ bin/rails db:seed
 $ bin/rails db:test:prepare
 ```
 
-To add d3.js custom bundle ([using npm & Rollup](https://bl.ocks.org/mbostock/bb09af4c39c79cffcde4)):
+To create d3.js custom bundle ([using npm & Rollup](https://bl.ocks.org/mbostock/bb09af4c39c79cffcde4)):
 ```
 $ npm install
 ```

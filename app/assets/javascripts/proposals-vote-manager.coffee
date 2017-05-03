@@ -14,7 +14,7 @@ class App.ProposalsVoteManager
   headerOffsetTop:     null
 
   isSingleProposal:    false
-   
+
 
   constructor: ( _isSingleProposal ) ->
 
@@ -34,7 +34,7 @@ class App.ProposalsVoteManager
       @$container          = $('.main-container')
       @$proposalsCont      = $('.proposals-cont')
       @$voteFinish         = $('#vote-finish')
-      @$voteProgressBar    = $('.vote-progress .vote-progress-bar')
+      @$voteProgressBar    = $('.vote-progress .vote-progress-bar .progress-bar')
       @$voteProgressAmount = $('.vote-progress .vote-progress-amount')
       @$filterMenu         = $('.proposals-filter-menu')
       @headerOffsetTop     = $('.vote-header').offset().top
@@ -59,7 +59,7 @@ class App.ProposalsVoteManager
 
   # Update Vote on click
   onVoteChange: (e) =>
-    
+
     $btn = $(e.target)
 
     # Send ajax petition to proposals/:id
@@ -76,7 +76,7 @@ class App.ProposalsVoteManager
 
   # Update Vote progress
   updateVoteProgress: ->
-    
+
     # Get voted budget
     votedBudget = 0
     @$proposalsCont.find('.proposal').each () ->
@@ -100,5 +100,5 @@ class App.ProposalsVoteManager
       @$voteProgressBar.addClass('progress-success').removeClass('progress-danger')
 
     # Animate progress bar
-    @$voteProgressBar.animate { value: budgetPercentage }, 800
-    @$voteProgressBar.find('.progress-bar').animate { width: budgetPercentage }, 800
+    @$voteProgressBar.attr 'aria-valuenow', budgetPercentage
+    @$voteProgressBar.attr 'style', 'width: '+budgetPercentage+'%;'

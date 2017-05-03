@@ -2,14 +2,16 @@
   "name": "d3-bundle",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "rollup -c -o app/assets/javascripts/dist/d3-bundle.js"
+    "postinstall": "rollup -c -o vendor/assets/javascripts/d3-bundle.js"
+  },
+  "devDependencies": {
+    "rollup": "0.41.6",
+    "rollup-plugin-node-resolve": "3.0.0"
   },
   "dependencies": {
-    "d3-selection": "^1.0.2",
-    "d3-scale": "^1.0.3",
-    "d3-hierarchy": "^1.0.2",
-    "d3-format": "^1.0.2",
-    "rollup": "^0.26.3",
-    "rollup-plugin-node-resolve": "^1.5.0"
+    "d3-format": "1.2.0",
+    "d3-hierarchy": "1.1.4",
+    "d3-scale": "1.0.5",
+    "d3-selection": "1.0.5"
   }
 }
