@@ -37,6 +37,11 @@
         margin-left: 0.25rem;
       }
     }
+
+    .progress-bar{
+      height: 1.5rem;
+      transition: width .8s ease;
+    }
   }
 
   #vote-finish{
