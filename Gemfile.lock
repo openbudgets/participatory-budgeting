@@ -202,26 +202,26 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap
-  byebug
-  coffee-rails
-  date_validator
-  guard
-  guard-minitest
-  haml-rails
-  jquery-rails
-  listen
-  pg
-  pry-rails
-  puma
-  rails (~> 5.0.2)
-  rails-assets-tether
-  sass-rails
-  spring
-  spring-watcher-listen
+  bootstrap (= 4.0.0.alpha6)
+  byebug (= 9.0.6)
+  coffee-rails (= 4.2.1)
+  date_validator (= 0.9.0)
+  guard (= 2.14.1)
+  guard-minitest (= 2.4.6)
+  haml-rails (= 1.0.0)
+  jquery-rails (= 4.3.1)
+  listen (= 3.1.5)
+  pg (= 0.20.0)
+  pry-rails (= 0.3.6)
+  puma (= 3.8.2)
+  rails (= 5.0.2)
+  rails-assets-tether (= 1.1.1)
+  sass-rails (= 5.0.6)
+  spring (= 2.0.1)
+  spring-watcher-listen (= 2.0.1)
   tzinfo-data
-  uglifier
-  web-console
+  uglifier (= 3.2.0)
+  web-console (= 3.5.0)
 
 RUBY VERSION
    ruby 2.4.1p111
