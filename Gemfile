@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'rails', '~> 5.0.0'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
-gem 'haml-rails', '~> 0.9'
-gem 'sass-rails', '~> 5.0'
-gem 'rails-assets-tether', '>= 1.1.0'
-gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'rails', '~> 5.0.2'
+gem 'pg'
+gem 'puma'
+gem 'haml-rails'
+gem 'sass-rails'
+gem 'rails-assets-tether'
+gem 'bootstrap'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'date_validator'
 
@@ -20,9 +20,9 @@ end
 group :development do
   gem 'pry-rails'
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
