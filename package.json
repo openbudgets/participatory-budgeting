@@ -2,7 +2,7 @@
   "name": "d3-bundle",
   "version": "0.0.1",
   "scripts": {
-    "postinstall": "rollup -c -o app/assets/javascripts/dist/d3-bundle.js"
+    "postinstall": "rollup -c -o vendor/assets/javascripts/d3-bundle.js"
   },
   "dependencies": {
     "d3-selection": "^1.0.2",

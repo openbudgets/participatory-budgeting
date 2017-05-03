@@ -5,5 +5,5 @@ export default {
   format: "umd",
   moduleName: "d3",
   plugins: [npm({jsnext: true})],
-  dest: "app/assets/javascripts/dist/d3-bundle.js"
+  dest: "vendor/assets/javascripts/d3-bundle.js"
 };
