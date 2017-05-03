@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_role?
-    current_voter&.email&.split('@')&.last == 'civio.es'
+    roles = Admin::Role.all.pluck(:email)
+    roles.any?{ |role| current_voter&.email&.include?(role) }
   end
 
   def sign_in(voter)
