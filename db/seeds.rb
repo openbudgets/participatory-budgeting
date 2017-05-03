@@ -1,5 +1,9 @@
 ### Sample development data
 
+## Admin roles
+
+civio = Admin::Role.create(email: '@civio.es')
+
 ## Voters
 
 raul    = Voter.create(email: 'raul@civio.es', verified: true)
