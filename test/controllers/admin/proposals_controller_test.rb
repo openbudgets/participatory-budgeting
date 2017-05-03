@@ -26,7 +26,7 @@ class Admin::ProposalsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_proposals_url
   end
 
-  test "should show_proposal" do
+  test "should show proposal" do
     sign_in(@voter)
     get admin_proposal_url(@proposal)
     assert_response :success
@@ -38,7 +38,7 @@ class Admin::ProposalsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update_proposal" do
+  test "should update proposal" do
     sign_in(@voter)
     patch admin_proposal_url(@proposal), params: { proposal: { title: not_blank, description: not_blank, budget: zero_or_positive_number } }
     assert_redirected_to admin_proposals_url
@@ -50,5 +50,14 @@ class Admin::ProposalsControllerTest < ActionDispatch::IntegrationTest
       delete admin_proposal_url(@proposal)
     end
     assert_redirected_to admin_proposals_url
+  end
+
+  test "should complete proposal" do
+    sign_in(@voter)
+    patch admin_proposal_url(@proposal), params: { proposal: { completed: '1' } }
+    assert_redirected_to admin_proposals_url
+    follow_redirect!
+    assert_response :success
+    assert_select "#proposal-#{@proposal.id} .completed", 1
   end
 end
