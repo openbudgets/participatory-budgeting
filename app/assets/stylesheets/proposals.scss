@@ -74,7 +74,7 @@
     border-top-color: transparent;
     border-bottom-color: $card-border-color;
     box-shadow: 0px 0px 12px 0px $card-border-color;
-    z-index: $zindex-navbar-sticky;
+    z-index: $zindex-sticky;
 
     .vote-progress{
       border-color: transparent;
@@ -97,15 +97,15 @@
     font-size: 0.875em;
     text-transform: uppercase;
     border: none;
-    cursor: pointer; 
+    cursor: pointer;
 
     .arrow{
       display: 'block';
       position: absolute;
       top: 1.125rem;
       right: 1rem;
-      width: 0; 
-      height: 0; 
+      width: 0;
+      height: 0;
       border-left: 0.375rem solid transparent;
       border-right: 0.375rem solid transparent;
       border-bottom: 0.5rem solid $progress-bg;
@@ -134,7 +134,7 @@
 
   .form-group > p{
     margin-bottom: 0.75rem;
-    
+
     .icon{
       margin-top: 0.125rem;
       margin-right: 0.25rem;
@@ -155,7 +155,7 @@
         background: $card-cap-bg;
       }
     }
-  
+
     .card-block{
       display: block !important;
     }
@@ -270,7 +270,7 @@
 
   .proposal-tags {
     margin-bottom: 1rem;
-  
+
     .tag{
       margin-right: 0.1rem;
       margin-bottom: 0.25rem;
@@ -504,7 +504,7 @@
     }
 
     .proposal-title {
-      
+
       &:hover{
         color: $gray-dark;
       }
@@ -530,7 +530,7 @@
 // Proposal Summarize
 
 .proposals.summarize{
-  
+
   .proposal .proposal-tags{
     margin-bottom: 0;
   }
