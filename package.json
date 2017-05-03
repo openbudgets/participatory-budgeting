@@ -5,13 +5,13 @@
     "postinstall": "rollup -c -o vendor/assets/javascripts/d3-bundle.js"
   },
   "devDependencies": {
-    "rollup": "^0.41.6",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup": "0.41.6",
+    "rollup-plugin-node-resolve": "3.0.0"
   },
   "dependencies": {
-    "d3-format": "^1.2.0",
-    "d3-hierarchy": "^1.1.4",
-    "d3-scale": "^1.0.5",
-    "d3-selection": "^1.0.5"
+    "d3-format": "1.2.0",
+    "d3-hierarchy": "1.1.4",
+    "d3-scale": "1.0.5",
+    "d3-selection": "1.0.5"
   }
 }
