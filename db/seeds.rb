@@ -226,3 +226,12 @@ lane_3  = Proposal.create(
               Having a dedicated bike lane will improve security and make the trip more enjoyable.
             EOD
           )
+
+## Voter secrets
+
+local_1    = VoterSecret.create(data: { document: '53713184D', birth_date: '1974-11-29' })
+local_2    = VoterSecret.create(data: { document: '279793B', birth_date: '1986-10-19' })
+resident_1 = VoterSecret.create(data: { document: 'X07323369A', birth_date: '1945-11-06' })
+resident_2 = VoterSecret.create(data: { document: 'Y01927564M', birth_date: '1945-11-06' })
+foreign_1  = VoterSecret.create(data: { document: '423994F', birth_date: '1990-05-12'})
+foreign_2  = VoterSecret.create(data: { document: '08-VU-2160/16', birth_date: '1998-11-02' })
