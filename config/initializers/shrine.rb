@@ -7,7 +7,6 @@ Shrine.storages = {
 }
 
 Shrine.plugin :activerecord
-Shrine.plugin :determine_mime_type
 Shrine.plugin :cached_attachment_data # for forms
 
 file_system = Shrine.storages[:cache]
