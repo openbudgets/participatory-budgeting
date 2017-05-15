@@ -2,6 +2,7 @@ require 'test_helper'
 
 class VerificationFlowTest < ActionDispatch::IntegrationTest
   def some_valid_email; "someone@some.tld"; end
+  def some_valid_voter_secret; voter_secrets(:some_voter_secret).data; end
 
   test "should remind the voter to finish the verification process" do
     visit_home!
@@ -92,7 +93,7 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
   end
 
   def post_registration!(expected_redirect:)
-    post voters_path, params: { voter: {  email: some_valid_email } }
+    post voters_path, params: { voter: {  email: some_valid_email, secret_data: some_valid_voter_secret } }
     assert_redirected_to expected_redirect
     follow_redirect!
     assert_response :success
