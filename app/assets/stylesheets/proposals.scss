@@ -193,6 +193,10 @@
     border: none;
   }
 
+  .card-header{
+    margin-right: 1rem;
+  }
+
   .proposal-budget{
     float: left;
     font-size: 1.125rem;
@@ -461,7 +465,8 @@
     .card-header{
       position: absolute;
       right: 1rem;
-      top: 1.25rem;
+      top: 0;
+      margin-right: 0;
       padding: 0;
       background: none;
       text-align: right;

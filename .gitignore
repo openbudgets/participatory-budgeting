@@ -15,5 +15,8 @@
 .DS_Store
 node_modules
 
-# Igonre automatic generated assets
+# Ignore automatic generated assets
 vendor/assets/javascripts/d3-bundle.js
+
+# Ignore uploads
+/public/uploads

@@ -1,0 +1,2 @@
+class ProposalImageUploader < Shrine
+end

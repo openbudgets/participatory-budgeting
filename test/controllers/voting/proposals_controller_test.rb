@@ -43,4 +43,11 @@ class Voting::ProposalsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select '.proposal-title', 2
   end
+
+  test "test should show an image if there's one attached" do
+    @proposal.update(image: File.open("test/fixtures/files/some_image.jpg"))
+    get voting_proposals_path
+    assert_response :success
+    assert_select '.proposal-image'
+  end
 end

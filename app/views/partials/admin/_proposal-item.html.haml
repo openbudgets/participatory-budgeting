@@ -1,10 +1,10 @@
 .card
-  .card-header.proposal-budget
-    %strong
-      = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
-    €
-  .card-block.row 
+  .card-block.row
     .col-lg-9
+      .card-header.proposal-budget
+        %strong
+          = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
+        €
       - unless controller.action_name == 'show'
         %a.proposal-title{ href: admin_proposal_path(proposal.id), title: proposal.title }
           %h3
@@ -24,6 +24,9 @@
         Votes: #{proposal.votes}
       %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: 'Status', class: proposal.status }
         = proposal.status.to_s.humanize
+    .col-lg-3
+      - if proposal.image.present?
+        = image_tag proposal.image_url, class: 'proposal-image', style: 'width: 100%; height: auto;'
     .col-lg-12
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
       = render 'partials/admin/proposal-edit-btn', proposal: proposal
