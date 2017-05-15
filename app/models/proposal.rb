@@ -19,6 +19,8 @@ class Proposal < ApplicationRecord
     (where(id: filtered.map(&:id)) unless filtered.blank?) || all
   end
 
+  include ProposalImageUploader[:image]
+
   def district
     classifiers.find_by(type: :District)
   end

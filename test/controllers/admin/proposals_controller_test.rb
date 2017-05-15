@@ -60,4 +60,23 @@ class Admin::ProposalsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "#proposal-#{@proposal.id} .completed", 1
   end
+
+  test "should upload image" do
+    sign_in(@voter)
+    patch admin_proposal_url(@proposal), params: { proposal: { image: fixture_file_upload('files/some_image.jpg', 'image/jpg') } }
+    assert_redirected_to admin_proposals_url
+    follow_redirect!
+    assert_response :success
+    assert_select '.proposal-image'
+  end
+
+  test "should remove an attached image" do
+    @proposal.update(image: File.open("test/fixtures/files/some_image.jpg"))
+    sign_in(@voter)
+    patch admin_proposal_url(@proposal), params: { proposal: { image: '' }, delete_image: 'whatever' }
+    assert_redirected_to admin_proposals_url
+    follow_redirect!
+    assert_response :success
+    assert_select '.proposal-image', 0
+  end
 end

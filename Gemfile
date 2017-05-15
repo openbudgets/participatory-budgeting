@@ -12,6 +12,7 @@ gem 'uglifier', '3.2.0'
 gem 'coffee-rails', '4.2.1'
 gem 'jquery-rails', '4.3.1'
 gem 'date_validator', '0.9.0'
+gem 'shrine', '2.6.1'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri

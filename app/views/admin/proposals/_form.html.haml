@@ -18,6 +18,13 @@
               = f.text_area :description, rows: 8, class: 'form-control'
               = f.label :budget
               = f.text_field :budget, value: number_to_currency(@proposal.budget, precision: 2, format: "%n"), class: 'form-control'
+              = f.label :image
+              - if @proposal.image.present?
+                .card-block
+                  = image_tag @proposal.image_url, class: 'proposal-image'
+                  = f.submit 'Delete image', name: :delete_image, class: 'btn btn-secondary btn-sm'
+              = f.hidden_field :image, value: @proposal.cached_image_data
+              = f.file_field :image, class: 'form-control'
             .form-group
               .row
                 .col-lg-4
