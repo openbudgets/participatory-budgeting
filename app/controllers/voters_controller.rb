@@ -5,8 +5,9 @@ class VotersController < ApplicationController
   end
 
   def create
-    email = params[:voter][:email]
-    if RegisterVoter.call(email)
+    email = voter_params[:email]
+    secret = voter_secret_params[:secret_data].to_h
+    if RegisterVoter.call(email,secret)
       session[:verification_pending] = true
       redirect_to current_redirect!, notice: "We've sent you a <strong>verification token</strong>, please see your inbox for further instructions"
     else
@@ -43,5 +44,14 @@ class VotersController < ApplicationController
     session.delete(:verification_pending)
     sign_in(@voter)
     redirect_to current_redirect!, success: "<strong>Successfully verified</strong>, you can now take part in the participatory budgeting process"
+  end
+
+  def voter_params
+    params.require(:voter).permit(:email)
+  end
+
+  def voter_secret_params
+    return ActionController::Parameters.new({}) unless (params[:voter] && params[:voter][:secret_data])
+    params.require(:voter).permit(secret_data: params[:voter][:secret_data].try(:keys))
   end
 end

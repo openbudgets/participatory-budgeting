@@ -9,4 +9,9 @@
             .form-group
               = f.label 'Email address'
               = f.text_field :email, class: 'form-control'
+              = f.fields_for :secret_data do |df|
+                - VoterSecret.list_of_secrets.each do |secret|
+                  .form-group
+                  = df.label secret.humanize
+                  = df.text_field secret.to_sym, class: 'form-control'
             = f.submit 'Email me a link to sign in', class: 'btn btn-primary'
