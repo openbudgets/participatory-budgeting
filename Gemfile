@@ -14,6 +14,7 @@ gem 'jquery-rails', '4.3.1'
 gem 'date_validator', '0.9.0'
 gem 'shrine', '2.6.1'
 gem 'translation', '1.9'
+gem 'rake', '12.0.0'
 
 group :development, :test do
   gem 'byebug', '9.0.6', platform: :mri
@@ -25,11 +26,17 @@ group :development do
   gem 'listen', '3.1.5'
   gem 'spring', '2.0.1'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'capistrano', '3.8.1'
+  gem 'capistrano-npm', '1.0.2'
+  gem 'capistrano-nvm', '0.0.7'
+  gem 'capistrano-rvm', '0.1.2'
+  gem 'capistrano-rails', '1.2.3'
 end
 
 group :test do
   gem 'guard', '2.14.1'
   gem 'guard-minitest', '2.4.6'
+  gem 'minitest', '5.10.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
