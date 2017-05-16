@@ -3,12 +3,12 @@
     %li
       %a.twitter{ href: 'javascript: void(0)', title: 'Share on Twitter', onClick: 'window.open("https://twitter.com/intent/tweet?text='+title+'&url='+request.original_url+'","sharer","toolbar=0,status=0,width=548,height=500");' }
         = render 'partials/icons/twitter'
-        Share on Twitter
+        = _('Share on Twitter')
     %li
       %a.facebook{ href: 'javascript: void(0)', title: 'Share on Facebook', onClick: 'window.open("https://www.facebook.com/dialog/share?app_id=818301894905112&display=popup&href='+request.original_url+'&redirect_uri='+request.original_url+'","sharer","toolbar=0,status=0,width=548,height=325");' }
         = render 'partials/icons/facebook'
-        Share on Facebook
+        = _('Share on Facebook')
     %li
       %a.gplus{ href: 'javascript: void(0)', title: 'Share on Google Plus', onClick: 'window.open("https://plus.google.com/share?url='+request.original_url+'","sharer","toolbar=0,status=0,width=548,height=500");' }
         = render 'partials/icons/gplus'
-        Share on Google Plus
+        = _('Share on Google Plus')

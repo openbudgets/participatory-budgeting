@@ -1,7 +1,7 @@
 class Voting::ProposalsController < ApplicationController
   def index
     if session[:verification_pending]
-      flash.now[:notice] = "<strong>Verification pending</strong>, please see your inbox for further instructions"
+      flash.now[:notice] = _('<strong>Verification pending</strong>, please see your inbox for further instructions.')
     end
     @campaign_budget = Campaign.current.budget
 
@@ -38,7 +38,7 @@ class Voting::ProposalsController < ApplicationController
     if result
       head :no_content
     else
-      head :unprocessable_entity, error: "There was an error while trying to register your vote"
+      head :unprocessable_entity, error: _('There was an error while trying to register your vote.')
     end
   end
 
@@ -47,7 +47,7 @@ class Voting::ProposalsController < ApplicationController
       @proposals = current_voter.proposals.order(budget: :desc)
     else
       referer = request.referer || new_voter_path(referer: request.path)
-      redirect_to referer, alert: "You need to <strong>sign in</strong> in order to view your vote"
+      redirect_to referer, alert: _('You need to <strong>sign in</strong> in order to view your vote.')
     end
   end
 end

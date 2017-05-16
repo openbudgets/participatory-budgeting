@@ -1,4 +1,4 @@
-= render 'partials/page-title', title: 'Sign in / Register'
+= render 'partials/page-title', title: _('Sign in / Register')
 
 .voters-new.container
   .row
@@ -7,11 +7,11 @@
         .card-block
           = form_for @voter, as: :voter, url: voters_path, method: :post, class: 'voters-new' do |f|
             .form-group
-              = f.label 'Email address'
+              = f.label _('Email address')
               = f.text_field :email, class: 'form-control'
               = f.fields_for :secret_data do |df|
                 - VoterSecret.list_of_secrets.each do |secret|
                   .form-group
-                  = df.label secret.humanize
+                  = df.label _(secret.humanize)
                   = df.text_field secret.to_sym, class: 'form-control'
-            = f.submit 'Email me a link to sign in', class: 'btn btn-primary'
+            = f.submit _('Email me a link to sign in'), class: 'btn btn-primary'

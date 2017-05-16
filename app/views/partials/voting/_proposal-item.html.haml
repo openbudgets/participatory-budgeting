@@ -21,7 +21,7 @@
           %p.proposal-description
             = truncate(proposal.description, length: 230, separator: ' ')
           %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: voting_proposal_path(proposal.id), title: proposal.title }
-            More Info
+            = _('More Info')
     .col-lg-3
       - if proposal.image.present?
         = image_tag proposal.image_url, class: 'proposal-image', style: 'width: 100%; height: auto;'

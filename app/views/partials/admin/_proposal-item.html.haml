@@ -20,10 +20,10 @@
         - else
           %p.proposal-description
             = truncate(proposal.description, length: 230, separator: ' ')
-      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: 'Votes' }
-        Votes: #{proposal.votes}
-      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: 'Status', class: proposal.status }
-        = proposal.status.to_s.humanize
+      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: _('Votes') }
+        = _('Votes: %{votes}') % { votes: proposal.votes }
+      %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: '', title: _('Status'), class: proposal.status }
+        = _(proposal.status.to_s.humanize)
     .col-lg-3
       - if proposal.image.present?
         = image_tag proposal.image_url, class: 'proposal-image', style: 'width: 100%; height: auto;'

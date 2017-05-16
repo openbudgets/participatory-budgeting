@@ -1,28 +1,28 @@
 .voters-new.container
   .row
     .col-lg-8.offset-lg-2
-      %a.btn.btn-outline-primary.btn-sm.back-btn{ href: request.referer, title: 'Back' }
+      %a.btn.btn-outline-primary.btn-sm.back-btn{ href: request.referer, title: _('Back') }
         = render 'partials/icons/arrow-left'
-        Back
+        = _('Back')
       .card
         .card-block
           = form_for [:admin, @proposal], class: 'voters-new' do |f|
             .form-group
-              %h5 Campaign
-              = f.collection_select :campaign_id, Campaign.all, :id, :title, { include_blank: 'None' }, { class: 'form-control' }
+              %h5= _('Campaign')
+              = f.collection_select :campaign_id, Campaign.all, :id, :title, { include_blank: _('None') }, { class: 'form-control' }
             .form-group
-              %h5 Proposal
-              = f.label :title
+              %h5= _('Proposal')
+              = f.label _('Title')
               = f.text_field :title, class: 'form-control'
-              = f.label :description
+              = f.label _('Description')
               = f.text_area :description, rows: 8, class: 'form-control'
-              = f.label :budget
+              = f.label _('Budget')
               = f.text_field :budget, value: number_to_currency(@proposal.budget, precision: 2, format: "%n"), class: 'form-control'
-              = f.label :image
+              = f.label _('Image')
               - if @proposal.image.present?
                 .card-block
                   = image_tag @proposal.image_url, class: 'proposal-image'
-                  = f.submit 'Delete image', name: :delete_image, class: 'btn btn-secondary btn-sm'
+                  = f.submit _('Delete image'), name: :delete_image, class: 'btn btn-secondary btn-sm'
               = f.hidden_field :image, value: @proposal.cached_image_data
               = f.file_field :image, class: 'form-control'
             .form-group
@@ -31,29 +31,29 @@
                   %p
                     = render 'partials/icons/location'
                     %strong
-                      District
+                      = _('District')
                   = f.collection_select :district_id, @districts, :id, :name, {}, { class: 'form-control' }
                 .col-lg-4
                   %p
                     = render 'partials/icons/folder'
                     %strong
-                      Area
+                      = _('Area')
                   = f.collection_select :area_id, @areas, :id, :name,  {}, { class: 'form-control' }
                 .col-lg-4
                   %p
                     = render 'partials/icons/tag'
                     %strong
-                      Tags
+                      = _('Tags')
                     = f.collection_check_boxes :tag_ids, @tags, :id, :name do |b|
                       .form-check
                         %label.form-check-label
                           = b.check_box class: 'form-check-input'
                           = b.object.name
             .form-group
-              %h4 Monitoring
+              %h4= _('Monitoring')
               .form-check
                 %label.form-check-label
                   = f.check_box :completed, class: 'form-check-input'
-                  The proposal has been brought to completion
-            = f.submit 'Save', class: 'btn btn-primary'
+                  = _('The proposal has been brought to completion')
+            = f.submit _('Save'), class: 'btn btn-primary'
 

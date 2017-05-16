@@ -3,9 +3,9 @@ class Monitoring::CommentsController < ApplicationController
     set_proposal
     set_parent
     if RegisterComment.call(text, current_voter, @proposal, @parent)
-      flash[:success] = "Your comment was successfully registered"
+      flash[:success] = _('Your comment was successfully registered.')
     else
-      flash[:error] = "There was a problem registering your comment"
+      flash[:error] = _('There was a problem registering your comment.')
     end
     redirect_to monitoring_proposal_path(@proposal)
   end

@@ -20,7 +20,7 @@ class Admin::ProposalsController < AdminController
     @proposal = Proposal.new(proposal_params)
 
     if @proposal.save
-      redirect_to admin_proposals_path, success: 'Proposal was successfully created.'
+      redirect_to admin_proposals_path, success: _('Proposal was successfully created.')
     else
       flash.now[:error] = @proposal.errors.full_messages.to_sentence
       render :new
@@ -30,7 +30,7 @@ class Admin::ProposalsController < AdminController
   def update
 
     if @proposal.update(proposal_params)
-      redirect_to admin_proposals_path, success: 'Proposal was successfully updated.'
+      redirect_to admin_proposals_path, success: _('Proposal was successfully updated.')
     else
       flash.now[:error] = @proposal.errors.full_messages.to_sentence
       render :edit
@@ -39,7 +39,7 @@ class Admin::ProposalsController < AdminController
 
   def destroy
     @proposal.destroy
-    redirect_to admin_proposals_url, success: 'Proposal was successfully destroyed.'
+    redirect_to admin_proposals_url, success: _('Proposal was successfully destroyed.')
   end
 
   private

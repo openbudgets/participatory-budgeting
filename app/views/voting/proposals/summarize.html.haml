@@ -1,4 +1,4 @@
-= render 'partials/page-title', title: 'Your voted proposals'
+= render 'partials/page-title', title: _('Your voted proposals')
 
 .container
   #proposals-treemap
@@ -16,4 +16,4 @@
     - @proposals.each do |proposal|
       .proposal.col-lg-12{ id: 'proposal-'+proposal.id.to_s, data: { id: proposal.id, budget: proposal.budget, area: proposal.classifiers.select{ |c| c.is_a?(Area) }.first() } }
         = render 'partials/voting/proposal-item', proposal: proposal
-    = render 'partials/social-sharer', title: 'My voted proposals'
+    = render 'partials/social-sharer', title: _('My voted proposals')

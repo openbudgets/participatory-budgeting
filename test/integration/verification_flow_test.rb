@@ -40,7 +40,8 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
 
     patch voter_path(@voter), params: { voter: { name: not_blank } }
     @voter.reload
-    assert_redirected_to root_path
+    assert_response :redirect
+    assert_match root_path, @response.redirect_url
     follow_redirect!
     assert_response :success
     assert_match /successfully verified/i, flash[:success]
@@ -48,7 +49,8 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     assert_select 'a[href]', href: '/voters/signout', text: 'Sign out'
 
     get signout_voters_path
-    assert_redirected_to root_path
+    assert_response :redirect
+    assert_match root_path, @response.redirect_url
     follow_redirect!
     assert_response :success
     assert_match /successfully signed out/i, flash[:success]
@@ -63,7 +65,8 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     assert_equal voting_proposals_path, session[:redirect]
 
     get verify_voters_path(token: @voter.verification_token)
-    assert_redirected_to voting_proposals_path
+    assert_response :redirect
+    assert_match voting_proposals_path, @response.redirect_url
     follow_redirect!
     assert_response :success
     assert_match /successfully verified/i, flash[:success]
@@ -94,7 +97,8 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
 
   def post_registration!(expected_redirect:)
     post voters_path, params: { voter: {  email: some_valid_email, secret_data: some_valid_voter_secret } }
-    assert_redirected_to expected_redirect
+    assert_response :redirect
+    assert_match expected_redirect, @response.redirect_url
     follow_redirect!
     assert_response :success
     assert flash[:notice]

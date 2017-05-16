@@ -3,7 +3,7 @@
     = comments_count_for proposal
   = form_for [:monitoring, proposal, Comment.new] do |f|
     .form-group
-      = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
+      = f.text_area :text, class: 'form-control', placeholder: _('Leave a comment...')
     .form-actions
       = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }
   - proposal.threaded_comments.each do |elem|
@@ -19,11 +19,11 @@
         = comment.text
       %button.btn.btn-outline-primary.btn-sm.btn-reply{ type: 'button', data: { toggle: 'collapse', target: "#replyTo#{comment.id}" }, aria: { expanded: false, controls: "#replyTo#{comment.id}" } }
         = render 'partials/icons/reply'
-        Reply
+        = _('Reply')
       .proposal-comment-replay.collapse{ id: "replyTo#{comment.id}" }
         = form_for [:monitoring, proposal, Comment.new] do |f|
           .form-group
             = f.hidden_field :comment_id, value: comment.id
-            = f.text_area :text, class: 'form-control', placeholder: 'Leave a comment...'
+            = f.text_area :text, class: 'form-control', placeholder: _('Leave a comment...')
           .form-actions
             = f.submit 'Comment', class: 'btn btn-primary', disabled: current_voter.nil?, aria: { disabled: current_voter.nil? }

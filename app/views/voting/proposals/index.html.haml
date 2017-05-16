@@ -1,14 +1,14 @@
-= render 'partials/page-title', title: 'Vote your favourite proposals'
+= render 'partials/page-title', title: _('Vote your favourite proposals')
 
 .vote-header
   .container
     .vote-progress
       .row
         .col-md-4.col-lg-3
-          %a#vote-finish.btn.btn-block.btn-primary.disabled{href: summarize_voting_proposals_path, role: 'button'} Finish
+          %a#vote-finish.btn.btn-block.btn-primary.disabled{href: summarize_voting_proposals_path, role: 'button'}= _('Finish')
         .col-md-8.col-lg-9
           .vote-progress-title
-            Total amount
+            = _('Total amount')
           .progress.vote-progress-bar
             .progress-bar{ style: 'width: 0%', role: 'progressbar', aria: { valuenow: '0', valuemin: '0', valuemax: '100' } }
           .vote-progress-amount{ data: { max_amount: @campaign_budget } }
@@ -24,4 +24,4 @@
           .proposal{ id: 'proposal-'+proposal.id.to_s, data: { budget: proposal.budget } }
             = render 'partials/voting/proposal-item', proposal: proposal
         #proposals-filter-empty.alert.alert-danger
-          There are no proposals for those filters
+          = _('There are no proposals for those filters')
