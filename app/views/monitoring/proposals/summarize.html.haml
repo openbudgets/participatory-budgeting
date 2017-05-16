@@ -1,4 +1,4 @@
-= render 'partials/page-title', title: 'The voted proposals'
+= render 'partials/page-title', title: _('The voted proposals')
 
 .container
   #proposals-treemap
@@ -16,4 +16,4 @@
     - @proposals.each do |proposal|
       .proposal.col-lg-12{ id: 'proposal-'+proposal.id.to_s, data: { id: proposal.id, budget: proposal.budget, area: proposal.classifiers.select{ |c| c.is_a?(Area) }.first() } }
         = render 'partials/monitoring/proposal-item', proposal: proposal
-    = render 'partials/social-sharer', title: "#{Campaign.current.title} voted proposals"
+    = render 'partials/social-sharer', title: _('%{campaign} voted proposals') % { campaign: Campaign.current.title }

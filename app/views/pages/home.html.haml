@@ -2,9 +2,9 @@
   .overlay
   .container
     %h2
-      Welcome to Gotham's Participatory Budgeting process
+      = _("Welcome to Gotham's Participatory Budgeting process")
     %p
-      You decide where the money goes
+      = _('You decide where the money goes')
 
 .home.container
   .row
@@ -14,7 +14,7 @@
           %p.process-state-number
             1.
           %p.process-state-title
-            Process announcement
+            = _('Process announcement')
           %p.process-state-description
             = @campaign.description
     .col-md-4
@@ -23,26 +23,26 @@
           %p.process-state-number
             2.
           %p.process-state-title
-            Process voting
+            = _('Process voting')
           %p.process-state-description
-            You can choose as many proposals as you want, as long as all the available budget is not allocated.
+            = _('You can choose as many proposals as you want, as long as all the available budget is not allocated.')
           - if @campaign.open?
             %a.btn.btn-primary.btn-lg.btn-block{href: voting_proposals_path}
-              Start voting
+              = _('Start voting')
     .col-md-4
       .card.process-state{ class: ('active' if @campaign.closed?) }
         .card-block
           %p.process-state-number
             3.
           %p.process-state-title
-            Process result
+            = _('Process result')
           %p.process-state-description
-            The participatory process is finished and the proposals are voted. You can now monitor the progress of the chosen proposals.
+            = _('The participatory process is finished and the proposals are voted. You can now monitor the progress of the chosen proposals.')
           - if @campaign.closed?
             %a.btn.btn-primary.btn-lg.btn-block{href: monitoring_proposals_path}
-              Start monitoring
+              = _('Start monitoring')
   / .jumbotron
-  /   %h2 
+  /   %h2
   /     Welcome to our participatory budgeting process
   /   %p
   /     Participatory budgeting is a different way to manage public money, and to engage people in government. It is a democratic process in which community members directly decide how to spend part of a public budget. It enables taxpayers to work with government to make the budget decisions that affect their lives.

@@ -5,10 +5,10 @@
         = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
       €
     .btn.btn-outline-primary.btn-sm.votes-btn
-      #{proposal.votes} Votes
+      = n_('%{votes} vote', '%{votes} votes', proposal.votes) % { votes: proposal.votes }
     %div{ class: 'btn btn-outline-primary btn-sm status-btn status-'+proposal.status.to_s }
       = proposal.status.to_s.humanize
-  .card-block.row 
+  .card-block.row
     .col-lg-9
       - unless controller.action_name == 'show'
         %a.proposal-title{ href: monitoring_proposal_path(proposal.id), title: proposal.title }
@@ -26,7 +26,7 @@
           %p.proposal-description
             = truncate(proposal.description, length: 230, separator: ' ')
           %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: monitoring_proposal_path(proposal.id), title: proposal.title }
-            More Info
+            = _('More Info')
     .col-lg-12
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
       - if controller.action_name == 'show'

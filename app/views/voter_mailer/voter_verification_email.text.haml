@@ -1,7 +1,7 @@
-This is your verification token:
+= _('This is your verification token:')
 = @voter.verification_token
 
-Please confirm your verification status by following this link:
+= _('Please confirm your verification status by following this link:')
 = verify_voters_url(token: @voter.verification_token)
 
-Thanks!
+= _('Thanks!')

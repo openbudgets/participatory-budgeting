@@ -1,8 +1,8 @@
-= render 'partials/page-title', title: 'Proposals'
+= render 'partials/page-title', title: _('Proposals')
 
 .vote-header
   .container
-    %a#vote-finish.btn.btn-block.btn-primary{href: new_admin_proposal_path, role: 'button'} New proposal
+    %a#vote-finish.btn.btn-block.btn-primary{href: new_admin_proposal_path, role: 'button'}= _('New proposal')
 
 .container
   .proposals-cont

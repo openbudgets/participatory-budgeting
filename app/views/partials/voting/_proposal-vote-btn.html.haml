@@ -1,10 +1,10 @@
 - if current_voter
   %button{ class: 'vote-btn btn btn-lg btn-block'+((proposal.voted_by?(current_voter)) ? ' active' : ''), type: 'button', data: { id: proposal.id } }
     %p.voted
-      Voted
+      = _('Voted')
     %p.unvoted
-      Vote
+      = _('Vote')
 - else
-  %a.vote-btn.btn.btn-lg.btn-block{ href: new_voter_path, title: 'Sign in for vote' }
+  %a.vote-btn.btn.btn-lg.btn-block{ href: new_voter_path, title: _('Sign in for vote') }
     %p.unvoted
-      Sign in for vote
+      = _('Sign in for vote')

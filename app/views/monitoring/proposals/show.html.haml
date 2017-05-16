@@ -1,6 +1,6 @@
 .container
-  %a.btn.btn-outline-primary.btn-sm.back-btn{ href: request.referer, title: 'Back' }
+  %a.btn.btn-outline-primary.btn-sm.back-btn{ href: request.referer, title: _('Back') }
     = render 'partials/icons/arrow-left'
-    Back
+    = _('Back')
   .proposal
     = render 'partials/monitoring/proposal-item', proposal: @proposal

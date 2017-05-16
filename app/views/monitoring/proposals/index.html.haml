@@ -1,4 +1,4 @@
-= render 'partials/page-title', title: 'Monitor chosen proposals'
+= render 'partials/page-title', title: _('Monitor chosen proposals')
 
 .container
   .row
@@ -10,4 +10,4 @@
           .proposal{ id: 'proposal-'+proposal.id.to_s, data: { budget: proposal.budget } }
             = render 'partials/monitoring/proposal-item', proposal: proposal
         #proposals-filter-empty.alert.alert-danger
-          There are no proposals for those filters
+          = _('There are no proposals for those filters')
