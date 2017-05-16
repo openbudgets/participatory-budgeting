@@ -20,3 +20,6 @@ vendor/assets/javascripts/d3-bundle.js
 
 # Ignore uploads
 /public/uploads
+
+# Ignore environment
+.env
