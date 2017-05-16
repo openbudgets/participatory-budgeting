@@ -1,0 +1,483 @@
+# German translations for civio-openbudgets package.
+# Copyright (C) 2017 civio-openbudgets
+# This file is distributed under the same license as the civio-openbudgets package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: civio-openbudgets 1.0\n"
+"Report-Msgid-Bugs-To: contact@translation.io\n"
+"POT-Creation-Date: 2017-05-16 05:40+0200\n"
+"PO-Revision-Date: 2017-05-16 05:40+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+#: ../../../app/controllers/admin/proposals_controller.rb:23
+msgid "Proposal was successfully created."
+msgstr ""
+
+#: ../../../app/controllers/admin/proposals_controller.rb:33
+msgid "Proposal was successfully updated."
+msgstr ""
+
+#: ../../../app/controllers/admin/proposals_controller.rb:42
+msgid "Proposal was successfully destroyed."
+msgstr ""
+
+#: ../../../app/controllers/admin_controller.rb:7
+msgid "<strong>Admin role is necessary</strong> in order to access the admin area."
+msgstr ""
+
+#: ../../../app/controllers/monitoring/comments_controller.rb:6
+msgid "Your comment was successfully registered."
+msgstr ""
+
+#: ../../../app/controllers/monitoring/comments_controller.rb:8
+msgid "There was a problem registering your comment."
+msgstr ""
+
+#: ../../../app/controllers/pages_controller.rb:4
+#: ../../../app/controllers/voting/proposals_controller.rb:4
+msgid ""
+"<strong>Verification pending</strong>, please see your inbox for further instr"
+"uctions."
+msgstr ""
+
+#: ../../../app/controllers/voters_controller.rb:12
+msgid ""
+"We've sent you a <strong>verification token</strong>, please see your inbox fo"
+"r further instructions."
+msgstr ""
+
+#: ../../../app/controllers/voters_controller.rb:14
+msgid ""
+"Something went wrong with the registration process. Please, <strong>try again<"
+"/strong>."
+msgstr ""
+
+#: ../../../app/controllers/voters_controller.rb:27
+msgid ""
+"Something went wrong with the verification process. Please, <strong>try again<"
+"/strong>."
+msgstr ""
+
+#: ../../../app/controllers/voters_controller.rb:37
+msgid "<strong>Successfully signed out</strong>, sign in again to review your votes."
+msgstr ""
+
+#: ../../../app/controllers/voters_controller.rb:46
+msgid ""
+"<strong>Successfully verified</strong>, you can now take part in the participa"
+"tory budgeting process."
+msgstr ""
+
+#: ../../../app/controllers/voting/proposals_controller.rb:41
+msgid "There was an error while trying to register your vote."
+msgstr ""
+
+#: ../../../app/controllers/voting/proposals_controller.rb:50
+msgid "You need to <strong>sign in</strong> in order to view your vote."
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:15
+msgid "Birth date"
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:15
+msgid "Document"
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:16
+msgid "Pending"
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:16
+msgid "Completed"
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:16
+msgid "Discarded"
+msgstr ""
+
+#: ../../../app/helpers/application_helper.rb:16
+msgid "In progress"
+msgstr ""
+
+#: ../../../app/helpers/monitoring/proposals_helper.rb:4
+msgid "No comments"
+msgstr ""
+
+#: ../../../app/helpers/monitoring/proposals_helper.rb:5
+msgid "comment"
+msgstr ""
+
+#: ../../../app/helpers/monitoring/proposals_helper.rb:9
+msgid "Voter"
+msgstr ""
+
+#: ../../../app/helpers/monitoring/proposals_helper.rb:13
+msgid "%{time} ago"
+msgstr ""
+
+#: ../../../app/mailers/voter_mailer.rb:4
+msgid "Voter verification token"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000000.rb:2
+#: ../../../tmp/translation/haml-gettext-00000001.rb:2
+#: ../../../tmp/translation/haml-gettext-00000020.rb:2
+#: ../../../tmp/translation/haml-gettext-00000021.rb:2
+#: ../../../tmp/translation/haml-gettext-00000025.rb:2
+#: ../../../tmp/translation/haml-gettext-00000026.rb:2
+#: ../../../tmp/translation/haml-gettext-00000098.rb:2
+#: ../../../tmp/translation/haml-gettext-00000099.rb:2
+msgid "Back"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000002.rb:2
+msgid "Campaign"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000003.rb:2
+msgid "None"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000004.rb:2
+msgid "Proposal"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000005.rb:2
+msgid "Title"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000006.rb:2
+msgid "Description"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000007.rb:2
+#: ../../../tmp/translation/haml-gettext-00000057.rb:2
+msgid "Budget"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000008.rb:2
+msgid "Image"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000009.rb:2
+msgid "Delete image"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000010.rb:2
+#: ../../../tmp/translation/haml-gettext-00000058.rb:2
+msgid "District"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000011.rb:2
+#: ../../../tmp/translation/haml-gettext-00000060.rb:2
+msgid "Area"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000012.rb:2
+#: ../../../tmp/translation/haml-gettext-00000061.rb:2
+msgid "Tags"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000013.rb:2
+msgid "Monitoring"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000014.rb:2
+msgid "The proposal has been brought to completion"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000015.rb:2
+msgid "Save"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000016.rb:2
+msgid "Edit proposal"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000017.rb:2
+msgid "Proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000018.rb:2
+#: ../../../tmp/translation/haml-gettext-00000019.rb:2
+msgid "New proposal"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000022.rb:2
+#: ../../../tmp/translation/haml-gettext-00000046.rb:2
+msgid "OpenBudgets"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000023.rb:2
+msgid "Monitor chosen proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000024.rb:2
+#: ../../../tmp/translation/haml-gettext-00000097.rb:2
+msgid "There are no proposals for those filters"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000027.rb:2
+msgid "The voted proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000028.rb:2
+msgid "%{campaign} voted proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000029.rb:2
+msgid "Welcome to Gotham's Participatory Budgeting process"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000030.rb:2
+msgid "You decide where the money goes"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000031.rb:2
+msgid "Process announcement"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000032.rb:2
+msgid "Process voting"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000033.rb:2
+msgid ""
+"You can choose as many proposals as you want, as long as all the available bud"
+"get is not allocated."
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000034.rb:2
+msgid "Start voting"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000035.rb:2
+msgid "Process result"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000036.rb:2
+msgid ""
+"The participatory process is finished and the proposals are voted. You can now"
+" monitor the progress of the chosen proposals."
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000037.rb:2
+msgid "Start monitoring"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000038.rb:2
+#: ../../../tmp/translation/haml-gettext-00000044.rb:2
+msgid "Privacy policy"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000039.rb:2
+#: ../../../tmp/translation/haml-gettext-00000041.rb:2
+msgid ""
+"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dol"
+"oremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore verit"
+"atis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam vo"
+"luptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntu"
+"r magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisqua"
+"m est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed"
+" quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliqua"
+"m quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ul"
+"lam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Q"
+"uis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil"
+" molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pa"
+"riatur?"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000040.rb:2
+#: ../../../tmp/translation/haml-gettext-00000043.rb:2
+msgid "Terms of service"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000042.rb:2
+msgid ""
+"<a class='logo-open-budgets' href='http://openbudgets.eu/' target='_blank' tit"
+"le='OpenBudgets.eu'><img src='%{logo_openbudgets}' alt='OpenBudgets.eu'/></a><"
+"a href='https://github.com/openbudgets/participatory-budgeting' target='_blank"
+"' title='Participatory Badgeting'>Participatory Budgeting Tool</a> is develope"
+"d by <a class='logo-civio' href='http://civio.es/' target='_blank' title='Civi"
+"o'><img src='%{logo_civio}' alt='Civio'/></a>"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000045.rb:2
+msgid ""
+"OpenBudgets.eu has received funding from the European Union's <a href='https:/"
+"/ec.europa.eu/programmes/horizon2020/' target='_blank', title='H2020 EU resear"
+"ch and innovation programme'>H2020 EU research and innovation programme</a> un"
+"der grant agreement <a href='http://cordis.europa.eu/project/rcn/194394_en.htm"
+"l' target='_blank'>No 645833</a>."
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000047.rb:2
+msgid "Welcome %{current_voter}"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000048.rb:2
+#: ../../../tmp/translation/haml-gettext-00000049.rb:2
+msgid "Process"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000050.rb:2
+#: ../../../tmp/translation/haml-gettext-00000051.rb:2
+msgid "Admin"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000052.rb:2
+#: ../../../tmp/translation/haml-gettext-00000053.rb:2
+msgid "Sign out"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000054.rb:2
+#: ../../../tmp/translation/haml-gettext-00000055.rb:2
+#: ../../../tmp/translation/haml-gettext-00000088.rb:2
+msgid "Sign in / Register"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000056.rb:2
+msgid "Filter by"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000059.rb:2
+msgid "All districts"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000062.rb:2
+msgid "Share on Twitter"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000063.rb:2
+msgid "Share on Facebook"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000064.rb:2
+msgid "Share on Google Plus"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000065.rb:2
+#: ../../../tmp/translation/haml-gettext-00000066.rb:2
+msgid "Edit"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000067.rb:2
+#: ../../../tmp/translation/haml-gettext-00000069.rb:2
+msgid "Delete"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000068.rb:2
+msgid "Are you sure?"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000070.rb:2
+msgid "Votes"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000071.rb:2
+msgid "Votes: %{votes}"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000072.rb:2
+msgid "Status"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000073.rb:2
+#: ../../../tmp/translation/haml-gettext-00000075.rb:2
+msgid "Leave a comment..."
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000074.rb:2
+msgid "Reply"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000076.rb:2
+msgid "%{votes} vote"
+msgid_plural "%{votes} votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../../../tmp/translation/haml-gettext-00000077.rb:2
+#: ../../../tmp/translation/haml-gettext-00000080.rb:2
+msgid "More Info"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000078.rb:2
+#: ../../../tmp/translation/haml-gettext-00000079.rb:2
+msgid "Monitor"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000081.rb:2
+msgid "Voted"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000082.rb:2
+msgid "Vote"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000083.rb:2
+#: ../../../tmp/translation/haml-gettext-00000084.rb:2
+msgid "Sign in for vote"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000085.rb:2
+msgid "This is your verification token:"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000086.rb:2
+msgid "Please confirm your verification status by following this link:"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000087.rb:2
+msgid "Thanks!"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000089.rb:2
+msgid "Email address"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000090.rb:2
+msgid "Email me a link to sign in"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000091.rb:2
+msgid "Please provide your name"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000092.rb:2
+msgid "Name"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000093.rb:2
+msgid "Continue"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000094.rb:2
+msgid "Vote your favourite proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000095.rb:2
+msgid "Finish"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000096.rb:2
+msgid "Total amount"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000100.rb:2
+msgid "Your voted proposals"
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000101.rb:2
+msgid "My voted proposals"
+msgstr ""
