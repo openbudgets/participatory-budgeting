@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :error
 
+  before_action :set_locale
+
   def current_voter
     @current_voter ||= Voter.find_by(id: session[:voter])
   end
@@ -37,5 +39,16 @@ class ApplicationController < ActionController::Base
 
   def xhr_request?
     request.headers['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
+  end
+
+  def default_url_options(options = {})
+    options.merge(locale: I18n.locale)
   end
 end

@@ -64,7 +64,8 @@ class VotersControllerTest < ActionDispatch::IntegrationTest
     }
     post voters_path, params: params
     assert flash[:error]
-    assert_redirected_to new_voter_path
+    assert_response :redirect
+    assert_match new_voter_path, @response.redirect_url
   end
 
   test "should register a voter when secrets aren't required" do
