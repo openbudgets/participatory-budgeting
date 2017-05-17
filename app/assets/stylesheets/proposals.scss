@@ -3,9 +3,10 @@
 .vote-header{
   background: white;
   border-bottom: 1px solid $gray-lighter;
+  padding: 1rem 0;
 
   .vote-progress{
-    padding: 1rem 0 2.5rem;
+    padding: 0 0 1.5rem;
     margin: 0;
     //border-top: 1px solid $card-border-color;
     //border-bottom: 1px solid $card-border-color;
@@ -44,7 +45,8 @@
     }
   }
 
-  #vote-finish{
+  #vote-finish,
+  #new-proposal{
     font-size: 1.125rem;
     line-height: 1.5rem;
     letter-spacing: 0.03rem;
@@ -54,7 +56,7 @@
   @include media-breakpoint-up(md) {
 
     .vote-progress{
-      padding-bottom: 1rem;
+      padding-bottom: 0;
 
       .vote-progress-title{
         display: block;
@@ -64,7 +66,8 @@
       }
     }
 
-    #vote-finish{
+    #vote-finish,
+    #new-proposal{
       line-height: 1.75rem;
     }
   }
@@ -198,10 +201,11 @@
   }
 
   .proposal-budget{
-    float: left;
-    font-size: 1.125rem;
+    display: inline-block;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 1.375rem;
+    line-height: 1.5rem;
+    padding: 0.5rem 0.5rem;
 
     strong{
       font-weight: 600;
@@ -217,10 +221,16 @@
     }
 
     h2, h3{
-      margin-top: 0.25rem;
+      margin-top: 1rem;
       margin-bottom: 1rem;
       font-weight: 600;
     }
+  }
+
+  .proposal-image{
+    width: 100%;
+    height: auto;
+    margin: 0 1rem 1rem 0
   }
 
   .proposal-description{
@@ -281,11 +291,13 @@
     margin-bottom: 1rem;
 
     .tag{
-      margin-right: 0.1rem;
+      display: inline-block;
+      margin-right: 0.5rem;
       margin-bottom: 0.25rem;
 
       .icon{
-        margin-right: 0.125rem;
+        margin-right: 2px;
+        margin-top: 2px;
       }
     }
   }
@@ -492,11 +504,25 @@
       margin-top: 0.75rem;
     }
 
+    .proposal-title{
+      h2, h3{
+        margin-top: 0.25rem;
+        margin-right: 120px;  // add margin-right to avoid overlaping with proposal-budget box
+      }
+    }
+
     .proposal-budget{
-      font-size: 1.25rem;
-      padding: 0.25rem 0.5rem;
+      //font-size: 1.25rem;
+      //padding: 0.25rem 0.5rem;
+      line-height: 1.5rem;
+      padding: 0.5rem 0.5rem;
       background: $card-cap-bg;
       border-radius: $card-border-radius-inner;
+    }
+
+    .proposal-image{
+      float: left;
+      width: 33%;
     }
   }
 }

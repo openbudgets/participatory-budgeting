@@ -1,6 +1,6 @@
 .card
   .card-block.row
-    .col-lg-9
+    .col-lg-12
       .card-header.proposal-budget
         %strong
           = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
@@ -13,6 +13,8 @@
         .proposal-title
           %h3
             = proposal.title
+      - if proposal.image.present?
+        = image_tag proposal.image_url, class: 'proposal-image'
       - unless proposal.description.blank?
         - if controller.action_name == 'show'
           %p.proposal-description
@@ -22,10 +24,6 @@
             = truncate(proposal.description, length: 230, separator: ' ')
           %a.btn.btn-outline-primary.btn-sm.more-info-btn{ href: voting_proposal_path(proposal.id), title: proposal.title }
             = _('More Info')
-    .col-lg-3
-      - if proposal.image.present?
-        = image_tag proposal.image_url, class: 'proposal-image', style: 'width: 100%; height: auto;'
-    .col-lg-12
       = render 'partials/proposal-classifiers-list', classifiers: proposal.classifiers
       - if controller.action_name == 'show'
         = render 'partials/social-sharer', title: proposal.title
