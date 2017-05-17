@@ -86,7 +86,6 @@ header{
   }
 }
 
-
 // Main
 
 .main-container{
@@ -201,7 +200,8 @@ header{
 // Alert
 
 .alerts-container{
-  background: white;
+  background: $vote-header-color;
+  padding: 1px;
 }
 
 .alert{
@@ -216,7 +216,7 @@ header{
 // Page Title
 
 .page-title{
-  background: white;
+  background: $vote-header-color;
 
   h2{
     color: $brand-primary;

@@ -1,7 +1,7 @@
 // Vote header
 
 .vote-header{
-  background: white;
+  background: $vote-header-color;
   border-bottom: 1px solid $gray-lighter;
   padding: 1rem 0;
 
@@ -10,7 +10,7 @@
     margin: 0;
     //border-top: 1px solid $card-border-color;
     //border-bottom: 1px solid $card-border-color;
-    background: white;
+    background: $vote-header-color;
 
     .vote-progress-bar{
       height: 1.5rem;
