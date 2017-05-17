@@ -21,7 +21,7 @@
               = f.label _('Image')
               - if @proposal.image.present?
                 .card-block
-                  = image_tag @proposal.image_url, class: 'proposal-image'
+                  = image_tag @proposal.image_url, class: 'proposal-image', style: 'width: 100%; height: auto;'
                   = f.submit _('Delete image'), name: :delete_image, class: 'btn btn-secondary btn-sm'
               = f.hidden_field :image, value: @proposal.cached_image_data
               = f.file_field :image, class: 'form-control'
