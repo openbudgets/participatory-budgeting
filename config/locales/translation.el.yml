@@ -8,12 +8,19 @@
 el:
   errors:
     messages:
-      equal_to: πρέπει να είναι ίσο με %{count}
-      not_a_date: 
-      after: 
-      after_or_equal_to: 
-      before: 
-      before_or_equal_to: 
-    unacceptable_request: 
-    connection_refused: 
-    unavailable_session: 
+      equal_to: πρέπει να είναι ίσο με %{date}
+      not_a_date: δεν είναι ημερομηνία
+      after: Πρέπει να είναι μετά από %{date}
+      after_or_equal_to: Πρέπει να είναι μετά ή ίσο με %{date}
+      before: Πρέπει να είναι πριν από %{date}
+      before_or_equal_to: Πρέπει να είναι πριν ή ίσο με %{date}
+    unacceptable_request: 'Μια υποστηριζόμενη έκδοση αναμένεται στην κεφαλίδα Accept.
+
+'
+    connection_refused: |
+      Ωχχχ! Δεν ήταν δυνατή η σύνδεση με τη Web Console.
+      Βεβαιωθείτε ότι εκτελείται ένας διακομιστής ανάπτυξης rails.
+    unavailable_session: |
+      Η περίοδος λειτουργίας %{id} δεν είναι πλέον διαθέσιμη στη μνήμη.
+
+      Εάν τυχαίνει να τρέχετε σε έναν διακομιστή πολλαπλών διεργασιών (όπως Unicorn ή Puma) τη διαδικασία, το hit request δεν αποθηκεύει το %{id} στη μνήμη. Σκεφτείτε να μετατρέψετε τον αριθμό των διαδικασιών σε μία (1) ή χρησιμοποιείστε διαφορετικό διακομιστή.

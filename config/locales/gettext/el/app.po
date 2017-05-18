@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-05-16 05:40+0200\n"
-"PO-Revision-Date: 2017-05-16 05:40+0200\n"
+"POT-Creation-Date: 2017-05-18 07:42+0200\n"
+"PO-Revision-Date: 2017-05-18 07:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Greek, Modern (1453-)\n"
 "Language: el\n"
@@ -20,27 +20,29 @@ msgstr ""
 
 #: ../../../app/controllers/admin/proposals_controller.rb:23
 msgid "Proposal was successfully created."
-msgstr ""
+msgstr "Η πρόταση δημιουργήθηκε επιτυχώς."
 
 #: ../../../app/controllers/admin/proposals_controller.rb:33
 msgid "Proposal was successfully updated."
-msgstr ""
+msgstr "Η πρόταση ενημερώθηκε επιτυχώς."
 
 #: ../../../app/controllers/admin/proposals_controller.rb:42
 msgid "Proposal was successfully destroyed."
-msgstr ""
+msgstr "Η πρόταση διαγράφηκε επιτυχώς."
 
 #: ../../../app/controllers/admin_controller.rb:7
 msgid "<strong>Admin role is necessary</strong> in order to access the admin area."
 msgstr ""
+"<strong>Απαιτούνται δικαιώματα Διαχειριστή</strong> για να έχετε πρόσβαση στην"
+" διαχειριστική περιοχή."
 
 #: ../../../app/controllers/monitoring/comments_controller.rb:6
 msgid "Your comment was successfully registered."
-msgstr ""
+msgstr "Το σχόλιο σας καταχωρήθηκε επιτυχώς. "
 
 #: ../../../app/controllers/monitoring/comments_controller.rb:8
 msgid "There was a problem registering your comment."
-msgstr ""
+msgstr "Παρουσιάστηκε πρόβλημα κατά την εγγραφή του σχολίου σας."
 
 #: ../../../app/controllers/pages_controller.rb:4
 #: ../../../app/controllers/voting/proposals_controller.rb:4
@@ -48,86 +50,99 @@ msgid ""
 "<strong>Verification pending</strong>, please see your inbox for further instr"
 "uctions."
 msgstr ""
+"<strong>Εκκρεμής επαλήθευση</strong>, παρακαλώ ελέγξτε τα εισερχόμενα του ηλεκ"
+"τρονικού σας ταχυδρομείου για αναλυτικότερες οδηγίες."
 
 #: ../../../app/controllers/voters_controller.rb:12
 msgid ""
 "We've sent you a <strong>verification token</strong>, please see your inbox fo"
 "r further instructions."
 msgstr ""
+"Σας έχουμε στείλει ένα <strong>token επαλήθευσης</strong>, παρακαλώ ελέγξτε τα"
+" εισερχόμενα του ηλεκτρονικού ταχυδρομείου σας για περαιτέρω πληροφορίες."
 
 #: ../../../app/controllers/voters_controller.rb:14
 msgid ""
 "Something went wrong with the registration process. Please, <strong>try again<"
 "/strong>."
 msgstr ""
+"Κάτι πήγε στραβά με τη διαδικασία εγγραφής. Παρακαλώ, <Strong> δοκιμάστε ξανά "
+"</ strong>."
 
 #: ../../../app/controllers/voters_controller.rb:27
 msgid ""
 "Something went wrong with the verification process. Please, <strong>try again<"
 "/strong>."
 msgstr ""
+"Κάτι πήγε στραβά με τη διαδικασία επαλήθευσης. Παρακαλώ, <Strong> δοκιμάστε ξα"
+"νά </ strong>."
 
 #: ../../../app/controllers/voters_controller.rb:37
 msgid "<strong>Successfully signed out</strong>, sign in again to review your votes."
 msgstr ""
+"<strong>Επιτυχής αποσύνδεση</strong>, συνδεθείτε ξανά για να ανασκοπήσετε τις "
+"ψήφους σας."
 
 #: ../../../app/controllers/voters_controller.rb:46
 msgid ""
 "<strong>Successfully verified</strong>, you can now take part in the participa"
 "tory budgeting process."
 msgstr ""
+"<strong>Επιτυχής επαλήθευση</strong>, μπορείτε τώρα να συμμετάσχετε στη διαδικ"
+"ασία του συμμετοχικού προϋπολογισμούyou can now take part in the participatory"
+" budgeting process."
 
 #: ../../../app/controllers/voting/proposals_controller.rb:41
 msgid "There was an error while trying to register your vote."
-msgstr ""
+msgstr "Παρουσιάστηκε σφάλμα κατά την προσπάθεια εγγραφής της ψήφου σας."
 
 #: ../../../app/controllers/voting/proposals_controller.rb:50
 msgid "You need to <strong>sign in</strong> in order to view your vote."
-msgstr ""
+msgstr "Πρέπει να <strong> να συνδεθείτε </ strong> για να δείτε την ψήφο σας."
 
 #: ../../../app/helpers/application_helper.rb:15
 msgid "Birth date"
-msgstr ""
+msgstr "Ημερομηνία γέννησης"
 
 #: ../../../app/helpers/application_helper.rb:15
 msgid "Document"
-msgstr ""
+msgstr "Έγγραφο"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Pending"
-msgstr ""
+msgstr "Εκκρεμεί"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Completed"
-msgstr ""
+msgstr "Ολοκληρώθηκε"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Discarded"
-msgstr ""
+msgstr "Απορριφθέν"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "In progress"
-msgstr ""
+msgstr "Σε εξέλιξη"
 
 #: ../../../app/helpers/monitoring/proposals_helper.rb:4
 msgid "No comments"
-msgstr ""
+msgstr "Κανένα σχόλιο"
 
 #: ../../../app/helpers/monitoring/proposals_helper.rb:5
 msgid "comment"
-msgstr ""
+msgstr "σχόλιο"
 
 #: ../../../app/helpers/monitoring/proposals_helper.rb:9
 msgid "Voter"
-msgstr ""
+msgstr "Ψηφοφόρος"
 
 #: ../../../app/helpers/monitoring/proposals_helper.rb:13
 msgid "%{time} ago"
-msgstr ""
+msgstr "%{time} πριν"
 
 #: ../../../app/mailers/voter_mailer.rb:4
 msgid "Voter verification token"
-msgstr ""
+msgstr "Token επαλήθευσης ψηφοφόρου"
 
 #: ../../../tmp/translation/haml-gettext-00000000.rb:2
 #: ../../../tmp/translation/haml-gettext-00000001.rb:2
@@ -138,102 +153,102 @@ msgstr ""
 #: ../../../tmp/translation/haml-gettext-00000098.rb:2
 #: ../../../tmp/translation/haml-gettext-00000099.rb:2
 msgid "Back"
-msgstr ""
+msgstr "Πίσω"
 
 #: ../../../tmp/translation/haml-gettext-00000002.rb:2
 msgid "Campaign"
-msgstr ""
+msgstr "Πρόταση"
 
 #: ../../../tmp/translation/haml-gettext-00000003.rb:2
 msgid "None"
-msgstr ""
+msgstr "Κανένα"
 
 #: ../../../tmp/translation/haml-gettext-00000004.rb:2
 msgid "Proposal"
-msgstr ""
+msgstr "Πρόταση"
 
 #: ../../../tmp/translation/haml-gettext-00000005.rb:2
 msgid "Title"
-msgstr ""
+msgstr "Τίτλος"
 
 #: ../../../tmp/translation/haml-gettext-00000006.rb:2
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 #: ../../../tmp/translation/haml-gettext-00000007.rb:2
 #: ../../../tmp/translation/haml-gettext-00000057.rb:2
 msgid "Budget"
-msgstr ""
+msgstr "Προϋπολογισμός"
 
 #: ../../../tmp/translation/haml-gettext-00000008.rb:2
 msgid "Image"
-msgstr ""
+msgstr "Εικόνα"
 
 #: ../../../tmp/translation/haml-gettext-00000009.rb:2
 msgid "Delete image"
-msgstr ""
+msgstr "Διαγραφή εικόνας"
 
 #: ../../../tmp/translation/haml-gettext-00000010.rb:2
 #: ../../../tmp/translation/haml-gettext-00000058.rb:2
 msgid "District"
-msgstr ""
+msgstr "Διαμέρισμα"
 
 #: ../../../tmp/translation/haml-gettext-00000011.rb:2
 #: ../../../tmp/translation/haml-gettext-00000060.rb:2
 msgid "Area"
-msgstr ""
+msgstr "Περιοχή"
 
 #: ../../../tmp/translation/haml-gettext-00000012.rb:2
 #: ../../../tmp/translation/haml-gettext-00000061.rb:2
 msgid "Tags"
-msgstr ""
+msgstr "Ετικέτες"
 
 #: ../../../tmp/translation/haml-gettext-00000013.rb:2
 msgid "Monitoring"
-msgstr ""
+msgstr "Παρακολούθηση"
 
 #: ../../../tmp/translation/haml-gettext-00000014.rb:2
 msgid "The proposal has been brought to completion"
-msgstr ""
+msgstr "Η πρόταση ολοκληρώθηκε"
 
 #: ../../../tmp/translation/haml-gettext-00000015.rb:2
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: ../../../tmp/translation/haml-gettext-00000016.rb:2
 msgid "Edit proposal"
-msgstr ""
+msgstr "Επεξεργασία πρότασης"
 
 #: ../../../tmp/translation/haml-gettext-00000017.rb:2
 msgid "Proposals"
-msgstr ""
+msgstr "Προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000018.rb:2
 #: ../../../tmp/translation/haml-gettext-00000019.rb:2
 msgid "New proposal"
-msgstr ""
+msgstr "Νέα πρόταση"
 
 #: ../../../tmp/translation/haml-gettext-00000022.rb:2
 #: ../../../tmp/translation/haml-gettext-00000046.rb:2
 msgid "OpenBudgets"
-msgstr ""
+msgstr "OpenBudgets"
 
 #: ../../../tmp/translation/haml-gettext-00000023.rb:2
 msgid "Monitor chosen proposals"
-msgstr ""
+msgstr "Παρακολουθήστε τις επιλεγμένες προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000024.rb:2
 #: ../../../tmp/translation/haml-gettext-00000097.rb:2
 msgid "There are no proposals for those filters"
-msgstr ""
+msgstr "Δεν υπάρχουν προτάσεις που να εκπληρούν τα φίλτρα"
 
 #: ../../../tmp/translation/haml-gettext-00000027.rb:2
 msgid "The voted proposals"
-msgstr ""
+msgstr "Οι ψηφισμένες προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000028.rb:2
 msgid "%{campaign} voted proposals"
-msgstr ""
+msgstr "%{campaign} ψηφισμένες προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000029.rb:2
 msgid "Welcome to Gotham's Participatory Budgeting process"
@@ -241,44 +256,48 @@ msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000030.rb:2
 msgid "You decide where the money goes"
-msgstr ""
+msgstr "Εσείς αποφασίζετε πως θα ξοδευτούν τα χρήματα"
 
 #: ../../../tmp/translation/haml-gettext-00000031.rb:2
 msgid "Process announcement"
-msgstr ""
+msgstr "Ανακοίνωση διαδικασίας"
 
 #: ../../../tmp/translation/haml-gettext-00000032.rb:2
 msgid "Process voting"
-msgstr ""
+msgstr "Ψηφοφορία διαδικασίας"
 
 #: ../../../tmp/translation/haml-gettext-00000033.rb:2
 msgid ""
 "You can choose as many proposals as you want, as long as all the available bud"
 "get is not allocated."
 msgstr ""
+"Μπορείτε να επιλέξετε όσες προτάσεις θέλετε, εφόσον δεν έχει διατεθεί όλος ο δ"
+"ιαθέσιμος προϋπολογισμός."
 
 #: ../../../tmp/translation/haml-gettext-00000034.rb:2
 msgid "Start voting"
-msgstr ""
+msgstr "Έναρξη ψηφοφορίας"
 
 #: ../../../tmp/translation/haml-gettext-00000035.rb:2
 msgid "Process result"
-msgstr ""
+msgstr "Αποτέλεσμα διαδικασίας"
 
 #: ../../../tmp/translation/haml-gettext-00000036.rb:2
 msgid ""
 "The participatory process is finished and the proposals are voted. You can now"
 " monitor the progress of the chosen proposals."
 msgstr ""
+"Η συμμετοχική διαδικασία έχει ολοκληρωθεί και οι βρίσκονται υπό ψήφιση. Τώρα μ"
+"πορείτε να παρακολουθείτε την πρόοδο των επιλεγμένων προτάσεων."
 
 #: ../../../tmp/translation/haml-gettext-00000037.rb:2
 msgid "Start monitoring"
-msgstr ""
+msgstr "Έναρξη παρακολούθησης"
 
 #: ../../../tmp/translation/haml-gettext-00000038.rb:2
 #: ../../../tmp/translation/haml-gettext-00000044.rb:2
 msgid "Privacy policy"
-msgstr ""
+msgstr "Πολιτική Προστασίας Προσωπικών Δεδομένων"
 
 #: ../../../tmp/translation/haml-gettext-00000039.rb:2
 #: ../../../tmp/translation/haml-gettext-00000041.rb:2
@@ -300,7 +319,7 @@ msgstr ""
 #: ../../../tmp/translation/haml-gettext-00000040.rb:2
 #: ../../../tmp/translation/haml-gettext-00000043.rb:2
 msgid "Terms of service"
-msgstr ""
+msgstr "Όροι χρήσης"
 
 #: ../../../tmp/translation/haml-gettext-00000042.rb:2
 msgid ""
@@ -311,6 +330,12 @@ msgid ""
 "d by <a class='logo-civio' href='http://civio.es/' target='_blank' title='Civi"
 "o'><img src='%{logo_civio}' alt='Civio'/></a>"
 msgstr ""
+"<a class='logo-open-budgets' href='http://openbudgets.eu/' target='_blank' tit"
+"le='OpenBudgets.eu'><img src='%{logo_openbudgets}' alt='OpenBudgets.eu'/></a> "
+"Η εφαρμογή <a href='https://github.com/openbudgets/participatory-budgeting' ta"
+"rget='_blank' title='Συμμετοχικός Προϋπολογισμός'>Συμμετοχικός Προϋπολογισμός<"
+"/a> αναπτύχθηκε από το <a class='logo-civio' href='http://civio.es/' target='_"
+"blank' title='Civio'><img src='%{logo_civio}' alt='Civio'/></a>"
 
 #: ../../../tmp/translation/haml-gettext-00000045.rb:2
 msgid ""
@@ -320,164 +345,171 @@ msgid ""
 "der grant agreement <a href='http://cordis.europa.eu/project/rcn/194394_en.htm"
 "l' target='_blank'>No 645833</a>."
 msgstr ""
+"To OpenBudgets.eu έχει λάβει χρηματοδότηση από το ερευνητικό πρόγραμμα της Ευρ"
+"ωπαϊκής Ένωσης <a href='https://ec.europa.eu/programmes/horizon2020/' target='"
+"_blank', title='Πρόγραμμα Έρευνας και Καινοτομίας Ορίζοντας 2020'>Ορίζοντας 20"
+"20 </a> με αριθμό σύμβασης <a href='http://cordis.europa.eu/project/rcn/194394"
+"_en.html' target='_blank'>No 645833</a>."
 
 #: ../../../tmp/translation/haml-gettext-00000047.rb:2
 msgid "Welcome %{current_voter}"
-msgstr ""
+msgstr "Καλώς ήλθες %{current_voter}"
 
 #: ../../../tmp/translation/haml-gettext-00000048.rb:2
 #: ../../../tmp/translation/haml-gettext-00000049.rb:2
 msgid "Process"
-msgstr ""
+msgstr "Διαδικασία"
 
 #: ../../../tmp/translation/haml-gettext-00000050.rb:2
 #: ../../../tmp/translation/haml-gettext-00000051.rb:2
 msgid "Admin"
-msgstr ""
+msgstr "Διαχειριστής"
 
 #: ../../../tmp/translation/haml-gettext-00000052.rb:2
 #: ../../../tmp/translation/haml-gettext-00000053.rb:2
 msgid "Sign out"
-msgstr ""
+msgstr "Αποσύνδεση"
 
 #: ../../../tmp/translation/haml-gettext-00000054.rb:2
 #: ../../../tmp/translation/haml-gettext-00000055.rb:2
 #: ../../../tmp/translation/haml-gettext-00000088.rb:2
 msgid "Sign in / Register"
-msgstr ""
+msgstr "Είσοδος / Εγγραφή"
 
 #: ../../../tmp/translation/haml-gettext-00000056.rb:2
 msgid "Filter by"
-msgstr ""
+msgstr "Φιλτράρισμα ανά"
 
 #: ../../../tmp/translation/haml-gettext-00000059.rb:2
 msgid "All districts"
-msgstr ""
+msgstr "Όλα τα διαμερίσματα"
 
 #: ../../../tmp/translation/haml-gettext-00000062.rb:2
 msgid "Share on Twitter"
-msgstr ""
+msgstr "Κοινοποίηση στο Twitter"
 
 #: ../../../tmp/translation/haml-gettext-00000063.rb:2
 msgid "Share on Facebook"
-msgstr ""
+msgstr "Κοινοποίηση στο Facebook"
 
 #: ../../../tmp/translation/haml-gettext-00000064.rb:2
 msgid "Share on Google Plus"
-msgstr ""
+msgstr "Κοινοποίηση στο Google Plus"
 
 #: ../../../tmp/translation/haml-gettext-00000065.rb:2
 #: ../../../tmp/translation/haml-gettext-00000066.rb:2
 msgid "Edit"
-msgstr ""
+msgstr "Επεξεργασία"
 
 #: ../../../tmp/translation/haml-gettext-00000067.rb:2
 #: ../../../tmp/translation/haml-gettext-00000069.rb:2
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 #: ../../../tmp/translation/haml-gettext-00000068.rb:2
 msgid "Are you sure?"
-msgstr ""
+msgstr "Είστε σίγουρος;"
 
 #: ../../../tmp/translation/haml-gettext-00000070.rb:2
 msgid "Votes"
-msgstr ""
+msgstr "Ψήφοι"
 
 #: ../../../tmp/translation/haml-gettext-00000071.rb:2
 msgid "Votes: %{votes}"
-msgstr ""
+msgstr "Ψήφοι: %{votes}"
 
 #: ../../../tmp/translation/haml-gettext-00000072.rb:2
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 #: ../../../tmp/translation/haml-gettext-00000073.rb:2
 #: ../../../tmp/translation/haml-gettext-00000075.rb:2
 msgid "Leave a comment..."
-msgstr ""
+msgstr "Αφήστε ένα σχόλιο..."
 
 #: ../../../tmp/translation/haml-gettext-00000074.rb:2
 msgid "Reply"
-msgstr ""
+msgstr "Απαντήστε"
 
 #: ../../../tmp/translation/haml-gettext-00000076.rb:2
 msgid "%{votes} vote"
 msgid_plural "%{votes} votes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{votes} ψήφος"
+msgstr[1] "%{votes} ψήφοι"
 
 #: ../../../tmp/translation/haml-gettext-00000077.rb:2
 #: ../../../tmp/translation/haml-gettext-00000080.rb:2
 msgid "More Info"
-msgstr ""
+msgstr "Περισσότερες πληροφορίες"
 
 #: ../../../tmp/translation/haml-gettext-00000078.rb:2
 #: ../../../tmp/translation/haml-gettext-00000079.rb:2
 msgid "Monitor"
-msgstr ""
+msgstr "Παρακολουθήστε"
 
 #: ../../../tmp/translation/haml-gettext-00000081.rb:2
 msgid "Voted"
-msgstr ""
+msgstr "Ψηφισμένο"
 
 #: ../../../tmp/translation/haml-gettext-00000082.rb:2
 msgid "Vote"
-msgstr ""
+msgstr "Ψηφίστε"
 
 #: ../../../tmp/translation/haml-gettext-00000083.rb:2
 #: ../../../tmp/translation/haml-gettext-00000084.rb:2
 msgid "Sign in for vote"
-msgstr ""
+msgstr "Συνδεθείτε για να ψηφίσετε"
 
 #: ../../../tmp/translation/haml-gettext-00000085.rb:2
 msgid "This is your verification token:"
-msgstr ""
+msgstr "Αυτό είναι το token επαλήθευσής σας"
 
 #: ../../../tmp/translation/haml-gettext-00000086.rb:2
 msgid "Please confirm your verification status by following this link:"
 msgstr ""
+"Παρακαλώ, επιβεβαιώστε την κατάσταση επαλήθευσής σας, ακολουθώντας αυτόν τον υ"
+"περσύνδεσμο. "
 
 #: ../../../tmp/translation/haml-gettext-00000087.rb:2
 msgid "Thanks!"
-msgstr ""
+msgstr "Ευχαριστώ!"
 
 #: ../../../tmp/translation/haml-gettext-00000089.rb:2
 msgid "Email address"
-msgstr ""
+msgstr "Διεύθυνση e-mail"
 
 #: ../../../tmp/translation/haml-gettext-00000090.rb:2
 msgid "Email me a link to sign in"
-msgstr ""
+msgstr "Στείλτε μου στο e-mail έναν υπερσύνδεσμο για να συνδεθώ"
 
 #: ../../../tmp/translation/haml-gettext-00000091.rb:2
 msgid "Please provide your name"
-msgstr ""
+msgstr "Καταχωρίστε το όνομά σας"
 
 #: ../../../tmp/translation/haml-gettext-00000092.rb:2
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 #: ../../../tmp/translation/haml-gettext-00000093.rb:2
 msgid "Continue"
-msgstr ""
+msgstr "Συνέχεια"
 
 #: ../../../tmp/translation/haml-gettext-00000094.rb:2
 msgid "Vote your favourite proposals"
-msgstr ""
+msgstr "Ψηφίστε την πρόταση της προτίμησής σας"
 
 #: ../../../tmp/translation/haml-gettext-00000095.rb:2
 msgid "Finish"
-msgstr ""
+msgstr "Τέλος"
 
 #: ../../../tmp/translation/haml-gettext-00000096.rb:2
 msgid "Total amount"
-msgstr ""
+msgstr "Συνολικό ποσό"
 
 #: ../../../tmp/translation/haml-gettext-00000100.rb:2
 msgid "Your voted proposals"
-msgstr ""
+msgstr "Οι προτάσεις που ψηφίσατε"
 
 #: ../../../tmp/translation/haml-gettext-00000101.rb:2
 msgid "My voted proposals"
-msgstr ""
+msgstr "Οι προτάσεις που ψήφισα"
