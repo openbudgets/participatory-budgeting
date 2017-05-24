@@ -18,6 +18,10 @@
       margin-bottom: 0;
     }
 
+    .progress-danger{
+      background-color: $brand-danger;
+    }
+
     .vote-progress-title{
       display: none;
       color: $gray-light;
