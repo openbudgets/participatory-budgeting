@@ -36,7 +36,7 @@ set :bundle_path, "vendor/bundle"
 append :linked_dirs, "vendor/cache", "vendor/bundle"
 
 task :bundle_pack do
-  on roles(:bundle_roles) do
+  on roles(:app) do
     execute "bundle pack --all"
   end
 end
