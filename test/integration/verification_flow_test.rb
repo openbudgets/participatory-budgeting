@@ -9,10 +9,10 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     visit_proposals!
     visit_registration!(redirect: voting_proposals_path)
     post_registration!(expected_redirect: voting_proposals_path)
-    assert_match /verification pending/i, flash[:notice]
+    assert_match /verification pending/i, _(flash[:notice])
 
     visit_home!
-    assert_match /verification pending/i, flash[:notice]
+    assert_match /verification pending/i, _(flash[:notice])
   end
 
   test "should ask the voter for her name" do
@@ -24,7 +24,7 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     get verify_voters_path(token: @voter.verification_token)
     assert_response :success
     assert_not session[:voter]
-    assert_select 'input[type][value]', type: 'submit', value: 'Verify'
+    assert_select 'input[type][value]', type: 'submit', value: _('Verify')
   end
 
   test "shouldn't ask the voter for her name if it is already fulfilled" do
@@ -36,7 +36,7 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     get verify_voters_path(token: @voter.verification_token)
     assert_response :success
     assert_not session[:voter]
-    assert_select 'input[type][value]', type: 'submit', value: 'Verify'
+    assert_select 'input[type][value]', type: 'submit', value: _('Verify')
 
     patch voter_path(@voter), params: { voter: { name: not_blank } }
     @voter.reload
@@ -44,24 +44,24 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     assert_match root_path, @response.redirect_url
     follow_redirect!
     assert_response :success
-    assert_match /successfully verified/i, flash[:success]
+    assert_match /successfully verified/i, _(flash[:success])
     assert_equal @voter.id, session[:voter]
-    assert_select 'a[href]', href: '/voters/signout', text: 'Sign out'
+    assert_select 'a[href]', href: '/voters/signout', text: _('Sign out')
 
     get signout_voters_path
     assert_response :redirect
     assert_match root_path, @response.redirect_url
     follow_redirect!
     assert_response :success
-    assert_match /successfully signed out/i, flash[:success]
+    assert_match /successfully signed out/i, _(flash[:success])
     assert_not session[:voter]
-    assert_select 'a[href]', href: '/voters/new?redirect=%2F', text: 'Sign in / Register'
+    assert_select 'a[href]', href: '/voters/new?redirect=%2F', text: _('Sign in / Register')
 
     visit_proposals!
     visit_registration!(redirect: voting_proposals_path)
     post_registration!(expected_redirect: voting_proposals_path)
     @voter.reload
-    assert_match /verification pending/i, flash[:notice]
+    assert_match /verification pending/i, _(flash[:notice])
     assert_equal voting_proposals_path, session[:redirect]
 
     get verify_voters_path(token: @voter.verification_token)
@@ -69,9 +69,9 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     assert_match voting_proposals_path, @response.redirect_url
     follow_redirect!
     assert_response :success
-    assert_match /successfully verified/i, flash[:success]
+    assert_match /successfully verified/i, _(flash[:success])
     assert_equal @voter.id, session[:voter]
-    assert_select 'a[href]', href: '/voters/signout', text: 'Sign out'
+    assert_select 'a[href]', href: '/voters/signout', text: _('Sign out')
   end
 
   private
@@ -79,19 +79,19 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
   def visit_home!
     get root_path
     assert_response :success
-    assert_select 'a[href]', href: '/voters/new?redirect=%2F', text: 'Sign in / Register'
+    assert_select 'a[href]', href: '/voters/new?redirect=%2F', text: _('Sign in / Register')
   end
 
   def visit_proposals!
     get voting_proposals_path
     assert_response :success
-    assert_select 'a[href]', href: '/voters/new?redirect=%2Fproposals', text: 'Sign in / Register'
+    assert_select 'a[href]', href: '/voters/new?redirect=%2Fproposals', text: _('Sign in / Register')
   end
 
   def visit_registration!(redirect:)
     get new_voter_path(redirect: redirect)
     assert_response :success
-    assert_select 'input[type][value]', type: 'submit', value: 'Register'
+    assert_select 'input[type][value]', type: 'submit', value: _('Register')
     assert_equal redirect, session[:redirect]
   end
 
@@ -102,7 +102,7 @@ class VerificationFlowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert flash[:notice]
-    assert_select 'a[href]', href: "/voters/new?redirect=#{expected_redirect.html_safe}", text: 'Sign in / Register'
+    assert_select 'a[href]', href: "/voters/new?redirect=#{expected_redirect.html_safe}", text: _('Sign in / Register')
     assert session[:verification_pending]
     assert session[:redirect]
   end
