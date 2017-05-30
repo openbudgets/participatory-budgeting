@@ -1,4 +1,6 @@
-ENV['RAILS_ENV'] ||= 'test'
+ENV['RAILS_ENV'] = 'test'
+ENV['DEFAULT_LOCALE'] = 'en'
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
