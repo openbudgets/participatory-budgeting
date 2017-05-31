@@ -41,3 +41,11 @@ task :bundle_pack do
   end
 end
 before 'bundler:install', 'bundle_pack'
+
+# Restarts the application server
+task :application_restart do
+  on roles(:app) do
+    execute :service, fetch(:service_name, "openbudgets"), "restart"
+  end
+end
+before 'deploy:finished', 'application_restart'
