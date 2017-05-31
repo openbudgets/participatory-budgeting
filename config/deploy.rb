@@ -36,8 +36,18 @@ set :bundle_path, "vendor/bundle"
 append :linked_dirs, "vendor/cache", "vendor/bundle"
 
 task :bundle_pack do
-  on roles(:bundle_roles) do
-    execute "bundle pack --all"
+  on roles(:app) do
+    within release_path do
+      execute :bundle, :package, "--all", "--path #{fetch(:bundle_path)}", "--quiet"
+    end
   end
 end
 before 'bundler:install', 'bundle_pack'
+
+# Restarts the application server
+task :application_restart do
+  on roles(:app) do
+    execute :service, fetch(:service_name, "openbudgets"), "restart"
+  end
+end
+before 'deploy:finished', 'application_restart'
