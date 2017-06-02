@@ -7,231 +7,187 @@ civio = Admin::Role.create(email: '@civio.es')
 ## Voters
 
 raul    = Voter.create(email: 'raul@civio.es', verified: true)
+david   = Voter.create(email: 'david@civio.es', verified: true)
 eduardo = Voter.create(email: 'eduardo@civio.es', verified: true)
 
 ## Classifiers
 
 # Districts
-downtown  = District.create(name: 'Downtown')
-suburbs   = District.create(name: 'Suburbs')
-riverland = District.create(name: 'Riverland')
+municipio   = District.create(name: 'Municipio')
+pedanias    = District.create(name: 'Pedanías')
+programas   = District.create(name: 'Programas de actuación')
 
 # Areas
-environment = Area.create(name: 'Environmental Protection')
-culture     = Area.create(name: 'Cultural Affairs')
-sanitation  = Area.create(name: 'Sanitation')
+ambiente  = Area.create(name: 'Medio Ambiente')
+deporte   = Area.create(name: 'Deportes')
+urbanismo = Area.create(name: 'Urbanismo')
+cultura   = Area.create(name: 'Cultura y Patrimonio')
+parques   = Area.create(name: 'Parques y Jardines')
+sanidad   = Area.create(name: 'Sanidad')
 
 # Tags
-garbage   = Tag.create(name: 'Garbage Disposal')
-bicycles  = Tag.create(name: 'Bicycles')
-parks     = Tag.create(name: 'Parks and Recreation')
-libraries = Tag.create(name: 'Libraries')
+energia      = Tag.create(name: 'Energía')
+juegos       = Tag.create(name: 'Juegos')
+equipamiento = Tag.create(name: 'Equipamiento')
+salud        = Tag.create(name: 'Salud')
+accesos      = Tag.create(name: 'Accesos')
+parques      = Tag.create(name: 'Parques')
+movilidad    = Tag.create(name: 'Movilidad')
+espectaculos = Tag.create(name: 'Espectáculos')
+formacion    = Tag.create(name: 'Formación')
 
 ## Campaigns
 
-class Semester
-  def self.current
-    Semester.new
-  end
-
-  def self.previous
-    current.previous
-  end
-
-  def self.next
-    current.next
-  end
-
-  def initialize(season=nil, year=nil)
-    @season = season || Date.today.month <= 6 ? :spring : :fall
-    @year   = year   || Date.today.year
-  end
-
-  def previous
-    previous_semester_season = @season == :spring ? :fall : :spring
-    previous_semester_year = @season == :spring ? @year - 1 : @year
-    @previous ||= Semester.new(previous_semester_season, previous_semester_year)
-  end
-
-  def next
-    next_semester_season = @season == :spring ? :fall : :spring
-    next_semester_year = @season == :spring ? @year : @year + 1
-    @next ||= Semester.new(next_semester_season, next_semester_year)
-  end
-
-  def season
-    @season
-  end
-
-  def year
-    @year
-  end
-
-  def start
-    result = Date.new(@year)
-    result += 6.months if fall?
-    result
-  end
-
-  def end
-    result = Date.new(@year).end_of_year
-    result -= 6.months if spring?
-    result
-  end
-
-  def to_s
-    "#{season.capitalize} #{year}"
-  end
-
-  def spring?
-    @season == :spring
-  end
-
-  def fall?
-    @season == :fall
-  end
-end
-
-def campaign_description_for(semester)
-  case semester.season
-  when :spring
-    <<~EOD.gsub(/\s+/, " ").strip
-      Once more, the annual Spring campaign is up for all the citizens to collaborate on the allocation
-      of the second semester of current year's city budget.
-    EOD
-  when :fall
-    <<~EOD.gsub(/\s+/, " ").strip
-      Once more, the annual Fall campaign is up for all the citizens to collaborate on the allocation
-      of the first semester of next year's city budget.
-    EOD
-  end
-end
-
-closed_campaign  =  Campaign.create(
-                      title: "#{Semester.previous} Campaign",
-                      budget: 114_192.56,
-                      start_date: Semester.previous.start,
-                      end_date: Semester.previous.end,
-                      description: campaign_description_for(Semester.previous),
-                      active: false
-                    )
-open_campaign    =  Campaign.create(
-                      title: "#{Semester.current} Campaign",
-                      budget: 252_343.45,
-                      start_date: Semester.current.start,
-                      end_date: Semester.current.end,
-                      description: campaign_description_for(Semester.current),
-                      active: true
-                    )
-pending_campaign =  Campaign.create(
-                      title: "#{Semester.next} Campaign",
-                      budget: 363_343.45,
-                      start_date: Semester.next.start,
-                      end_date: Semester.next.start,
-                      description: campaign_description_for(Semester.next),
-                      active: false
-                    )
+nov_2016  = Campaign.create(
+              title: "Presupuestos participativos 2016",
+              budget: 160_000.00,
+              start_date: '2016-11-07',
+              end_date: '2017-11-14',
+              active: true,
+              description: <<~EOD.squish
+                El principal objetivo de los presupuestos participativos es
+                fomentar la participación y formar ciudadanos activos. En el
+                proceso de unos presupuestos participativos, son los ciudadanos
+                los que van a decidir en qué se gasta el presupuesto municipal.
+                Por tanto, hablar de presupuestos participativos es hablar de
+                información, transparencia en la gestión, debate y participación
+                directa de los vecinos en los asuntos públicos.
+              EOD
+            )
 
 ## Proposals
 
-trees_1 = Proposal.create(
-            title: 'Trees for Cantina Rd.',
-            budget: 10_000.00,
-            classifiers: [downtown, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              Cantina Rd. is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_1  = Proposal.create(
-            title: 'Playground for the Docks Quarter',
-            budget: 102_344.32,
-            classifiers: [riverland],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Docks quarter lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_1  = Proposal.create(
-            title: 'Bike Lane in Pinetree Area',
-            budget: 4_510.50,
-            classifiers: [suburbs, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              Pinetree Area is a beautiful place to go and ride your bike, but riding among the pedestrians is dangerous for both, the bikers and the pedestrians.
-              Having a dedicated bike lane will improve security and make the visit more enjoyable.
-            EOD
-          )
+municipio_1 = Proposal.create(
+                title: 'Acondicionar el auditorio municipal Tierno Galván (fase 1)',
+                budget: 40_000.00,
+                classifiers: [municipio, cultura, espectaculos],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Destinar 40.000 € a la ejecución de obras de mejora en el
+                  Auditorio. La partida se destinaría a una primera fase que
+                  incluiría la reparación de la estructura del graderío y la
+                  reposición de asientos.
+                EOD
+              )
+municipio_2 = Proposal.create(
+                title: 'Renovación de zona de juegos infantiles',
+                budget: 40_000.00,
+                classifiers: [municipio, parques, juegos],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  La propuesta se centra en la mejora de las áreas de juegos
+                  infantiles en los jardines, priorizando los que más lo
+                  necesiten. Se estudiará la mejora de iluminación en zonas
+                  puntuales, la mejora de los juegos incluyendo juegos adaptados
+                  para niños con discapacidad, la reposición de pavimentos de
+                  losetas, etc.
+                EOD
+              )
+municipio_3 = Proposal.create(
+                title: 'Apertura de las pistas deportivas de los colegios',
+                budget: 20_000.00,
+                classifiers: [municipio, deporte, juegos],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Se propone el vallado de las pistas deportivas de los colegios
+                  Ricardo Codorníu y Antonio Machado, con accesos independientes
+                  para poder utilizarlos fuera del horario escolar.
+                EOD
+              )
+municipio_4 = Proposal.create(
+                title: 'Eficiencia energética en la piscina cubierta municipal',
+                budget: 25_000.00,
+                classifiers: [municipio, deporte, energia],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  La propuesta consiste en la sustitución de las dos calderas
+                  de gas natural actuales por una única modulante, más moderna
+                  y más eficiente. Instalación de sistema de “manta térmica”
+                  para cubrir los vasos de la piscina en los períodos de no
+                  utilización. Evita evaporación y enfriamiento del agua.
+                  Sustitución de toda la iluminación actual por iluminación
+                  LED, mucho más eficiente.
 
-trees_2 = Proposal.create(
-            title: 'Trees for Rodeo Drive',
-            budget: 15_250.25,
-            classifiers: [suburbs, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              Rodeo Drive is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_2  = Proposal.create(
-            title: 'Playground for the Bellefleur Quarter',
-            budget: 50_000.00,
-            classifiers: [suburbs],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Bellefleur quarter lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_2  = Proposal.create(
-            title: 'Bike Lane in the Financial Center',
-            budget: 14_700.00,
-            classifiers: [downtown, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Fiancial Center is a place where communting by bike would be great, but riding among the cars is dangerous for both, the bikers and the drivers.
-              Having a dedicated bike lane will improve security and make the trip more enjoyable.
-            EOD
-          )
+                  Ahorro estimado con estas tres medidas: 12% del coste total
+                  en energía.
+                EOD
+              )
+pedanias_1  = Proposal.create(
+                title: 'Pedanías Cardioprotegidas',
+                budget: 10_000.00,
+                classifiers: [pedanias, sanidad, salud],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Adquirir 5 desfibriladores, uno para cada uno de las pedanías
+                  y realizar campañas de formación a aquellos vecinos que lo
+                  deseen con objetivo de formar espacios cardioprotegidos.
+                EOD
+              )
 
-trees_3 = Proposal.create(
-            title: 'Trees for South Bridge',
-            budget: 8_500.00,
-            classifiers: [riverland, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              South Bridge is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_3  = Proposal.create(
-            title: 'Playground for Downtown',
-            budget: 102_344.32,
-            classifiers: [downtown],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Downtown district lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_3  = Proposal.create(
-            title: 'Bike Lane in North Bridge',
-            budget: 6_130.70,
-            classifiers: [riverland, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              North Bridge is a convenient place to go around the Riverland district, but riding your bike among the pedestrians is dangerous for both, the bikers and the pedestrians.
-              Having a dedicated bike lane will improve security and make the trip more enjoyable.
-            EOD
-          )
+pedanias_2  = Proposal.create(
+                title: 'Senda Gebas - Alhama',
+                budget: 8_000.00,
+                classifiers: [pedanias, urbanismo, accesos],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  La propuesta contempla acondicionar nuevos tramos de los
+                  antiguos senderos de La Muela y los Barrancos de Gebas. Con
+                  ellos se recuperaría uno de los más antiguos recorridos utilizados
+                  por los geberos para venir con sus bestias hasta Alhama (el
+                  resto de los senderos sólo permitían el paso de personas. Por
+                  tanto, se trata de una importante recuperación patrimonial de
+                  repercusión cultural y ambiental.
 
-## Voter secrets
-
-local_1    = VoterSecret.create(data: { document: '53713184D', birth_date: '1974-11-29' })
-local_2    = VoterSecret.create(data: { document: '279793B', birth_date: '1986-10-19' })
-resident_1 = VoterSecret.create(data: { document: 'X07323369A', birth_date: '1945-11-06' })
-resident_2 = VoterSecret.create(data: { document: 'Y01927564M', birth_date: '1945-11-06' })
-foreign_1  = VoterSecret.create(data: { document: '423994F', birth_date: '1990-05-12'})
-foreign_2  = VoterSecret.create(data: { document: '08-VU-2160/16', birth_date: '1998-11-02' })
+                  Esta propuesta está casi en su totalidad incluida en el Proyecto
+                  de recuperación de los senderos tradicionales de la Sierra de
+                  la Muela. De momento, existe financiación fuera de este proceso
+                  para atender los trazados de La Rellana y los corrales de la
+                  casa de Don Lázaro. Sería conveniente esperar a ver los resultados
+                  de los trabajos que ahora van a comenzar y que se van a desarrollar
+                  hasta marzo de 2017 para ver qué partes se pueden llegar a hacer
+                  y cuáles se quedarían para concluir por otra vía presupuestaria.
+                EOD
+              )
+pedanias_3  = Proposal.create(
+                title: 'Colocar marquesinas en las paradas de autobús escolares',
+                budget: 10_000.00,
+                classifiers: [pedanias, urbanismo, movilidad],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Instalación de marquesinas para paradas de autobús escolar en
+                  Venta Aledo y Condado de Alhama (10.000 € por unidad).
+                EOD
+              )
+programas_1 = Proposal.create(
+                title: 'Campaña de sensibilización sobre movilidad reducida',
+                budget: 12_000.00,
+                classifiers: [programas, urbanismo, formacion],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Instalación de escalera en la Atalaya de Torrelodones.
+                EOD
+              )
+programas_2 = Proposal.create(
+                title: 'La bici como medio de transporte',
+                budget: 3_000.00,
+                classifiers: [programas, ambiente, salud],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Acciones para fomentar el uso de la bici en familia y campaña
+                  de concienciación sobre los beneficios de desplazarse en bicicleta
+                  a nivel de salud y a nivel medioambiental.
+                EOD
+              )
+programas_3 = Proposal.create(
+                title: 'Formación cívica y medioambiental',
+                budget: 3_000.00,
+                classifiers: [programas, ambiente, formacion],
+                campaign: nov_2016,
+                description: <<~EOD.squish
+                  Formación para colegios e institutos y agentes de policía para
+                  prevenir las agresiones medioambientales y contra los animales,
+                  saber cómo actuar ante casos e infracciones y promover el respeto
+                  al medio ambiente. Fomentar también la adopción de animales y
+                  su tenencia responsable.
+                EOD
+              )
