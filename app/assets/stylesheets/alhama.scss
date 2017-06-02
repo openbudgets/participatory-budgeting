@@ -1,0 +1,27 @@
+// Alhama styles
+
+.navbar{
+  padding-right: 0;
+
+  .navbar-brand{
+    display: block;
+    width: 263px;
+    height: 76px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url(asset-path('img/alhama-logo.png')) no-repeat center center transparent;
+  }
+}
+
+.home {
+
+  .jumbotron{
+    background-image: url(asset-path('img/alhama-header.jpg'));
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .navbar-user {
+    margin-top: 2.5rem;
+  }
+}
