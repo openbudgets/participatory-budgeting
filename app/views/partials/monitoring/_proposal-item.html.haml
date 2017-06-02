@@ -7,7 +7,7 @@
     .btn.btn-outline-primary.btn-sm.votes-btn
       = n_('%{votes} vote', '%{votes} votes', proposal.votes) % { votes: proposal.votes }
     %div{ class: 'btn btn-outline-primary btn-sm status-btn status-'+proposal.status.to_s }
-      = proposal.status.to_s.humanize
+      = _(proposal.status.to_s.humanize)
   .card-block.row
     .col-lg-9
       - unless controller.action_name == 'show'
