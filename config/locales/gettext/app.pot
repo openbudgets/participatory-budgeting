@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-05-18 07:42+0200\n"
-"PO-Revision-Date: 2017-05-18 07:42+0200\n"
+"POT-Creation-Date: 2017-06-07 22:57+0200\n"
+"PO-Revision-Date: 2017-06-07 22:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -81,7 +81,11 @@ msgstr ""
 msgid "There was an error while trying to register your vote."
 msgstr ""
 
-#: ../../../app/controllers/voting/proposals_controller.rb:50
+#: ../../../app/controllers/voting/proposals_controller.rb:48
+msgid "Your vote has been registered successfully."
+msgstr ""
+
+#: ../../../app/controllers/voting/proposals_controller.rb:51
 msgid "You need to <strong>sign in</strong> in order to view your vote."
 msgstr ""
 
@@ -127,6 +131,32 @@ msgstr ""
 
 #: ../../../app/mailers/voter_mailer.rb:4
 msgid "Voter verification token"
+msgstr ""
+
+#: ../../../test/integration/verification_flow_test.rb:27
+#: ../../../test/integration/verification_flow_test.rb:39
+msgid "Verify"
+msgstr ""
+
+#: ../../../test/integration/verification_flow_test.rb:49
+#: ../../../test/integration/verification_flow_test.rb:74
+#: ../../../tmp/translation/haml-gettext-00000052.rb:2
+#: ../../../tmp/translation/haml-gettext-00000053.rb:2
+msgid "Sign out"
+msgstr ""
+
+#: ../../../test/integration/verification_flow_test.rb:58
+#: ../../../test/integration/verification_flow_test.rb:82
+#: ../../../test/integration/verification_flow_test.rb:88
+#: ../../../test/integration/verification_flow_test.rb:105
+#: ../../../tmp/translation/haml-gettext-00000054.rb:2
+#: ../../../tmp/translation/haml-gettext-00000055.rb:2
+#: ../../../tmp/translation/haml-gettext-00000088.rb:2
+msgid "Sign in / Register"
+msgstr ""
+
+#: ../../../test/integration/verification_flow_test.rb:94
+msgid "Register"
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000000.rb:2
@@ -236,11 +266,11 @@ msgid "%{campaign} voted proposals"
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000029.rb:2
-msgid "Welcome to Gotham's Participatory Budgeting process"
+msgid "You decide where the money goes"
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000030.rb:2
-msgid "You decide where the money goes"
+msgid "Welcome to Gotham's Participatory Budgeting process"
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000031.rb:2
@@ -333,17 +363,6 @@ msgstr ""
 #: ../../../tmp/translation/haml-gettext-00000050.rb:2
 #: ../../../tmp/translation/haml-gettext-00000051.rb:2
 msgid "Admin"
-msgstr ""
-
-#: ../../../tmp/translation/haml-gettext-00000052.rb:2
-#: ../../../tmp/translation/haml-gettext-00000053.rb:2
-msgid "Sign out"
-msgstr ""
-
-#: ../../../tmp/translation/haml-gettext-00000054.rb:2
-#: ../../../tmp/translation/haml-gettext-00000055.rb:2
-#: ../../../tmp/translation/haml-gettext-00000088.rb:2
-msgid "Sign in / Register"
 msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000056.rb:2

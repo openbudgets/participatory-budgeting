@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-05-18 07:42+0200\n"
-"PO-Revision-Date: 2017-05-18 07:42+0200\n"
+"POT-Creation-Date: 2017-06-07 22:57+0200\n"
+"PO-Revision-Date: 2017-06-07 22:57+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Greek, Modern (1453-)\n"
 "Language: el\n"
@@ -96,7 +96,11 @@ msgstr ""
 msgid "There was an error while trying to register your vote."
 msgstr "Παρουσιάστηκε σφάλμα κατά την προσπάθεια εγγραφής της ψήφου σας."
 
-#: ../../../app/controllers/voting/proposals_controller.rb:50
+#: ../../../app/controllers/voting/proposals_controller.rb:48
+msgid "Your vote has been registered successfully."
+msgstr ""
+
+#: ../../../app/controllers/voting/proposals_controller.rb:51
 msgid "You need to <strong>sign in</strong> in order to view your vote."
 msgstr "Πρέπει να <strong> να συνδεθείτε </ strong> για να δείτε την ψήφο σας."
 
@@ -143,6 +147,32 @@ msgstr "%{time} πριν"
 #: ../../../app/mailers/voter_mailer.rb:4
 msgid "Voter verification token"
 msgstr "Token επαλήθευσης ψηφοφόρου"
+
+#: ../../../test/integration/verification_flow_test.rb:27
+#: ../../../test/integration/verification_flow_test.rb:39
+msgid "Verify"
+msgstr ""
+
+#: ../../../test/integration/verification_flow_test.rb:49
+#: ../../../test/integration/verification_flow_test.rb:74
+#: ../../../tmp/translation/haml-gettext-00000052.rb:2
+#: ../../../tmp/translation/haml-gettext-00000053.rb:2
+msgid "Sign out"
+msgstr "Αποσύνδεση"
+
+#: ../../../test/integration/verification_flow_test.rb:58
+#: ../../../test/integration/verification_flow_test.rb:82
+#: ../../../test/integration/verification_flow_test.rb:88
+#: ../../../test/integration/verification_flow_test.rb:105
+#: ../../../tmp/translation/haml-gettext-00000054.rb:2
+#: ../../../tmp/translation/haml-gettext-00000055.rb:2
+#: ../../../tmp/translation/haml-gettext-00000088.rb:2
+msgid "Sign in / Register"
+msgstr "Είσοδος / Εγγραφή"
+
+#: ../../../test/integration/verification_flow_test.rb:94
+msgid "Register"
+msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000000.rb:2
 #: ../../../tmp/translation/haml-gettext-00000001.rb:2
@@ -251,12 +281,12 @@ msgid "%{campaign} voted proposals"
 msgstr "%{campaign} ψηφισμένες προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000029.rb:2
-msgid "Welcome to Gotham's Participatory Budgeting process"
-msgstr ""
-
-#: ../../../tmp/translation/haml-gettext-00000030.rb:2
 msgid "You decide where the money goes"
 msgstr "Εσείς αποφασίζετε πως θα ξοδευτούν τα χρήματα"
+
+#: ../../../tmp/translation/haml-gettext-00000030.rb:2
+msgid "Welcome to Gotham's Participatory Budgeting process"
+msgstr ""
 
 #: ../../../tmp/translation/haml-gettext-00000031.rb:2
 msgid "Process announcement"
@@ -364,17 +394,6 @@ msgstr "Διαδικασία"
 #: ../../../tmp/translation/haml-gettext-00000051.rb:2
 msgid "Admin"
 msgstr "Διαχειριστής"
-
-#: ../../../tmp/translation/haml-gettext-00000052.rb:2
-#: ../../../tmp/translation/haml-gettext-00000053.rb:2
-msgid "Sign out"
-msgstr "Αποσύνδεση"
-
-#: ../../../tmp/translation/haml-gettext-00000054.rb:2
-#: ../../../tmp/translation/haml-gettext-00000055.rb:2
-#: ../../../tmp/translation/haml-gettext-00000088.rb:2
-msgid "Sign in / Register"
-msgstr "Είσοδος / Εγγραφή"
 
 #: ../../../tmp/translation/haml-gettext-00000056.rb:2
 msgid "Filter by"
