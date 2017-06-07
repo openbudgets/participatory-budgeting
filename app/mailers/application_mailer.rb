@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@openbudgets.eu'
+  default from: (ENV['MAILER_FROM_ADDRESS'] || 'no-reply@openbudgets.eu')
   layout 'mailer'
 end
