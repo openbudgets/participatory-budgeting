@@ -4,10 +4,10 @@
       = raw _("<a class='logo-open-budgets' href='http://openbudgets.eu/' target='_blank' title='OpenBudgets.eu'><img src='%{logo_openbudgets}' alt='OpenBudgets.eu'/></a><a href='https://github.com/openbudgets/participatory-budgeting' target='_blank' title='Participatory Badgeting'>Participatory Budgeting Tool</a> is developed by <a class='logo-civio' href='http://civio.es/' target='_blank' title='Civio'><img src='%{logo_civio}' alt='Civio'/></a>") % { logo_openbudgets: asset_path('img/openbudgets-logo-white.png'), logo_civio: asset_path('img/civio-logo-white.png') }
     %ul.nav.nav-inline
       %li.nav-item
-        %a.nav-link.m-0.p-0{ href: terms_of_service_path() }
+        %a.nav-link.m-0.p-0{ href: 'http://www.torrelodones.es/aviso-legal' }
           = _('Terms of service')
       %li.nav-item
-        %a.nav-linkm-0.p-0{ href: privacy_policy_path() }
+        %a.nav-linkm-0.p-0{ href: 'http://www.torrelodones.es/politica-de-privacidad' }
           = _('Privacy policy')
   .container
     %p.funding-credit
