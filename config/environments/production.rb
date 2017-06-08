@@ -91,7 +91,7 @@ Rails.application.configure do
   ApplicationMailer.smtp_settings = {
       address:        ENV['MAILER_ADDRESS'],
       port:           ENV['MAILER_PORT'].to_i,
-      authentication: ENV['MAILER_AUTH'].to_sym,
+      authentication: ENV['MAILER_AUTH'],
       user_name:      ENV['MAILER_USERNAME'],
       password:       ENV['MAILER_PASSWORD'],
       domain:         ENV['MAILER_DOMAIN'],
