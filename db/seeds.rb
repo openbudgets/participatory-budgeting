@@ -7,231 +7,309 @@ civio = Admin::Role.create(email: '@civio.es')
 ## Voters
 
 raul    = Voter.create(email: 'raul@civio.es', verified: true)
+david   = Voter.create(email: 'david@civio.es', verified: true)
 eduardo = Voter.create(email: 'eduardo@civio.es', verified: true)
 
 ## Classifiers
 
 # Districts
-downtown  = District.create(name: 'Downtown')
-suburbs   = District.create(name: 'Suburbs')
-riverland = District.create(name: 'Riverland')
+floridablanca = District.create(name: 'Floridablanca')
+sanroque      = District.create(name: 'San Roque')
+pradogrande   = District.create(name: 'Pradogrande')
+polideportivo = District.create(name: 'Polideportivo')
+atalaya       = District.create(name: 'Atalaya')
+centro        = District.create(name: 'Centro')
 
 # Areas
-environment = Area.create(name: 'Environmental Protection')
-culture     = Area.create(name: 'Cultural Affairs')
-sanitation  = Area.create(name: 'Sanitation')
+medioambiente = Area.create(name: 'Medio Ambiente')
+deportes      = Area.create(name: 'Deportes')
+patrimonio    = Area.create(name: 'Patrimonio')
 
 # Tags
-garbage   = Tag.create(name: 'Garbage Disposal')
-bicycles  = Tag.create(name: 'Bicycles')
-parks     = Tag.create(name: 'Parks and Recreation')
-libraries = Tag.create(name: 'Libraries')
+workout  = Tag.create(name: 'Workout')
+juegos   = Tag.create(name: 'Juegos')
+tirolina = Tag.create(name: 'Tirolina')
+parkour  = Tag.create(name: 'Parkour')
+turismo  = Tag.create(name: 'Turismo')
+parques  = Tag.create(name: 'Parques')
 
 ## Campaigns
 
-class Semester
-  def self.current
-    Semester.new
-  end
-
-  def self.previous
-    current.previous
-  end
-
-  def self.next
-    current.next
-  end
-
-  def initialize(season=nil, year=nil)
-    @season = season || Date.today.month <= 6 ? :spring : :fall
-    @year   = year   || Date.today.year
-  end
-
-  def previous
-    previous_semester_season = @season == :spring ? :fall : :spring
-    previous_semester_year = @season == :spring ? @year - 1 : @year
-    @previous ||= Semester.new(previous_semester_season, previous_semester_year)
-  end
-
-  def next
-    next_semester_season = @season == :spring ? :fall : :spring
-    next_semester_year = @season == :spring ? @year : @year + 1
-    @next ||= Semester.new(next_semester_season, next_semester_year)
-  end
-
-  def season
-    @season
-  end
-
-  def year
-    @year
-  end
-
-  def start
-    result = Date.new(@year)
-    result += 6.months if fall?
-    result
-  end
-
-  def end
-    result = Date.new(@year).end_of_year
-    result -= 6.months if spring?
-    result
-  end
-
-  def to_s
-    "#{season.capitalize} #{year}"
-  end
-
-  def spring?
-    @season == :spring
-  end
-
-  def fall?
-    @season == :fall
-  end
-end
-
-def campaign_description_for(semester)
-  case semester.season
-  when :spring
-    <<~EOD.gsub(/\s+/, " ").strip
-      Once more, the annual Spring campaign is up for all the citizens to collaborate on the allocation
-      of the second semester of current year's city budget.
-    EOD
-  when :fall
-    <<~EOD.gsub(/\s+/, " ").strip
-      Once more, the annual Fall campaign is up for all the citizens to collaborate on the allocation
-      of the first semester of next year's city budget.
-    EOD
-  end
-end
-
-closed_campaign  =  Campaign.create(
-                      title: "#{Semester.previous} Campaign",
-                      budget: 114_192.56,
-                      start_date: Semester.previous.start,
-                      end_date: Semester.previous.end,
-                      description: campaign_description_for(Semester.previous),
-                      active: false
-                    )
-open_campaign    =  Campaign.create(
-                      title: "#{Semester.current} Campaign",
-                      budget: 252_343.45,
-                      start_date: Semester.current.start,
-                      end_date: Semester.current.end,
-                      description: campaign_description_for(Semester.current),
-                      active: true
-                    )
-pending_campaign =  Campaign.create(
-                      title: "#{Semester.next} Campaign",
-                      budget: 363_343.45,
-                      start_date: Semester.next.start,
-                      end_date: Semester.next.start,
-                      description: campaign_description_for(Semester.next),
-                      active: false
-                    )
+junio_2017  = Campaign.create(
+                title: "Equipamiento infantil y juvenil",
+                budget: 114_192.56,
+                start_date: '2017-06-01',
+                end_date: '2017-06-30',
+                active: true,
+                description: <<~EOD.squish
+                  La idea para este primer año de presupuestos participativos
+                  2017 de Torrelodones es elegir entre varias de las propuestas
+                  más votadas tanto en el pleno infantil de noviembre 2016 como
+                  el pleno juvenil de abril de 2017, ambos disponibles en la
+                  web municipal, sección de infancia. También hemos añadido una
+                  instalación de vóley playa en el polideportivo municipal.
+                  Partimos de una partida de 100.000€ que serán ejecutados a lo
+                  largo del último trimestre de 2017 con las propuestas más
+                  votadas.
+                EOD
+              )
 
 ## Proposals
 
-trees_1 = Proposal.create(
-            title: 'Trees for Cantina Rd.',
-            budget: 10_000.00,
-            classifiers: [downtown, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              Cantina Rd. is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_1  = Proposal.create(
-            title: 'Playground for the Docks Quarter',
-            budget: 102_344.32,
-            classifiers: [riverland],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Docks quarter lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_1  = Proposal.create(
-            title: 'Bike Lane in Pinetree Area',
-            budget: 4_510.50,
-            classifiers: [suburbs, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              Pinetree Area is a beautiful place to go and ride your bike, but riding among the pedestrians is dangerous for both, the bikers and the pedestrians.
-              Having a dedicated bike lane will improve security and make the visit more enjoyable.
-            EOD
-          )
+workout_1   = Proposal.create(
+                title: 'Street Workout en el parque de Floridablanca',
+                budget: 16_366.51,
+                classifiers: [floridablanca, parques, workout, medioambiente],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  El Street Workout (entrenamiento de calle o callejero),
+                  también conocido como Calistenia, es el movimiento basado en
+                  el deporte callejero, es un movimiento que se basa en
+                  entrenar en la calle, usando el propio cuerpo y el entorno.
 
-trees_2 = Proposal.create(
-            title: 'Trees for Rodeo Drive',
-            budget: 15_250.25,
-            classifiers: [suburbs, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              Rodeo Drive is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_2  = Proposal.create(
-            title: 'Playground for the Bellefleur Quarter',
-            budget: 50_000.00,
-            classifiers: [suburbs],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Bellefleur quarter lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_2  = Proposal.create(
-            title: 'Bike Lane in the Financial Center',
-            budget: 14_700.00,
-            classifiers: [downtown, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Fiancial Center is a place where communting by bike would be great, but riding among the cars is dangerous for both, the bikers and the drivers.
-              Having a dedicated bike lane will improve security and make the trip more enjoyable.
-            EOD
-          )
+                  Sus seguidores lo describen como mucho más que una modalidad
+                  de entrenamiento, pues se considera un estilo de vida
+                  caracterizado por valores como el respeto y la educación, así
+                  como la solidaridad con el mundo y el resto de los habitantes
+                  del mismo, sin ideologías políticas.
 
-trees_3 = Proposal.create(
-            title: 'Trees for South Bridge',
-            budget: 8_500.00,
-            classifiers: [riverland, environment, parks],
-            campaign: open_campaign,
-            description: <<~EOD
-              South Bridge is lacking any type of vegetation, making it little attractive to pedestrian traffic.
-              Planting some trees not only would improve the looks of the street, but also have a real impact in the air quality.
-            EOD
-          )
-park_3  = Proposal.create(
-            title: 'Playground for Downtown',
-            budget: 102_344.32,
-            classifiers: [downtown],
-            campaign: open_campaign,
-            description: <<~EOD
-              The Downtown district lacks of any infraestructure specifically tailored for children, making it difficult to go out and play.
-              Building a playground in the district would save the children, and their parents, an inconvenient trip to other areas of the city.
-            EOD
-          )
-lane_3  = Proposal.create(
-            title: 'Bike Lane in North Bridge',
-            budget: 6_130.70,
-            classifiers: [riverland, environment, bicycles],
-            campaign: open_campaign,
-            description: <<~EOD
-              North Bridge is a convenient place to go around the Riverland district, but riding your bike among the pedestrians is dangerous for both, the bikers and the pedestrians.
-              Having a dedicated bike lane will improve security and make the trip more enjoyable.
-            EOD
-          )
+                  Se practica en parques con barras donde se trata de realizar
+                  acciones básicas como fondos, como las muscle-ups y/o
+                  estáticos como banderas, front-lever, etc. Este tipo de
+                  deporte quiere acabar con el aburrimiento del gimnasio y el
+                  entrenamiento de fuerza desde otra perspectiva más completa y
+                  dinámica.
 
-## Voter secrets
+                  Crear espacios de actividad y no sólo de estancia para la
+                  adolescencia es algo muy necesario en los parques públicos.
+                  Los espacios públicos no tienen que estar segregados por
+                  edades de las personas que los usan. De manera que incorporar
+                  puntos de actividad para diferentes edades en los mismos
+                  espacios públicos los acaba por transformar en lugares de
+                  convivencia mucho más enriquecedores.
 
-local_1    = VoterSecret.create(data: { document: '53713184D', birth_date: '1974-11-29' })
-local_2    = VoterSecret.create(data: { document: '279793B', birth_date: '1986-10-19' })
-resident_1 = VoterSecret.create(data: { document: 'X07323369A', birth_date: '1945-11-06' })
-resident_2 = VoterSecret.create(data: { document: 'Y01927564M', birth_date: '1945-11-06' })
-foreign_1  = VoterSecret.create(data: { document: '423994F', birth_date: '1990-05-12'})
-foreign_2  = VoterSecret.create(data: { document: '08-VU-2160/16', birth_date: '1998-11-02' })
+                  En el parque de Floridablanca existen ya zonas de juegos
+                  infantiles, también maquinaria para la actividad física
+                  adulta y un campo de petanca; además de una pista de futbol
+                  3x3 y una canasta de baloncesto, se ha habilitado una zona para
+                  patinar. Queda por tanto incluir un punto de encuentro y de
+                  ocio activo para la población adolecente y de la primera
+                  madurez.
+
+                  Creemos que una instalación completa de workout sería un gran
+                  avance en este sentido, y fomentaría la convivencia entre
+                  generaciones dentro de un espacio público de calidad.
+                EOD
+              )
+workout_2   = Proposal.create(
+                title: 'Street Workout en el parque de San Roque',
+                budget: 20_012.19,
+                classifiers: [sanroque, parques, workout, medioambiente],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  El Street Workout (entrenamiento de calle o callejero),
+                  también conocido como Calistenia, es el movimiento basado en
+                  el deporte callejero, es un movimiento que se basa en
+                  entrenar en la calle, usando el propio cuerpo y el entorno.
+
+                  Sus seguidores lo describen como mucho más que una modalidad
+                  de entrenamiento, pues se considera un estilo de vida
+                  caracterizado por valores como el respeto y la educación, así
+                  como la solidaridad con el mundo y el resto de los habitantes
+                  del mismo, sin ideologías políticas.
+
+                  Se practica en parques con barras donde se trata de realizar
+                  acciones básicas como fondos, como las muscle-ups y/o
+                  estáticos como banderas, front-lever, etc. Este tipo de
+                  deporte quiere acabar con el aburrimiento del gimnasio y el
+                  entrenamiento de fuerza desde otra perspectiva más completa y
+                  dinámica.
+
+                  Crear espacios de actividad y no sólo de estancia para la
+                  adolescencia es algo muy necesario en los parques públicos.
+                  Los espacios públicos no tienen que estar segregados por
+                  edades de las personas que los usan. De manera que incorporar
+                  puntos de actividad para diferentes edades en los mismos
+                  espacios públicos los acaba por transformar en lugares de
+                  convivencia mucho más enriquecedores.
+
+                  En el parque de San Roque existen ya zonas de juegos
+                  infantiles, también maquinaria para la actividad física
+                  adulta y además una pista de futbol 3x3 y una canasta de
+                  baloncesto y por su idiosincracia es una zona de juegos entre
+                  roquedos y arbolado. Queda por tanto incluir un punto de
+                  encuentro y de ocio activo para la población adolecente y de
+                  la primera madurez.
+
+                  Creemos que una instalación completa de workout sería un gran
+                  avance en este sentido, y fomentaría la convivencia entre
+                  generaciones dentro de un espacio público de calidad.
+                EOD
+              )
+workout_3   = Proposal.create(
+                title: 'Street Workout en el parque de Pradogrande',
+                budget: 14_489.75,
+                classifiers: [pradogrande, parques, workout, medioambiente],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  El Street Workout (entrenamiento de calle o callejero),
+                  también conocido como Calistenia, es el movimiento basado en
+                  el deporte callejero, es un movimiento que se basa en
+                  entrenar en la calle, usando el propio cuerpo y el entorno.
+
+                  Sus seguidores lo describen como mucho más que una modalidad
+                  de entrenamiento, pues se considera un estilo de vida
+                  caracterizado por valores como el respeto y la educación, así
+                  como la solidaridad con el mundo y el resto de los habitantes
+                  del mismo, sin ideologías políticas.
+
+                  Se practica en parques con barras donde se trata de realizar
+                  acciones básicas como fondos, como las muscle-ups y/o
+                  estáticos como banderas, front-lever, etc. Este tipo de
+                  deporte quiere acabar con el aburrimiento del gimnasio y el
+                  entrenamiento de fuerza desde otra perspectiva más completa y
+                  dinámica.
+
+                  Crear espacios de actividad y no sólo de estancia para la
+                  adolescencia es algo muy necesario en los parques públicos.
+                  Los espacios públicos no tienen que estar segregados por
+                  edades de las personas que los usan. De manera que incorporar
+                  puntos de actividad para diferentes edades en los mismos
+                  espacios públicos los acaba por transformar en lugares de
+                  convivencia mucho más enriquecedores.
+
+                  En el parque de Pradogrande existen ya zonas de juegos
+                  infantiles, también una pista de futbol sala y una de
+                  baloncesto; existe además una zona de skatepark y un circuito
+                  de BMX. Queda por tanto incluir un punto de encuentro y de ocio
+                  activo para la población adolecente y de la primera madurez.
+
+                  Creemos que una instalación completa de workout sería un gran
+                  avance en este sentido, y fomentaría la convivencia entre
+                  generaciones dentro de un espacio público de calidad.
+                EOD
+              )
+juegos      = Proposal.create(
+                title: 'Juegos tradicionales en la Plaza de la Constitución',
+                budget: 4_065.60,
+                classifiers: [centro, juegos, medioambiente],
+                campaign: june_2017,
+                description: <<~EOD.squish
+                 Pavimento de seguridad continuo en caucho a instalar en la
+                 parte trasera del edificio de alcaldía, ampliando así la zona
+                 de juego infantil existente, con propuestas de juegos
+                 tradicionales con colores llamativos.
+
+                 Se pretende ampliar la edad de uso de la zona infantil, con
+                 juegos tradicionales intergeneracionales.
+                EOD
+              )
+tirolina     = Proposal.create(
+                title: 'Tirolina en el parque Pradogrande',
+                budget: 8_145.72,
+                classifiers: [pradogrande, parques, juegos, medioambiente],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  El origen de la tirolina como ingenio humano nos lleva a la
+                  necesidad de las personas de salvar obstáculos y simas. La
+                  incorporación de una tirolina adaptada a la infancia en un
+                  parque público es una invitación para jugar soñando con eso,
+                  con salvar el vacío, atravesar ríos, descubrir la aventura.
+
+                  Torrelodones se encuentra enclavado entre dos parques
+                  naturales, en ambos se practican deportes de naturaleza. A
+                  muy poca distancia del parque de Pradogrande hay espacios
+                  para el deporte llamado de aventura: la escalada en
+                  prácticamente todas sus modalidades.
+
+                  Incorporar una tirolina, de longitud muy considerable desde
+                  las dimensiones infantiles, es una apuesta por incorporar esa
+                  sensación de aventura dentro del juego espontáneo y potenciar
+                  la actividad física de los niños y niñas.
+
+                  Será, además, una fábrica de recuerdos de infancia compartida,
+                  pues para su disfrute es muy conveniente la cooperación entre
+                  iguales.
+                EOD
+              )
+parkour     = Proposal.create(
+                title: 'Espacio Parkour en el parque Pradogrande',
+                budget: 33_070.93,
+                classifiers: [pradogrande, parques, parkour, medioambiente],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  En grandes ciudades y poblaciones influenciadas por ellas,
+                  adaptándose a una moda nacida en Francia a finales de los 90,
+                  están empezando a instalarse zonas especialmente diseñadas
+                  para el entrenamiento y la práctica del parkour.
+
+                  En Torrelodones, por la inquietud de un inicialmente pequeño
+                  grupo de jóvenes, desde hace un lustro se ha establecido una
+                  afición que une ya a un buen número de jóvenes entorno al
+                  parkour, entendida esta actividad como parte de una cultura
+                  urbana en expansión.
+
+                  Lo que aporta un parkourodromo de diferente sobre los lugares
+                  en los que se suele practicar esta actividad es que se
+                  construye con elementos y módulos normalizados y certificables
+                  como seguros. Tanto los módulos como la superficie aseguran
+                  la seguridad si la actividad se realiza propiamente.
+
+                  La demanda de una zona normalizada está más que justificada
+                  en una población como la nuestra en la que cada año se
+                  incorporan del orden de 30 jóvenes, chicos y chicas, al
+                  ámbito de la cultura del parkour.
+                EOD
+              )
+voley       = Proposal.create(
+                title: 'Campo de volley playa en el polideportivo municipal',
+                budget: 21_780.00,
+                classifiers: [polideportivo, deportes],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  El vóley playa es un deporte que desde hace tiempo tiene
+                  impacto en nuestro municipio. Las componentes de los
+                  diferentes equipos de vóley femenino y algunos jugadores que
+                  compiten en otros municipios se suman a la petición de una
+                  instalación fija cada verano.
+
+                  Queremos instalar una instalación completa de vóley que pueda
+                  estar sujeta al control del servicio municipal, para que se
+                  pueda mantener en correcto uso y sea utilizada para la
+                  actividad deportiva para la que se construirá, tanto para el
+                  juego de ocio abierto a la población como para tener la
+                  oportunidad de organizar algún campeonato puntualmente.
+
+                  El Voley playa es un complemento perfecto del Voleybol y
+                  también lo es de otras disciplinas deportivas, que lo
+                  utilizan como juego para la puesta a punto o para calentar.
+
+                  Esta instalación completaría la zona de raqueta y redes del
+                  polideportivo municipal.
+                EOD
+              )
+escalera    = Proposal.create(
+                title: 'Instalación de escalera en la Atalaya de Torrelodones',
+                budget: 12_000.00,
+                classifiers: [atalaya, turismo, patrimonio],
+                campaign: junio_2017,
+                description: <<~EOD.squish
+                  Con el objetivo de ir mejorando el acceso a la Torre,
+                  proponemos la instalación de una escalera de caracol interior.
+
+                  Más adelante, y en coordinación con la Dirección General de
+                  Patrimonio, plantearemos acciones de mejora de la seguridad
+                  de la parte superior de la Atalaya con el objetivo de fomentar
+                  las visitas, tal y como solicitaron los alumn@s durante el
+                  pasado pleno infantil de noviembre 2016.
+                EOD
+              )
+
+## Voter secrets (fake data)
+
+local_1      = VoterSecret.create(data: { document: '53713184D', birth_date: '1974-11-29' })
+local_2      = VoterSecret.create(data: { document: '279793B', birth_date: '1986-10-19' })
+residente_1  = VoterSecret.create(data: { document: 'X07323369A', birth_date: '1945-11-06' })
+residente_2  = VoterSecret.create(data: { document: 'Y01927564M', birth_date: '1945-11-06' })
+extranjero_1 = VoterSecret.create(data: { document: '423994F', birth_date: '1990-05-12'})
+extranjero_2 = VoterSecret.create(data: { document: '8VU216016', birth_date: '1998-11-02' })
