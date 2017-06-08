@@ -3,4 +3,9 @@ class VoterMailer < ApplicationMailer
     @voter = voter
     mail(to: @voter.email, subject: _('Voter verification token'))
   end
+
+  def voter_reminder_email(voter)
+    @voter = voter
+    mail(to: @voter.email, subject: _('Voter verification reminder'))
+  end
 end
