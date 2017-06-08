@@ -1,0 +1,62 @@
+// Torrelodones styles
+
+header,
+.footer{
+  color: white;
+  background: #313231;
+
+  a{
+    color: white;
+
+    &:hover{
+      color: $brand-secondary;
+    }
+  }
+}
+
+.navbar{
+  padding-right: 0;
+
+  .navbar-brand{
+    display: block;
+    width: 320px;
+    height: 71px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: url(asset-path('img/torrelodones-logo.png')) no-repeat center center transparent;
+  }
+}
+
+.wrapper{
+  background: mix( $brand-secondary, white, 30% );
+}
+
+.page-title{
+  background: $vote-header-color;
+
+  h2{
+    padding: 1.75rem 0;
+  }
+}
+
+.home {
+
+  .jumbotron{
+    background-image: url(asset-path('img/torrelodones-header.jpg'));
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .navbar-user {
+    margin-top: 2.5rem;
+  }
+}
+
+// Force alert-info & alert-success styles to look as alert-warning
+// in order to differentiate from background
+.alert-info,
+.alert-success{
+  background-color: #fcf8e3;
+  border-color: #faf2cc;
+  color: #8a6d3b;
+}

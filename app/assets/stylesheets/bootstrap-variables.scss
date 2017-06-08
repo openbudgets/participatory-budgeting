@@ -6,12 +6,12 @@ $gray-light:                #818a91;
 $gray-lighter:              #eceeef;
 $gray-lightest:             #f2f2f4;
 
-$brand-primary:             #6bb83e;  //#82BF5E;
-$brand-secondary:           mix( $gray-lightest, white, 50% );
+$brand-primary:             #069; //#6bb83e;  //#82BF5E;
+$brand-secondary:           #E1EFFA; //mix( $gray-lightest, white, 50% );
 
 $brand-danger:              #BF605E;
 
-$vote-header-color:         white;
+$vote-header-color:         $brand-secondary;
 
 // Typography
 
