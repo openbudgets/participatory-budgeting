@@ -47,7 +47,8 @@ class Voting::ProposalsController < ApplicationController
   def summarize
     if current_voter
       @proposals = current_voter.proposals.order(budget: :desc)
-      flash.now[:notice] = _('Your vote has been registered successfully.')
+      results_publishing_date = Campaign.current.end_date.next_day
+      flash.now[:notice] = sprintf(_('Your vote has been registered successfully.'), I18n.localize(results_publishing_date, format: :long))
     else
       referer = request.referer || new_voter_path(referer: request.path)
       redirect_to referer, alert: _('You need to <strong>sign in</strong> in order to view your vote.')
