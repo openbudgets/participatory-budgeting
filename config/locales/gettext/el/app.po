@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-06-08 08:46+0200\n"
-"PO-Revision-Date: 2017-06-08 08:46+0200\n"
+"POT-Creation-Date: 2017-06-12 23:37+0200\n"
+"PO-Revision-Date: 2017-06-12 23:37+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Greek, Modern (1453-)\n"
 "Language: el\n"
@@ -152,10 +152,14 @@ msgstr "Token επαλήθευσης ψηφοφόρου"
 msgid "Voter verification reminder"
 msgstr "Υπενθύμιση επαλήθευσης ψηφοφόρου"
 
+#: ../../../app/mailers/voter_mailer.rb:14
+msgid "Voter verification hint"
+msgstr "Υπόδειξη επαλήθευσης συνομιλητών"
+
 #: ../../../test/integration/verification_flow_test.rb:27
 #: ../../../test/integration/verification_flow_test.rb:39
 msgid "Verify"
-msgstr "Επαληθεύω"
+msgstr "Επαλήθευση"
 
 #: ../../../test/integration/verification_flow_test.rb:49
 #: ../../../test/integration/verification_flow_test.rb:74
@@ -170,13 +174,13 @@ msgstr "Αποσύνδεση"
 #: ../../../test/integration/verification_flow_test.rb:105
 #: ../../../tmp/translation/haml-gettext-00000054.rb:2
 #: ../../../tmp/translation/haml-gettext-00000055.rb:2
-#: ../../../tmp/translation/haml-gettext-00000092.rb:2
+#: ../../../tmp/translation/haml-gettext-00000095.rb:2
 msgid "Sign in / Register"
 msgstr "Είσοδος / Εγγραφή"
 
 #: ../../../test/integration/verification_flow_test.rb:94
 msgid "Register"
-msgstr "Κανω ΕΓΓΡΑΦΗ"
+msgstr "Εγγραφή"
 
 #: ../../../tmp/translation/haml-gettext-00000000.rb:2
 #: ../../../tmp/translation/haml-gettext-00000001.rb:2
@@ -184,8 +188,8 @@ msgstr "Κανω ΕΓΓΡΑΦΗ"
 #: ../../../tmp/translation/haml-gettext-00000021.rb:2
 #: ../../../tmp/translation/haml-gettext-00000025.rb:2
 #: ../../../tmp/translation/haml-gettext-00000026.rb:2
-#: ../../../tmp/translation/haml-gettext-00000102.rb:2
-#: ../../../tmp/translation/haml-gettext-00000103.rb:2
+#: ../../../tmp/translation/haml-gettext-00000105.rb:2
+#: ../../../tmp/translation/haml-gettext-00000106.rb:2
 msgid "Back"
 msgstr "Πίσω"
 
@@ -272,7 +276,7 @@ msgid "Monitor chosen proposals"
 msgstr "Παρακολουθήστε τις επιλεγμένες προτάσεις"
 
 #: ../../../tmp/translation/haml-gettext-00000024.rb:2
-#: ../../../tmp/translation/haml-gettext-00000101.rb:2
+#: ../../../tmp/translation/haml-gettext-00000104.rb:2
 msgid "There are no proposals for those filters"
 msgstr "Δεν υπάρχουν προτάσεις που να εκπληρούν τα φίλτρα"
 
@@ -485,65 +489,80 @@ msgstr "Συνδεθείτε για να ψηφίσετε"
 
 #: ../../../tmp/translation/haml-gettext-00000085.rb:2
 msgid ""
+"We have noticed that although you try to register to the participatory budgeti"
+"ng process, you did not provide a valid proof of identity."
+msgstr ""
+
+#: ../../../tmp/translation/haml-gettext-00000086.rb:2
+msgid ""
+"It could be possible that your census data is not up to date. Please contact y"
+"our municipality to double check that your data is accurate."
+msgstr ""
+"Θα ήταν πιθανό τα στοιχεία απογραφής σας να μην είναι ενημερωμένα. Επικοινωνήσ"
+"τε με τον δήμο για να βεβαιωθείτε ότι τα δεδομένα σας είναι ακριβή."
+
+#: ../../../tmp/translation/haml-gettext-00000087.rb:2
+#: ../../../tmp/translation/haml-gettext-00000091.rb:2
+#: ../../../tmp/translation/haml-gettext-00000094.rb:2
+msgid "Thanks!"
+msgstr "Ευχαριστώ!"
+
+#: ../../../tmp/translation/haml-gettext-00000088.rb:2
+msgid ""
 "We have noticed that although you registered to the participatory budgeting pr"
 "ocess, your verification status is still pending."
 msgstr ""
 "Παρατηρήσαμε ότι παρόλο που έχετε εγγραφεί στη διαδικασία συμμετοχής στον προϋ"
 "πολογισμό, εξακολουθεί να εκκρεμεί η κατάσταση επαλήθευσης."
 
-#: ../../../tmp/translation/haml-gettext-00000086.rb:2
 #: ../../../tmp/translation/haml-gettext-00000089.rb:2
+#: ../../../tmp/translation/haml-gettext-00000092.rb:2
 msgid "This is your verification token:"
 msgstr "Αυτό είναι το token επαλήθευσής σας"
 
-#: ../../../tmp/translation/haml-gettext-00000087.rb:2
 #: ../../../tmp/translation/haml-gettext-00000090.rb:2
+#: ../../../tmp/translation/haml-gettext-00000093.rb:2
 msgid "Please confirm your verification status by following this link:"
 msgstr ""
 "Παρακαλώ, επιβεβαιώστε την κατάσταση επαλήθευσής σας, ακολουθώντας αυτόν τον υ"
 "περσύνδεσμο. "
 
-#: ../../../tmp/translation/haml-gettext-00000088.rb:2
-#: ../../../tmp/translation/haml-gettext-00000091.rb:2
-msgid "Thanks!"
-msgstr "Ευχαριστώ!"
-
-#: ../../../tmp/translation/haml-gettext-00000093.rb:2
+#: ../../../tmp/translation/haml-gettext-00000096.rb:2
 msgid "Email address"
 msgstr "Διεύθυνση e-mail"
 
-#: ../../../tmp/translation/haml-gettext-00000094.rb:2
+#: ../../../tmp/translation/haml-gettext-00000097.rb:2
 msgid "Email me a link to sign in"
 msgstr "Στείλτε μου στο e-mail έναν υπερσύνδεσμο για να συνδεθώ"
 
-#: ../../../tmp/translation/haml-gettext-00000095.rb:2
+#: ../../../tmp/translation/haml-gettext-00000098.rb:2
 msgid "Please provide your name"
 msgstr "Καταχωρίστε το όνομά σας"
 
-#: ../../../tmp/translation/haml-gettext-00000096.rb:2
+#: ../../../tmp/translation/haml-gettext-00000099.rb:2
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../../../tmp/translation/haml-gettext-00000097.rb:2
+#: ../../../tmp/translation/haml-gettext-00000100.rb:2
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: ../../../tmp/translation/haml-gettext-00000098.rb:2
+#: ../../../tmp/translation/haml-gettext-00000101.rb:2
 msgid "Vote your favourite proposals"
 msgstr "Ψηφίστε την πρόταση της προτίμησής σας"
 
-#: ../../../tmp/translation/haml-gettext-00000099.rb:2
+#: ../../../tmp/translation/haml-gettext-00000102.rb:2
 msgid "Finish"
 msgstr "Τέλος"
 
-#: ../../../tmp/translation/haml-gettext-00000100.rb:2
+#: ../../../tmp/translation/haml-gettext-00000103.rb:2
 msgid "Total amount"
 msgstr "Συνολικό ποσό"
 
-#: ../../../tmp/translation/haml-gettext-00000104.rb:2
+#: ../../../tmp/translation/haml-gettext-00000107.rb:2
 msgid "Your voted proposals"
 msgstr "Οι προτάσεις που ψηφίσατε"
 
-#: ../../../tmp/translation/haml-gettext-00000105.rb:2
+#: ../../../tmp/translation/haml-gettext-00000108.rb:2
 msgid "My voted proposals"
 msgstr "Οι προτάσεις που ψήφισα"
