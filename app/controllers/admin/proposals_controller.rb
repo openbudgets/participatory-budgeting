@@ -28,11 +28,11 @@ class Admin::ProposalsController < AdminController
   end
 
   def update
-
     if @proposal.update(proposal_params)
       redirect_to admin_proposals_path, success: _('Proposal was successfully updated.')
     else
       flash.now[:error] = @proposal.errors.full_messages.to_sentence
+      set_classifiers
       render :edit
     end
   end
@@ -56,7 +56,11 @@ class Admin::ProposalsController < AdminController
 
   def proposal_params
     p = params.require(:proposal).permit(:title, :description, :budget, :image, :completed, :district_id, :area_id, tag_ids: [])
-    p[:budget] = p[:budget]&.gsub(',', '_')&.to_d if p[:budget]
+    if p[:budget]
+      p[:budget] = p[:budget].gsub(I18n.t('number.currency.format.delimiter'), '_')
+      p[:budget] = p[:budget].gsub(I18n.t('number.currency.format.separator'), '.')
+      p[:budget]
+    end
     p[:image] = nil if params[:delete_image]
     p
   end
