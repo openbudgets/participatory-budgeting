@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-06-12 23:37+0200\n"
-"PO-Revision-Date: 2017-06-12 23:37+0200\n"
+"POT-Creation-Date: 2017-06-19 12:46+0200\n"
+"PO-Revision-Date: 2017-06-19 12:46+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Greek, Modern (1453-)\n"
 "Language: el\n"
@@ -234,7 +234,7 @@ msgstr "Διαμέρισμα"
 #: ../../../tmp/translation/haml-gettext-00000011.rb:2
 #: ../../../tmp/translation/haml-gettext-00000060.rb:2
 msgid "Area"
-msgstr "Περιοχή"
+msgstr "Θεματική Περιοχή"
 
 #: ../../../tmp/translation/haml-gettext-00000012.rb:2
 #: ../../../tmp/translation/haml-gettext-00000061.rb:2
@@ -492,6 +492,8 @@ msgid ""
 "We have noticed that although you try to register to the participatory budgeti"
 "ng process, you did not provide a valid proof of identity."
 msgstr ""
+"Παρατηρήσαμε ότι αν και προσπαθείτε να εγγραφείτε στη διαδικασία συμμετοχικού "
+"προϋπολογισμού, δεν έχετε δώσει έγκυρη απόδειξη της ταυτότητάς σας."
 
 #: ../../../tmp/translation/haml-gettext-00000086.rb:2
 msgid ""
