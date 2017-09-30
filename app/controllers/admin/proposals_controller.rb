@@ -23,6 +23,7 @@ class Admin::ProposalsController < AdminController
       redirect_to admin_proposals_path, success: _('Proposal was successfully created.')
     else
       flash.now[:error] = @proposal.errors.full_messages.to_sentence
+      set_classifiers
       render :new
     end
   end
