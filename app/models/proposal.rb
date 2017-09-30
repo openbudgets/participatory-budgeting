@@ -73,10 +73,12 @@ class Proposal < ApplicationRecord
   end
 
   def chosen?
+    return false if campaign.nil?
     campaign.closed? && campaign.voted_proposals.include?(self)
   end
 
   def discarded?
+    return false if campaign.nil?
     campaign.closed? && !campaign.voted_proposals.include?(self)
   end
 
