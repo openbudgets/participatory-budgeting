@@ -56,7 +56,7 @@ class Admin::ProposalsController < AdminController
   end
 
   def proposal_params
-    p = params.require(:proposal).permit(:title, :description, :budget, :image, :completed, :district_id, :area_id, tag_ids: [])
+    p = params.require(:proposal).permit(:title, :description, :budget, :image, :completed, :campaign_id, :district_id, :area_id, tag_ids: [])
     if p[:budget]
       p[:budget] = p[:budget].gsub(I18n.t('number.currency.format.delimiter'), '_')
       p[:budget] = p[:budget].gsub(I18n.t('number.currency.format.separator'), '.')
