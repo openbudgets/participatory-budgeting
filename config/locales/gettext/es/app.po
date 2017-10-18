@@ -7,9 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: civio-openbudgets 1.0\n"
 "Report-Msgid-Bugs-To: contact@translation.io\n"
-"POT-Creation-Date: 2017-06-19 12:46+0200\n"
-"PO-Revision-Date: 2017-06-19 12:46+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-06-12 22:15+0200\n"
+"PO-Revision-Date: 2017-06-12 23:05+0200\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -240,7 +239,7 @@ msgstr "Distrito"
 #: ../../../tmp/translation/haml-gettext-00000011.rb:2
 #: ../../../tmp/translation/haml-gettext-00000060.rb:2
 msgid "Area"
-msgstr "Zona"
+msgstr "Área"
 
 #: ../../../tmp/translation/haml-gettext-00000012.rb:2
 #: ../../../tmp/translation/haml-gettext-00000061.rb:2
