@@ -5,7 +5,7 @@ class Monitoring::ProposalsController < ApplicationController
     classifiers_filter = params[:class].split(',').map(&:to_i) if params[:class]
     budget_min_filter = params[:budget_min]
     budget_max_filter = params[:budget_max]
-    @proposals = Campaign.current.voted_proposals.includes(:classifiers)
+    @proposals = Campaign.current.voted_proposals.includes(:classifiers).sort { |p, q| p.votes <=> q.votes }.reverse
     @budget_max = @proposals.max_by(&:budget)&.budget&.ceil || 0
 
     @proposals = @proposals.with_class(*classifiers_filter) unless classifiers_filter.blank?
