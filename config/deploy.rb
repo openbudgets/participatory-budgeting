@@ -24,7 +24,7 @@ server ENV['CAP_SERVER'],
 set :rails_env, :production
 
 # Node config
-set :nvm_node, 'v6.10.3'
+set :nvm_node, 'v6.11.3'
 set :nvm_custom_path, '/usr/local/nvm'
 set :npm_flags, '--silent --no-progress'
 append :linked_dirs, "public/uploads", "node_modules"
