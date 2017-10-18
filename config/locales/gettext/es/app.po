@@ -114,19 +114,19 @@ msgstr "Documento"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Pending"
-msgstr "Pendiente"
+msgstr "Fase de proyecto"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Completed"
-msgstr "Completada"
+msgstr "Finalizada"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "Discarded"
-msgstr "Descartada"
+msgstr "No iniciada"
 
 #: ../../../app/helpers/application_helper.rb:16
 msgid "In progress"
-msgstr "En curso"
+msgstr "Fase de ejecución"
 
 #: ../../../app/helpers/monitoring/proposals_helper.rb:4
 msgid "No comments"
