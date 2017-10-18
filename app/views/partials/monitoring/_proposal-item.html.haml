@@ -1,6 +1,6 @@
 .card
   .card-header
-    .proposal-budget
+    .proposal-budget{ style: 'background-color: #' + (proposal.district.id == 1 ? 'FF5733' : (proposal.district.id == 2 ? 'FFC300' : 'DAF7A6')) + ';' }
       %strong
         = number_to_currency(proposal.budget, unit: '', precision: 2, format: "%n %u")
       €
