@@ -8,7 +8,7 @@ set :repo_url, "git@github.com:openbudgets/participatory-budgeting.git"
 set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 # Default value for linked_dirs is []
-append :linked_dirs, "public/uploads", "node_modules"
+append :linked_dirs, "public/uploads", "log", "tmp/pids", "tmp/cache", "tmp/sockets"
 
 # Server config
 server ENV['CAP_SERVER'],
@@ -27,7 +27,7 @@ set :rails_env, :production
 set :nvm_node, 'v6.11.3'
 set :nvm_custom_path, '/usr/local/nvm'
 set :npm_flags, '--silent --no-progress'
-append :linked_dirs, "public/uploads", "node_modules"
+append :linked_dirs, "node_modules"
 before 'deploy:reverted', 'npm:install'
 
 # Ruby config
