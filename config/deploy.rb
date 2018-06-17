@@ -47,7 +47,7 @@ before 'bundler:install', 'bundle_pack'
 # Restarts the application server
 task :application_restart do
   on roles(:app) do
-    execute :service, fetch(:service_name, "openbudgets"), "restart"
+    execute "passenger-config", "restart-app", fetch(:app_path, :deploy_to)
   end
 end
 before 'deploy:finished', 'application_restart'
