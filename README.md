@@ -34,7 +34,7 @@ OpenBudgets Participatory Budgeting is a Rails 5.0 application.
 
 ### Development environment configuration
 
-Prerequisites: Git, Ruby 2.4.1, Bundler gem, Node 6.10.2 and PostgreSQL 9.4+
+Prerequisites: Git, Ruby 2.5.1, Bundler gem, Node 8+ and PostgreSQL 9.4+
 
 To prepare the environment:
 ```

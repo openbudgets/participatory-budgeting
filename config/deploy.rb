@@ -1,5 +1,5 @@
 # Config valid only for current version of Capistrano
-lock "3.8.1"
+lock "3.11.0"
 
 set :application, "openbudgets"
 set :repo_url, "git@github.com:openbudgets/participatory-budgeting.git"
@@ -24,14 +24,14 @@ server ENV['CAP_SERVER'],
 set :rails_env, :production
 
 # Node config
-set :nvm_node, 'v6.11.3'
+set :nvm_node, 'v8.12.0'
 set :nvm_custom_path, '/usr/local/nvm'
 set :npm_flags, '--silent --no-progress'
 append :linked_dirs, "node_modules"
 before 'deploy:reverted', 'npm:install'
 
 # Ruby config
-set :rvm_ruby_version, "2.4.1"
+set :rvm_ruby_version, "2.5.1"
 set :bundle_path, "vendor/bundle"
 append :linked_dirs, "vendor/cache", "vendor/bundle"
 

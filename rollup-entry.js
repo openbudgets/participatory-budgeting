@@ -7,9 +7,12 @@ export {
 
 export {
   scaleLinear,
-  scaleOrdinal,
-  schemeCategory10
+  scaleOrdinal
 } from "d3-scale";
+
+export {
+  schemeCategory10
+} from "d3-scale-chromatic";
 
 export {
   format
