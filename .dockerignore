@@ -1,0 +1,15 @@
+.bundle
+.byebug_history
+.dockerignore
+.git
+.gitignore
+.idea
+.node-version
+.ruby-version
+Dockerfile.env
+docker-compose.yml
+log/
+node_modules/
+tmp/
+vendor/bundle
+vendor/cache

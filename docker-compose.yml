@@ -1,0 +1,45 @@
+version: '3.2'
+
+services:
+  postgres:
+    image: postgres:alpine
+    volumes:
+      - type: volume
+        source: db_data
+        target: /var/lib/postgresql/data
+
+  openbudgets:
+    build:
+      context: .
+      dockerfile: Dockerfile.env
+    image: openbudgets:slim
+    volumes:
+      - type: bind
+        source: .
+        target: /srv/openbudgets
+        consistency: delegated
+      - type: volume
+        source: bundle
+        target: /usr/local/bundle
+      - type: volume
+        source: node_modules
+        target: /srv/openbudgets/node_modules
+    ports:
+      - '3000:3000'
+    environment:
+      - TRANSLATION_IO_API_KEY
+      - CAP_SERVER
+      - CAP_USER
+      - CAP_PORT
+      - DEFAULT_LOCALE
+      - DATABASE_USER
+      - DATABASE_HOST
+      - DATABASE_PORT
+    depends_on:
+      - postgres
+    command: ["tail", "-f", "/dev/null"]
+
+volumes:
+  bundle:
+  node_modules:
+  db_data:
