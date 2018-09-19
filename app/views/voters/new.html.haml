@@ -15,3 +15,5 @@
                   = df.label secret, _(secret.humanize)
                   = df.text_field secret.to_sym, class: 'form-control'
             = f.submit _('Email me a link to sign in'), class: 'btn btn-primary'
+        .card-block
+          = render 'partials/data-protection'
