@@ -1,14 +1,14 @@
 .alerts-container
   .container
     - unless success.nil?
-      .alert.alert-success
+      .alert.alert-success.text-center
         = success.html_safe
     - unless error.nil?
-      .alert.alert-danger
+      .alert.alert-danger.text-center
         = error.html_safe
     - unless notice.nil?
-      .alert.alert-info
+      .alert.alert-info.text-center
         = notice.html_safe
     - unless alert.nil?
-      .alert.alert-warning
+      .alert.alert-warning.text-center
         = alert.html_safe
