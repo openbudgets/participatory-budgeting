@@ -1,4 +1,6 @@
 class Monitoring::CommentsController < ApplicationController
+  before_action :validate_phase!
+
   def create
     set_proposal
     set_parent
@@ -34,5 +36,11 @@ class Monitoring::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:text, :comment_id)
+  end
+
+  private
+
+  def validate_phase!
+    redirect_to root_path unless Campaign.current.closed?
   end
 end

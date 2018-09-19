@@ -1,4 +1,6 @@
 class Voting::ProposalsController < ApplicationController
+  before_action :validate_phase!
+
   def index
     if session[:verification_pending]
       flash.now[:notice] = _('<strong>Verification pending</strong>, please see your inbox for further instructions.')
@@ -50,5 +52,11 @@ class Voting::ProposalsController < ApplicationController
       referer = request.referer || new_voter_path(referer: request.path)
       redirect_to referer, alert: _('You need to <strong>sign in</strong> in order to view your vote.')
     end
+  end
+
+  private
+
+  def validate_phase!
+    redirect_to root_path unless Campaign.current.open?
   end
 end

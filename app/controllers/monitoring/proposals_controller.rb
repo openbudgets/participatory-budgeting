@@ -1,4 +1,6 @@
 class Monitoring::ProposalsController < ApplicationController
+  before_action :validate_phase!
+
   def index
     classifiers_filter = params[:class].split(',').map(&:to_i) if params[:class]
     budget_min_filter = params[:budget_min]
@@ -23,5 +25,11 @@ class Monitoring::ProposalsController < ApplicationController
 
   def summarize
     @proposals = Campaign.current.voted_proposals.order(budget: :desc)
+  end
+
+  private
+
+  def validate_phase!
+    redirect_to root_path unless Campaign.current.closed?
   end
 end
